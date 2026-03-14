@@ -300,8 +300,11 @@
       position: relative;
       width: 100%;
       aspect-ratio: 3/4;
-      cursor: pointer;
+      cursor: grab;
+      -webkit-user-select: none;
+      user-select: none;
     }
+    .photo-stack:active { cursor: grabbing; }
     .photo-card {
       position: absolute;
       width: 85%; height: 82%;
@@ -311,8 +314,9 @@
       box-sizing: border-box;
       border-radius: 2px;
       box-shadow: 2px 5px 18px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.25);
-      opacity: 0;
       will-change: transform, opacity;
+      -webkit-user-select: none;
+      user-select: none;
     }
     .pc-img {
       width: 100%; height: 100%;
@@ -325,8 +329,9 @@
       width: 100%; height: 100%;
       object-fit: cover; object-position: top;
       display: block;
+      pointer-events: none;
+      -webkit-user-drag: none;
     }
-    /* Tape strips */
     .pc-tape {
       position: absolute;
       top: -7px;
@@ -336,59 +341,14 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.15);
       pointer-events: none;
     }
-    .photo-card-1 .pc-tape { left: 36%; transform: rotate(4deg); }
-    .photo-card-2 .pc-tape { left: 46%; transform: rotate(-6deg); }
-    .photo-card-3 .pc-tape { left: 30%; transform: rotate(2deg); }
-    .photo-card-3 { z-index: 1; }
-    .photo-card-2 { z-index: 2; }
-    .photo-card-1 { z-index: 3; }
-    /* Deal-in animations — triggered when parent .reveal gets .visible */
-    .about-photo-wrap.visible .photo-card-3 {
-      animation: dealIn3 0.65s cubic-bezier(0.34, 1.45, 0.64, 1) 0.12s both;
-    }
-    .about-photo-wrap.visible .photo-card-2 {
-      animation: dealIn2 0.65s cubic-bezier(0.34, 1.45, 0.64, 1) 0.40s both;
-    }
-    .about-photo-wrap.visible .photo-card-1 {
-      animation: dealIn1 0.65s cubic-bezier(0.34, 1.45, 0.64, 1) 0.68s both;
-    }
-    @keyframes dealIn3 {
-      from { opacity: 0; transform: translate(-4px, -22px) rotate(0deg); }
-      to   { opacity: 1; transform: translate(-9px, 12px) rotate(-6.5deg); }
-    }
-    @keyframes dealIn2 {
-      from { opacity: 0; transform: translate(6px, -22px) rotate(0deg); }
-      to   { opacity: 1; transform: translate(12px, -7px) rotate(4.5deg); }
-    }
-    @keyframes dealIn1 {
-      from { opacity: 0; transform: translate(-2px, -22px) rotate(0deg); }
-      to   { opacity: 1; transform: translate(-3px, 5px) rotate(-1.5deg); }
-    }
-    /* After animation: .dealt class applied by JS — enables hover transitions */
-    .photo-card-3.dealt { opacity: 1; transform: translate(-9px, 12px) rotate(-6.5deg); transition: transform 0.38s ease, box-shadow 0.38s ease; }
-    .photo-card-2.dealt { opacity: 1; transform: translate(12px, -7px) rotate(4.5deg);  transition: transform 0.38s ease, box-shadow 0.38s ease; }
-    .photo-card-1.dealt { opacity: 1; transform: translate(-3px, 5px) rotate(-1.5deg);  transition: transform 0.38s ease, box-shadow 0.38s ease; }
-    /* Hover / touch-spread: fan photos out */
-    .photo-stack:hover .photo-card-3.dealt,
-    .photo-stack.spread .photo-card-3.dealt { transform: translate(-58px, 22px) rotate(-14deg); box-shadow: 3px 8px 26px rgba(0,0,0,0.6); }
-    .photo-stack:hover .photo-card-2.dealt,
-    .photo-stack.spread .photo-card-2.dealt { transform: translate(0px, -22px)  rotate(0deg);   box-shadow: 3px 7px 22px rgba(0,0,0,0.55); }
-    .photo-stack:hover .photo-card-1.dealt,
-    .photo-stack.spread .photo-card-1.dealt { transform: translate(54px, 22px) rotate(11deg);  box-shadow: 4px 10px 30px rgba(0,0,0,0.65); }
-    /* Fallback inside photo-card (portrait) */
     .pc-img .about-photo-fallback {
       position: absolute; inset: 0;
       display: none; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600;
+      gap: 12px; font-family: 'Montserrat',sans-serif; font-size: 0.8rem; font-weight: 600;
       color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-align: center; padding: 20px;
     }
     .pc-img .about-photo-fallback i { font-size: 3rem; opacity: 0.3; }
-    @media (max-width: 900px) {
-      .photo-stack:hover .photo-card-3.dealt,
-      .photo-stack:hover .photo-card-2.dealt,
-      .photo-stack:hover .photo-card-1.dealt { transform: revert; box-shadow: revert; }
-    }
-    .creds-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
+        .creds-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
     .creds-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: #bbb; }
     .creds-list li i { color: var(--gold); font-size: 0.8rem; margin-top: 4px; flex-shrink: 0; }
     .creds-list li.hi { color: var(--white); font-weight: 600; }
@@ -1036,38 +996,7 @@
       <!-- foto-portret.jpg → portret Majkla (biała bluza, niebieskie tło) -->
       <div class="about-photo-wrap reveal">
         <div class="photo-stack" id="photoStack">
-
-          <!-- Karta 3 (na spodzie stosu) -->
-          <div class="photo-card photo-card-3">
-            <div class="pc-img">
-              <img src="foto-trening-2.jpg" alt="Trening personalny z klientem"
-                   onerror="this.style.display='none';" />
-            </div>
-            <div class="pc-tape"></div>
-          </div>
-
-          <!-- Karta 2 (w środku) -->
-          <div class="photo-card photo-card-2">
-            <div class="pc-img">
-              <img src="foto-gym.jpg" alt="Majkel w siłowni"
-                   onerror="this.style.display='none';" />
-            </div>
-            <div class="pc-tape"></div>
-          </div>
-
-          <!-- Karta 1 (na wierzchu — portret) -->
-          <div class="photo-card photo-card-1">
-            <div class="pc-img">
-              <img src="foto-portret.jpg" alt="Michał Majkel Sajna – trener personalny Warszawa"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="about-photo-fallback" style="display:none;">
-                <i class="fa-solid fa-user"></i>
-                <span>foto-portret.jpg</span>
-              </div>
-            </div>
-            <div class="pc-tape"></div>
-          </div>
-
+          <!-- Karty są budowane przez JavaScript — dodaj zdjęcia w sekcji PHOTOS w skrypcie -->
         </div>
         <div class="about-exp-badge"><div class="n">15+</div><div class="l">lat pasji</div></div>
       </div>
@@ -2107,27 +2036,253 @@
     });
   })();
 
-  // ===== PHOTO STACK — freeze after animation, enable hover & touch-spread =====
+  // ===== PHOTO STACK v2 — deal-in sequence, drag, loop, lightbox =====
   (function() {
     var stack = document.getElementById('photoStack');
     if (!stack) return;
 
-    // After each card's deal-in animation ends → add .dealt (enables hover transitions)
-    stack.querySelectorAll('.photo-card').forEach(function(card) {
-      card.addEventListener('animationend', function() {
-        this.classList.add('dealt');
-        this.style.animation = 'none';
+    // ================================================================
+    // KONFIGURACJA — dodawaj zdjęcia w tablicy PHOTOS
+    // Każdy wpis: { src: 'nazwa-pliku.jpg', alt: 'Opis' }
+    // ================================================================
+    var PHOTOS = [
+      { src: 'foto-portret.jpg',   alt: 'Micha\u0142 Majkel Sajna \u2013 trener personalny Warszawa' },
+      { src: 'foto-gym.jpg',       alt: 'Trening si\u0142owy \u2013 si\u0142ownia Warszawa' },
+      { src: 'foto-trening-2.jpg', alt: 'Trening z kettlebell' },
+      { src: 'foto-trening-1.jpg', alt: 'Trening personalny z klientem' },
+      // Dodaj kolejne zdj\u0119cia tutaj, np.:
+      // { src: 'foto-trening-3.jpg', alt: 'Stretching i mobilno\u015b\u0107' },
+    ];
+
+    // Pozycje w stosie: 0 = na spodzie, ostatnia = na wierzchu
+    var POS = [
+      { tx: -18, ty: 18, rot: -9.5 },
+      { tx:  -8, ty: 10, rot: -5.5 },
+      { tx:  13, ty: -7, rot:  4.5 },
+      { tx:  -3, ty:  4, rot: -1.5 },
+    ];
+
+    // Styl tasmy dla ka\u017cdej karty (cyklicznie)
+    var TAPES = [
+      { left: '34%', rot: '3deg'  },
+      { left: '46%', rot: '-6deg' },
+      { left: '38%', rot: '5deg'  },
+      { left: '30%', rot: '-2deg' },
+    ];
+
+    var DEAL_GAP     = 950;   // ms mi\u0119dzy kartami
+    var PAUSE_FULL   = 3200;  // ms przerwy gdy wszystkie widoczne
+    var DRAG_MIN     = 55;    // px minimalnego przeci\u0105gni\u0119cia
+    var RETURN_DELAY = 1900;  // ms przed powrotem karty
+    var SNAP_T = 'transform 0.48s cubic-bezier(0.34,1.45,0.64,1), opacity 0.38s ease';
+    var FLY_T  = 'transform 0.48s ease, opacity 0.38s ease';
+
+    // --- Buduj elementy kart ---
+    stack.innerHTML = '';
+    var cards = PHOTOS.map(function(photo, i) {
+      var card = document.createElement('div');
+      card.className = 'photo-card';
+      card.dataset.pidx = i;
+
+      var tape = document.createElement('div');
+      tape.className = 'pc-tape';
+      var t = TAPES[i % TAPES.length];
+      tape.style.left = t.left;
+      tape.style.transform = 'rotate(' + t.rot + ')';
+      card.appendChild(tape);
+
+      var wrap = document.createElement('div');
+      wrap.className = 'pc-img';
+      var img = new Image();
+      img.src = photo.src; img.alt = photo.alt; img.draggable = false;
+      img.addEventListener('error', function() {
+        this.style.display = 'none';
+        var fb = document.createElement('div');
+        fb.className = 'about-photo-fallback';
+        fb.style.display = 'flex';
+        fb.innerHTML = '<i class="fa-solid fa-user"></i><span>' + photo.src + '</span>';
+        wrap.appendChild(fb);
       });
+      wrap.appendChild(img);
+      card.appendChild(wrap);
+      card.style.cssText = 'opacity:0;transform:translate(0px,-28px) rotate(0deg);z-index:0;';
+      stack.appendChild(card);
+      return card;
     });
 
-    // Touch / click — toggle fan-spread (for mobile where hover doesn't work)
-    stack.addEventListener('click', function(e) {
-      // Don't trigger if clicking inside lightbox or if desktop hover works
-      if (window.matchMedia('(hover: hover)').matches) return;
-      this.classList.toggle('spread');
-    });
+    // --- Stan stosu ---
+    var visible  = [];   // indeksy widocznych kart (od spodu do g\u00f3ry)
+    var pending  = [];   // karty czekaj\u0105ce
+    var timer    = null;
+    var cycleVer = 0;
+
+    function getPos(stackIdx, numVis) {
+      var pi = POS.length - numVis + stackIdx;
+      return POS[Math.max(0, Math.min(pi, POS.length - 1))];
+    }
+
+    function applyPos(card, pos, instant) {
+      card.style.transition = instant ? 'none' : SNAP_T;
+      card.style.transform  = 'translate(' + pos.tx + 'px,' + pos.ty + 'px) rotate(' + pos.rot + 'deg)';
+      card.style.opacity    = '1';
+    }
+
+    function refreshStack(skipIdx) {
+      visible.forEach(function(idx, si) {
+        cards[idx].style.zIndex = si + 1;
+        if (idx !== skipIdx) applyPos(cards[idx], getPos(si, visible.length), false);
+      });
+    }
+
+    function dealNext() {
+      if (!pending.length) { timer = setTimeout(startDeal, PAUSE_FULL); return; }
+      var idx = pending.shift();
+      visible.push(idx);
+      // Restack existing cards
+      visible.slice(0, -1).forEach(function(vIdx, si) {
+        cards[vIdx].style.zIndex = si + 1;
+        applyPos(cards[vIdx], getPos(si, visible.length), false);
+      });
+      // Animate new top card in
+      var c = cards[idx];
+      c.style.zIndex = visible.length;
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        applyPos(c, getPos(visible.length - 1, visible.length), false);
+      }); });
+      timer = setTimeout(dealNext, DEAL_GAP);
+    }
+
+    function startDeal() {
+      cycleVer++;
+      clearTimeout(timer);
+      cards.forEach(function(c) {
+        c.style.transition = 'none';
+        c.style.opacity = '0';
+        c.style.transform = 'translate(0px,-28px) rotate(0deg)';
+        c.style.zIndex = '0';
+      });
+      visible = [];
+      pending = PHOTOS.map(function(_, i) { return i; });
+      timer = setTimeout(dealNext, 350);
+    }
+
+    // Start po wej\u015bciu sekcji w viewport
+    var started = false;
+    var obs = new IntersectionObserver(function(en) {
+      if (en[0].isIntersecting && !started) {
+        started = true; obs.disconnect(); startDeal();
+      }
+    }, { threshold: 0.25 });
+    obs.observe(stack);
+
+    // ================================================================
+    // Drag — przeci\u0105gni\u0119cie górnej karty
+    // ================================================================
+    var drag = {
+      on: false, card: null, idx: -1,
+      sx: 0, sy: 0, cx: 0, cy: 0,
+      itx: 0, ity: 0, irot: 0
+    };
+
+    function topCard() {
+      return visible.length ? cards[visible[visible.length - 1]] : null;
+    }
+
+    function onDown(e) {
+      if (drag.on) return;
+      var top = topCard();
+      if (!top) return;
+      var touch = e.touches ? e.touches[0] : e;
+      var r = top.getBoundingClientRect();
+      if (touch.clientX < r.left || touch.clientX > r.right ||
+          touch.clientY < r.top  || touch.clientY > r.bottom) return;
+      var p = getPos(visible.length - 1, visible.length);
+      drag.on = true; drag.card = top;
+      drag.idx = visible[visible.length - 1];
+      drag.sx = drag.cx = touch.clientX;
+      drag.sy = drag.cy = touch.clientY;
+      drag.itx = p.tx; drag.ity = p.ty; drag.irot = p.rot;
+      top.style.transition = 'none';
+      top.style.zIndex = '100';
+      document.body.style.cursor = 'grabbing';
+      e.preventDefault();
+    }
+
+    function onMove(e) {
+      if (!drag.on) return;
+      var touch = e.touches ? e.touches[0] : e;
+      drag.cx = touch.clientX; drag.cy = touch.clientY;
+      var dx = drag.cx - drag.sx, dy = drag.cy - drag.sy;
+      drag.card.style.transform = 'translate(' + (drag.itx + dx) + 'px,' +
+        (drag.ity + dy) + 'px) rotate(' + (drag.irot + dx * 0.07) + 'deg)';
+      e.preventDefault();
+    }
+
+    function onUp(e) {
+      if (!drag.on) return;
+      drag.on = false;
+      document.body.style.cursor = '';
+      var dx = drag.cx - drag.sx, dy = drag.cy - drag.sy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var c = drag.card, ci = drag.idx;
+      var itx = drag.itx, irot = drag.irot;
+      drag.card = null;
+
+      if (dist > DRAG_MIN) {
+        flyOff(c, ci, dx, itx, irot);
+      } else {
+        // Snap back
+        c.style.transition = SNAP_T;
+        c.style.zIndex = visible.length;
+        applyPos(c, getPos(visible.length - 1, visible.length), false);
+        // Click bez ruchu = lightbox
+        if (dist < 10 && typeof window.openLightbox === 'function') {
+          window.openLightbox(c);
+        }
+      }
+    }
+
+    function flyOff(card, cardIdx, dx, itx, irot) {
+      var dir = dx >= 0 ? 1 : -1;
+      var myVer = cycleVer;
+      var vi = visible.indexOf(cardIdx);
+      if (vi >= 0) visible.splice(vi, 1);
+
+      card.style.transition = FLY_T;
+      card.style.transform = 'translate(' + (itx + dir * 360) + 'px,-70px) rotate(' +
+        (irot + dir * 28) + 'deg)';
+      card.style.opacity = '0';
+      card.style.zIndex = '0';
+      refreshStack(-1);
+
+      // Powrót po opó\u017ainieniu
+      setTimeout(function() {
+        if (cycleVer !== myVer) return;
+        card.style.transition = 'none';
+        card.style.opacity = '0';
+        card.style.transform = 'translate(0px,-28px) rotate(0deg)';
+        setTimeout(function() {
+          if (cycleVer !== myVer) return;
+          // Wraca na spód stosu
+          visible.unshift(cardIdx);
+          visible.forEach(function(vi2, si) { cards[vi2].style.zIndex = si + 1; });
+          visible.slice(1).forEach(function(vi2, si) {
+            applyPos(cards[vi2], getPos(si + 1, visible.length), false);
+          });
+          requestAnimationFrame(function() { requestAnimationFrame(function() {
+            applyPos(card, getPos(0, visible.length), false);
+          }); });
+        }, 80);
+      }, RETURN_DELAY);
+    }
+
+    stack.addEventListener('mousedown',  onDown);
+    stack.addEventListener('touchstart', onDown, { passive: false });
+    document.addEventListener('mousemove',  onMove);
+    document.addEventListener('touchmove',  onMove, { passive: false });
+    document.addEventListener('mouseup',   onUp);
+    document.addEventListener('touchend',  onUp);
+
   })();
 
 </script>
-</body>
-</html>
