@@ -603,7 +603,7 @@
       #hero { background-attachment: scroll; }
       .hero-tags { display: none; }
       .vibe-row { display: none; }
-      .hero-sub { margin-bottom: 50px; }
+      /* .hero-sub { margin-bottom: 0; } */
     }
 
     /* Gallery mobile */
@@ -918,6 +918,43 @@
     transition: height 0.08s linear;
   }
 
+  /* ===== BANER COOKIES ===== */
+  #cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: rgba(15,10,15,0.97);
+    border-top: 1px solid rgba(245,166,35,0.35);
+    padding: 18px 28px;
+    display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+    backdrop-filter: blur(8px);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  #cookie-banner.cb-visible { transform: translateY(0); }
+  #cookie-banner p {
+    flex: 1; min-width: 260px; font-size: 0.82rem; color: #aaa; line-height: 1.6; margin: 0;
+  }
+  #cookie-banner a { color: var(--gold); text-decoration: underline; }
+  .cb-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+  .cb-accept {
+    background: var(--gold); color: #111; border: none;
+    padding: 10px 22px; border-radius: 6px; font-family: 'Montserrat',sans-serif;
+    font-weight: 700; font-size: 0.82rem; cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .cb-accept:hover { background: #ffc04a; transform: translateY(-1px); }
+  .cb-reject {
+    background: transparent; color: #666; border: 1px solid #333;
+    padding: 10px 22px; border-radius: 6px; font-family: 'Montserrat',sans-serif;
+    font-weight: 600; font-size: 0.82rem; cursor: pointer;
+    transition: border-color .2s, color .2s;
+  }
+  .cb-reject:hover { border-color: #555; color: #999; }
+  @media (max-width: 600px) {
+    #cookie-banner { padding: 16px 18px; }
+    .cb-btns { width: 100%; }
+    .cb-accept, .cb-reject { flex: 1; text-align: center; }
+  }
+
   /* ===== OPINIE ===== */
   #opinie { padding: 100px 0; background: var(--dark2); }
   .opinie-header { text-align: center; margin-bottom: 56px; }
@@ -1034,7 +1071,7 @@
           <span class="acc">nad Swoim ciałem!</span><br>
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
-        <p class="hero-sub">Cześć, jestem Majkel. Pomagam normalnym ludziom, takim jak <span>Ja i Ty</span>, zaprzyjaźnić się ze Swoim ciałem i ruchem — bez presji, bez skrajności, z dobrą energią i konkretną wiedzą wyciągniętą z praktyki. Bo zdrowe ciało i aktywność fizyczna to styl życia, nie sprint.</p>
+        <p class="hero-sub">Cześć, jestem Majkel. Pomagam normalnym ludziom, takim jak <span>Ja i Ty</span>, zaprzyjaźnić się ze Swoim ciałem i ruchem — bez presji, bez skrajności, z dobrą energią i konkretną wiedzą wyciągniętą z paktyki. Bo zdrowe ciało i aktywność fizyczna to styl życia, nie sprint.</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
@@ -1147,7 +1184,7 @@
           <li><i class="fa-solid fa-check"></i>Instruktor Les Mills Body Combat & Body PUMP</li>
           <li><i class="fa-solid fa-check"></i>Instruktor GT Training</li>
           <li><i class="fa-solid fa-check"></i>Szkolenia z Pilates i technik prozdrowotnych</li>
-          <li><i class="fa-solid fa-check"></i>Masażysta I i II stopnia</li>
+          <li><i class="fa-solid fa-check"></i>Masaysta I i II stopnia</li>
           <li><i class="fa-solid fa-check"></i>Opiekun kolonijny z 10-letnim stażem</li>
         </ul>
         <blockquote class="about-quote">
@@ -2008,12 +2045,31 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 TRENUJjemy – Michał Sajna. Wszelkie prawa zastrzeżone.</span>
-      <span>Warszawa · Trener Personalny · Instruktor Kulturystyki · Fitness</span>
+      <span>© 2026 TRENUJjemy – Michał Sajna. Wszelkie prawa zastrzeżone.</span>
+      <span>
+        <a href="polityka-prywatnosci.html" style="color:#555;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#555'">Polityka prywatności</a>
+        &nbsp;·&nbsp;
+        <a href="regulamin.html" style="color:#555;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#555'">Regulamin</a>
+        &nbsp;·&nbsp;
+        <a href="polityka-cookies.html" style="color:#555;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#555'">Polityka cookies</a>
+      </span>
     </div>
   </div>
 </footer>
 
+
+<!-- ===== BANER COOKIES ===== -->
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Informacja o plikach cookies">
+  <p>
+    Ta strona używa plików cookies niezbędnych do jej działania (sesja, czcionki). Klikając <strong style="color:#F5A623">Akceptuję</strong>, wyrażasz zgodę na ich użycie.
+    <a href="polityka-cookies.html" target="_blank" rel="noopener">Polityka cookies</a> &nbsp;·&nbsp;
+    <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">Polityka prywatności</a>
+  </p>
+  <div class="cb-btns">
+    <button class="cb-reject" onclick="cookieDecline()">Tylko niezbędne</button>
+    <button class="cb-accept" onclick="cookieAccept()">Akceptuję</button>
+  </div>
+</div>
 
 <!-- ===== FAB KETTLEBELL ===== -->
 <button class="fab-kettle" id="fabKettle" aria-label="Menu">
@@ -2470,5 +2526,36 @@
     var t = document.getElementById('opinie-track');
     if (t) t.scrollBy({ left: 340, behavior: 'smooth' });
   }
+
+  // ===== BANER COOKIES =====
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    var KEY = 'cookie_consent';
+
+    function getCookie(name) {
+      var match = document.cookie.split('; ').find(function(r) { return r.startsWith(name + '='); });
+      return match ? match.split('=')[1] : null;
+    }
+    function setCookie(name, value, days) {
+      var d = new Date();
+      d.setTime(d.getTime() + days * 864e5);
+      document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+    }
+
+    // Pokaż baner tylko jeśli brak zgody
+    if (!getCookie(KEY)) {
+      setTimeout(function() { banner.classList.add('cb-visible'); }, 800);
+    }
+
+    window.cookieAccept = function() {
+      setCookie(KEY, 'accepted', 365);
+      banner.classList.remove('cb-visible');
+    };
+    window.cookieDecline = function() {
+      setCookie(KEY, 'minimal', 365);
+      banner.classList.remove('cb-visible');
+    };
+  })();
 
 </script>
