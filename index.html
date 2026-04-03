@@ -670,28 +670,24 @@
     }
 
     /* ===== FAB KETTLEBELL ===== */
-    /* Mobile: hide on desktop (or show always) */
+    .fab-kettle { display: none; } /* ukryty na desktop */
     @media (max-width: 1000px) {
       .fab-kettle {
-        position: fixed; top: 28px; right: 28px; z-index: 1100;
-        width: 100px; height: 100px; border-radius: 50%;
-        background: none; border: 3px solid rgba(255,255,255,0.2);
+        position: fixed; bottom: 24px; right: 24px; z-index: 1100;
+        width: 76px; height: 76px; border-radius: 50%;
+        background: rgba(0,0,0,0.35); border: 2px solid rgba(255,255,255,0.18);
         cursor: pointer; display: flex; align-items: center; justify-content: center;
-        padding: 10px;
-        transition: transform 0.25s ease, background 0.25s;
+        padding: 8px;
+        transition: transform 0.2s ease, background 0.2s;
         box-shadow: 0 4px 18px rgba(0,0,0,0.5);
       }
-      .fab-kettle:hover { transform: scale(1.08);
-        background: none;
-      }
+      .fab-kettle:active { transform: scale(0.93); }
       .fab-kettle .fkw { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; transition: opacity 0.3s; }
       .fab-kettle .fkb { position: absolute; width: 90%; height: 90%; object-fit: contain; z-index: 2; opacity: 0; transition: opacity 0.3s; }
-      .fab-kettle:hover .fkw { opacity: 0; }
-      .fab-kettle:hover .fkb { opacity: 1; }
-      /* Mobile: bitten when menu open */
+      /* Bitten gdy menu otwarte */
       body.menu-open .fab-kettle .fkw { opacity: 0; }
       body.menu-open .fab-kettle .fkb { opacity: 1; }
-      /* FAB visible on all screens — just a floating icon on desktop */
+      body.menu-open .fab-kettle { border-color: rgba(245,166,35,0.5); }
     }
 
 
@@ -1015,16 +1011,16 @@
     /* #opinie { padding: 0px 0 100px; background: var(--dark2); } */
   }
   .opinie-header { text-align: center; margin-bottom: 56px; }
-  .opinie-track-wrap { position: relative; }
+  .opinie-track-wrap { position: relative; overflow: hidden; }
   .opinie-track {
     display: flex; gap: 22px;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; padding: 10px 40px 20px;
-    scrollbar-width: none;
+    padding: 20px 0 28px;
+    will-change: transform;
+    cursor: grab;
   }
-  .opinie-track::-webkit-scrollbar { display: none; }
+  .opinie-track:active { cursor: grabbing; }
   .review-card {
-    flex: 0 0 300px; scroll-snap-align: start;
+    flex: 0 0 320px;
     background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
     border-radius: 16px; padding: 24px;
     transition: border-color var(--tr), transform var(--tr);
@@ -1045,8 +1041,41 @@
   }
   .review-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.92rem; }
   .review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-top: 2px; }
-  .review-text { font-size: 0.88rem; color: #bbb; line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+  .review-text { font-size: 0.88rem; color: #bbb; line-height: 1.7; font-style: italic; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 5; line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
   .review-date { font-size: 0.75rem; color: #555; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .review-card { cursor: pointer; }
+  .review-card:hover { border-color: rgba(245,166,35,0.5) !important; }
+
+  /* ===== MODAL OPINII ===== */
+  .rv-overlay {
+    position: fixed; inset: 0; z-index: 4000;
+    background: rgba(0,0,0,0.78);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .rv-overlay.active { opacity: 1; visibility: visible; }
+  .rv-modal {
+    background: var(--dark3); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 32px 32px 28px;
+    max-width: 500px; width: 100%;
+    position: relative;
+    max-height: 82vh; overflow-y: auto;
+    transform: scale(0.94) translateY(12px);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    opacity: 0;
+  }
+  .rv-overlay.active .rv-modal { transform: scale(1) translateY(0); opacity: 1; }
+  .rv-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none;
+    color: #555; font-size: 1.4rem; line-height: 1;
+    cursor: pointer; padding: 4px 8px; border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .rv-close:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+  .rv-modal .review-text { -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; }
   .opinie-nav { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
   .opinie-nav button {
     width: 44px; height: 44px; border-radius: 50%;
@@ -1056,14 +1085,16 @@
   }
   .opinie-nav button:hover { background: rgba(245,166,35,0.25); }
   @media (max-width: 768px) {
-    .review-card { flex: 0 0 80vw; }
-    .opinie-track { padding: 10px 20px 20px; }
+    .review-card { flex: 0 0 78vw; }
   }
   
     /* ===== FAB SOCIAL STACK ===== */
     .fab-social-stack {
       position: fixed; bottom: 34px; right: 34px; z-index: 1099;
       display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    @media (max-width: 1000px) {
+      .fab-social-stack { left: 24px; right: auto; bottom: 24px; }
     }
     .fab-social-link {
       width: 44px; height: 44px; border-radius: 50%;
@@ -1085,19 +1116,17 @@
       opacity: 0; pointer-events: none; transition: opacity 0.2s;
     }
     .fab-social-link:hover .fab-social-tooltip { opacity: 1; }
+    @media (max-width: 1000px) {
+      /* Tooltip po prawej stronie ikony gdy stack jest po lewej */
+      .fab-social-tooltip { right: auto; left: 54px; }
+    }
 
     /* ===== CO CIĘ INTERESUJE ===== */
     .inter-tiles {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-top: 56px;
     }
-    /* .inter-tile {
-      position: relative; border-radius: 20px; overflow: hidden;
-      min-height: 340px; cursor: pointer;
-      display: flex; flex-direction: column;
-      border: 1.5px solid rgba(255,255,255,0.08);
-      transition: border-color 0.3s, transform 0.3s;
-    } */
+   
     .inter-tile {
       background: var(--dark2); border: 1.5px solid rgba(255,255,255,0.08);
       border-radius: 20px; padding: 60px 28px; cursor: pointer; text-align: center;
@@ -1108,14 +1137,7 @@
       box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
 
       .inter-tile:hover .wiz-pick{ opacity: 1;}
-      
-    /* .inter-tile-bg {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      filter: brightness(0.32); transition: filter 0.35s;
-    } */
 
-    /* .inter-tile:hover .inter-tile-bg { filter: brightness(0.45); } */
     .inter-tile-content {
       position: relative; z-index: 2;
       display: flex; flex-direction: column; height: 100%;
@@ -2180,7 +2202,7 @@
 
 <!-- ===== TYP TRENINGU ===== -->
 <section id="stac-opis" class="wiz-section">
-  <div class="wiz-section-top" style="background-image:url('foto-gym-wide.jpg')">
+  <div class="wiz-section-top" style="background-image:url('foto-trening-8.jpg'); background-position: 0 25%;">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć</span></div>
@@ -2249,7 +2271,7 @@
 
 <!-- ===== WIZARD — JAKI CEL ===== -->
 <section id="wiz-cel" class="wiz-section wiz-section-alt">
-  <div class="wiz-section-top" style="background-image:url('foto-trening-3.jpg')">
+  <div class="wiz-section-top" style="background-image:url('Chudnac-przytyc-radosc.jpg')">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('stac-opis')">← Wróć</span></div>
@@ -2341,7 +2363,7 @@
 
 <!-- ===== WIZARD — KIEDY TRENUJESZ ===== -->
 <section id="wiz-kiedy" class="wiz-section">
-  <div class="wiz-section-top" style="background-image:url('foto-gym-wide.jpg')">
+  <div class="wiz-section-top" style="background-image:url('foto-outdoor-2.jpg'); background-position: 0 25%;">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('wiz-cel')">← Wróć</span></div>
@@ -3193,6 +3215,15 @@
 </button>
 
 <!-- ===== LIGHTBOX ===== -->
+<div class="rv-overlay" id="rv-overlay" role="dialog" aria-modal="true" aria-label="Pełna opinia">
+  <div class="rv-modal" id="rv-modal">
+    <button class="rv-close" id="rv-close" aria-label="Zamknij">&times;</button>
+    <div class="review-header" id="rv-modal-header"></div>
+    <p class="review-text" id="rv-modal-text"></p>
+    <div class="review-date" id="rv-modal-date"></div>
+  </div>
+</div>
+
 <div class="lb-overlay" id="lightbox" role="dialog" aria-modal="true">
   <button class="lb-close" id="lbClose" aria-label="Zamknij">&times;</button>
   <div class="lb-loading" id="lbLoading">
@@ -3611,6 +3642,21 @@
 
     // Masaze — karty cenowe
     setupSection('masaz-type-selection', '.masaz-card');
+
+    // Co Cię interesuje — kafelki wyboru
+    setupSection('interesuje', '.inter-tile');
+
+    // Wizard — typ treningu
+    setupSection('stac-opis', '.wiz-type-tile');
+
+    // Wizard — cel
+    setupSection('wiz-cel', '.wiz-goal-tile');
+
+    // Wizard — kiedy
+    setupSection('wiz-kiedy', '.wiz-when-tile');
+
+    // MyPTub — karty usług
+    setupSection('myptub', '.myptub-card');
     // ─────────────────────────────────────────────────────────────────
 
     // Inicjalizacja paska postępu
@@ -3632,15 +3678,153 @@
 
   })();
 
-  // Nawigacja sekcji opinii
-  function opiniePrev() {
-    var t = document.getElementById('opinie-track');
-    if (t) t.scrollBy({ left: -340, behavior: 'smooth' });
-  }
-  function opinieNext() {
-    var t = document.getElementById('opinie-track');
-    if (t) t.scrollBy({ left: 340, behavior: 'smooth' });
-  }
+  // ===== AUTO-SCROLL OPINII =====
+  (function() {
+    var track = document.getElementById('opinie-track');
+    if (!track) return;
+
+    var SPEED   = 0.45;  // px na klatkę
+    var GAP     = 22;    // musi zgadzać się z CSS gap
+    var offset  = 0;
+    var origW   = 0;
+    var origN   = 0;
+    var inited  = false;
+    var paused  = false;
+    var dragging = false;
+    var dragStartX = 0;
+    var dragStartOff = 0;
+
+    // Klonuj karty 3x dla buforu
+    var orig = Array.from(track.querySelectorAll('.review-card'));
+    origN = orig.length;
+    for (var i = 0; i < 3; i++) {
+      orig.forEach(function(card) {
+        var cl = card.cloneNode(true);
+        cl.setAttribute('aria-hidden', 'true');
+        track.appendChild(cl);
+      });
+    }
+
+    function calcOrigW() {
+      var first = track.querySelector('.review-card');
+      if (!first) return 0;
+      return (first.offsetWidth + GAP) * origN;
+    }
+
+    function wrap() {
+      if (origW <= 0) return;
+      offset = ((offset % origW) + origW) % origW;
+    }
+
+    // Pauza na hover
+    var wrap_el = track.closest('.opinie-track-wrap');
+    wrap_el.addEventListener('mouseenter', function() { paused = true; });
+    wrap_el.addEventListener('mouseleave', function() { paused = false; });
+
+    // Dotyk
+    track.addEventListener('touchstart', function(e) {
+      dragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartOff = offset;
+    }, { passive: true });
+    track.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      offset = dragStartOff - (e.touches[0].clientX - dragStartX);
+      wrap();
+    }, { passive: true });
+    track.addEventListener('touchend', function() { dragging = false; });
+
+    // Drag myszą
+    track.addEventListener('mousedown', function(e) {
+      dragging = true; paused = true;
+      dragStartX = e.clientX; dragStartOff = offset;
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      offset = dragStartOff - (e.clientX - dragStartX);
+      wrap();
+    });
+    document.addEventListener('mouseup', function() {
+      if (dragging) { dragging = false; paused = false; }
+    });
+
+    function tick() {
+      if (!inited) {
+        origW = calcOrigW();
+        if (origW <= 0) { requestAnimationFrame(tick); return; }
+        inited = true;
+      }
+      if (!paused && !dragging) {
+        offset += SPEED;
+        wrap();
+      }
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // Przyciski nawigacji
+    window.opiniePrev = function() {
+      if (!inited) return;
+      offset -= 342; wrap();
+    };
+    window.opinieNext = function() {
+      if (!inited) return;
+      offset += 342; wrap();
+    };
+  })();
+
+  // ===== MODAL OPINII =====
+  (function() {
+    var overlay  = document.getElementById('rv-overlay');
+    var modal    = document.getElementById('rv-modal');
+    var closeBtn = document.getElementById('rv-close');
+    var hdEl     = document.getElementById('rv-modal-header');
+    var txEl     = document.getElementById('rv-modal-text');
+    var dtEl     = document.getElementById('rv-modal-date');
+    if (!overlay) return;
+
+    // Wykrywanie drag vs click
+    var _mouseDownX = 0, _mouseDownY = 0;
+    document.addEventListener('mousedown', function(e) {
+      _mouseDownX = e.clientX; _mouseDownY = e.clientY;
+    });
+
+    function openModal(card) {
+      var hd = card.querySelector('.review-header');
+      var tx = card.querySelector('.review-text');
+      var dt = card.querySelector('.review-date');
+      hdEl.innerHTML = hd ? hd.innerHTML : '';
+      txEl.textContent = tx ? tx.textContent : '';
+      dtEl.textContent = dt ? dt.textContent : '';
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Kliknięcie na kartę — tylko jeśli nie był drag
+    document.querySelector('.opinie-track-wrap').addEventListener('click', function(e) {
+      var dx = Math.abs(e.clientX - _mouseDownX);
+      var dy = Math.abs(e.clientY - _mouseDownY);
+      if (dx > 6 || dy > 6) return;
+      var card = e.target.closest('.review-card');
+      if (card) openModal(card);
+    });
+
+    // Zamknięcie: X, kliknięcie tła, ESC
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  })();
 
   // ===== BANER COOKIES =====
   (function() {
