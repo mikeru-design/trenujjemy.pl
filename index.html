@@ -69,8 +69,8 @@
       --white:     #ffffff;
       --tr:        0.3s ease;
     }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: 'Open Sans', sans-serif; background: var(--dark); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--dark); color: var(--white); line-height: 1.6; overflow-x: clip; }
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -272,6 +272,9 @@
 
     /* ===== ABOUT ===== */
     #omnie { padding: 150px 0; background: var(--dark); }
+    @media (max-width: 900px) {
+      #omnie { padding: 50px 0 100px; background: var(--dark); }
+    }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .about-photo-wrap { position: relative; margin: 6rem auto auto;}
     .about-photo {
@@ -364,10 +367,7 @@
       object-position: center;
       transition: transform 0.5s ease;
     }
-    /* .gal-item[data-pos="top"] img    { object-position: center top; }
-    .gal-item[data-pos="bottom"] img { object-position: center bottom; }
-    .gal-item[data-pos="left"] img   { object-position: left center; }
-    .gal-item[data-pos="right"] img  { object-position: right center; } */
+   
     .gal-item:hover img { transform: scale(1.05); }
     .gallery-overlay {
       position: absolute; inset: 0;
@@ -535,9 +535,45 @@
     .contact-info p { color: #aaa; line-height: 1.72; margin-bottom: 32px; }
     .contact-items { display: flex; flex-direction: column; gap: 18px; }
     .contact-item { display: flex; align-items: center; gap: 14px; }
-    .contact-item-icon { width: 46px; height: 46px; background: rgba(107,27,63,0.5); border: 1px solid rgba(245,166,35,0.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--gold); flex-shrink:0; }
+    .contact-item-icon { width: 46px; height: 46px; background: rgba(107,27,63,0.5); border: 1px solid rgba(245,166,35,0.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--gold); flex-shrink:0; transition: background var(--tr), border-color var(--tr), transform var(--tr); }
     .contact-item-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; color: var(--gold); margin-bottom: 1px; }
-    .contact-item-value { font-size: 0.92rem; color: var(--white); font-weight: 500; }
+    .contact-item-value { font-size: 0.92rem; color: var(--white); font-weight: 500; transition: color var(--tr); }
+    a.contact-item {
+      text-decoration: none; color: inherit;
+      border-radius: 14px;
+      padding: 10px 44px 10px 10px;
+      margin: -10px -44px -10px -10px;
+      transition: background var(--tr), transform var(--tr);
+      position: relative;
+      cursor: pointer;
+    }
+    a.contact-item::after {
+      content: '\f35d';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.7rem;
+      color: var(--gold);
+      opacity: 0;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translate(-4px, -50%);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    a.contact-item:hover {
+      background: rgba(107,27,63,0.28);
+      transform: translateX(5px);
+    }
+    a.contact-item:hover::after {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+    a.contact-item:hover .contact-item-icon {
+      background: var(--maroon);
+      border-color: var(--gold);
+      transform: scale(1.12) rotate(-5deg);
+    }
+    a.contact-item:hover .contact-item-value { color: var(--gold); }
     .form-wrap { background: rgba(15,10,12,0.75); border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; padding: 36px; backdrop-filter: blur(10px); }
     .form-title { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 26px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -585,6 +621,7 @@
       .hero-grid { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
       .hero-badge {font-size: .7rem; }
+      .value-block { padding: 36px 24px; }
       .about-grid { grid-template-columns: 1fr; }
       .about-photo-wrap { max-width: 420px; margin: 0 0; }
       .faq-inner { grid-template-columns: 1fr; }
@@ -603,7 +640,6 @@
       .footer-inner { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .values-grid { grid-template-columns: 1fr 1fr; }
-      .value-block { padding: 36px 24px; }
     }
     @media (max-width: 480px) {
       .hero-actions { flex-direction: column; }
@@ -975,6 +1011,9 @@
 
   /* ===== OPINIE ===== */
   #opinie { padding: 100px 0; background: var(--dark2); }
+  @media (max-width: 900px) {
+    /* #opinie { padding: 0px 0 100px; background: var(--dark2); } */
+  }
   .opinie-header { text-align: center; margin-bottom: 56px; }
   .opinie-track-wrap { position: relative; }
   .opinie-track {
@@ -1658,12 +1697,9 @@
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
           <span class="hero-tag"><i class="fa-solid fa-heart"></i>Zdrowo</span>
-          <!-- <span class="hero-tag"><i class="fa-solid fa-spa"></i>Elastycznie</span> -->
-          <!-- <span class="hero-tag"><i class="fa-solid fa-dumbbell"></i>Silnie</span> -->
           <span class="hero-tag"><i class="fa-solid fa-laptop"></i>Online</span>
           <span class="hero-tag"><i class="fa-solid fa-user-group"></i>Stacjonarnie</span>
           <span class="hero-tag"><i class="fa-solid fa-house"></i>W domu</span>
-          <!-- <span class="hero-tag"><i class="fa-solid fa-children"></i>Rodzinnie</span> -->
         </div>
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-primary">Umów bezpłatną konsultację</a>
@@ -2211,64 +2247,6 @@
   </div>
 </section>
 
-<!-- ===== ONLINE — OPIS ===== -->
-<!-- <section id="online-opis" class="wiz-section">
-  <div class="wiz-section-top" style="background-image:url('foto-trening-4.jpg')">
-    <div class="wiz-section-overlay"></div>
-    <div class="container wiz-top-inner">
-      <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć</span></div>
-      <div class="section-label wiz-top-label">Współpraca online</div>
-      <h2 class="section-title wiz-top-title">Trening bez granic — <span>z każdego miejsca</span></h2>
-      <p class="wiz-top-desc">Dwa modele współpracy — wybierz ten, który pasuje do Twojego trybu życia.</p>
-    </div>
-  </div>
-  <div class="container wiz-container-top">
-    <div class="wiz-progress reveal">
-      <div class="wiz-progress-step">
-        <div class="wiz-progress-dot">1</div>
-        <div class="wiz-progress-label">jak</div>
-      </div>
-      <div class="wiz-progress-line"></div>
-      <div class="wiz-progress-step">
-        <div class="wiz-progress-dot">2</div>
-        <div class="wiz-progress-label">co</div>
-      </div>
-      <div class="wiz-progress-line"></div>
-      <div class="wiz-progress-step">
-        <div class="wiz-progress-dot">3</div>
-        <div class="wiz-progress-label">po co</div>
-      </div>
-      <div class="wiz-progress-line"></div>
-      <div class="wiz-progress-step">
-        <div class="wiz-progress-dot">4</div>
-        <div class="wiz-progress-label">kiedy</div>
-      </div>
-    </div>
-    <div class="text-center mb-44">
-      <div class="section-label">Krok 2 z 4 — Typ współpracy</div>
-      <h3 class="section-title section-title-sm">Jak chcesz <span>współpracować?</span></h3>
-    </div>
-    <div class="wiz-type-tiles">
-      <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Trening live 1:1')">
-        <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
-        <div class="wiz-type-icon"><i class="fa-solid fa-video"></i></div>
-        <h4>Trening live 1:1</h4>
-        <p>Spotkania przez Zoom lub Google Meet — widzę każde ćwiczenie w czasie rzeczywistym i koryguję technikę tak samo jak na sali. Elastyczny grafik, zero dojazdu. Idealne jeśli chcesz ocenić formę, popracować nad techniką lub po prostu ćwiczyć z kimś „pod ręką". Pojedyncze spotkania lub pakiety — bez długoterminowych zobowiązań.</p>
-        <div class="wiz-goal-method">Live · Zoom / Meet · korekta techniki</div>
-        <span class="wiz-pick">Wybieram →</span>
-      </div>
-      <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Plan treningowy online')">
-        <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
-        <div class="wiz-type-icon"><i class="fa-solid fa-file-lines"></i></div>
-        <h4>Plan treningowy</h4>
-        <p>Spersonalizowany program na 4–8 tygodni z opisem każdego ćwiczenia i filmami instruktażowymi. Trenujesz kiedy chcesz — mam wgląd w Twoje wyniki na bieżąco i modyfikuję plan w razie potrzeby. Dłuższa współpraca płatna z góry — dla osób, które chcą realnych, mierzalnych efektów, a nie kolejnej „diety cud".</p>
-        <div class="wiz-goal-method">MyPT Hub · 4–8 tygodni · wsparcie na bieżąco</div>
-        <span class="wiz-pick">Wybieram →</span>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <!-- ===== WIZARD — JAKI CEL ===== -->
 <section id="wiz-cel" class="wiz-section wiz-section-alt">
   <div class="wiz-section-top" style="background-image:url('foto-trening-3.jpg')">
@@ -2527,7 +2505,7 @@
         <div class="price-amount"><sup>od</sup>130<sup>*</sup></div>
         <div class="price-unit">zł / godz. &nbsp;·&nbsp; godziny 6:00–16:00</div>
         <div class="price-saving"><i class="fa-solid fa-sack-dollar"></i> Oszczędzasz do 70 zł/trening</div>
-        <p class="price-desc">24 treningi opłacone z góry, 3 miesiące. Godziny poranne i południowe — cisza, brak tłumów, najlepsza stawka.</p>
+        <p class="price-desc">24 treningi opłacone z górydo wykorzystania w ciągu 100 dni. Godziny poranne i południowe — cisza, brak tłumów, najlepsza stawka.</p>
         <ul class="price-features">
           <li><i class="fa-solid fa-check"></i>24 jednostki treningowe</li>
           <li><i class="fa-solid fa-check"></i>3 miesiące na realizację</li>
@@ -2605,7 +2583,7 @@
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć do wyboru</span></div>
       <div class="section-label wiz-top-label">Masaż i regeneracja</div>
-      <h2 class="section-title wiz-top-title">Profesjonalny masaż — <span>przyjeżdżam do Ciebie</span></h2>
+      <h2 class="section-title wiz-top-title">Profesjonalny masaż <br> <span>u Ciebie albo u mnie</span></h2>
       <p class="wiz-top-desc">Dyplomowany masażysta z własnym stołem i sprzętem. Leczniczy, relaksacyjny, drenaż limfatyczny i pressoterapia — w Twoim domu lub u mnie.</p>
     </div>
   </div>
@@ -3040,14 +3018,14 @@
         <div class="divider"></div>
         <p>Masz pytania? Chcesz zacząć treningi? Napisz lub zadzwoń — odpowiem najszybciej jak to możliwe. Bez zobowiązań, bez presji.</p>
         <div class="contact-items">
-          <div class="contact-item">
+          <a class="contact-item" href="tel:+48504151989">
             <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
             <div><div class="contact-item-label">Telefon / WhatsApp</div><div class="contact-item-value">+48 504 151 989</div></div>
-          </div>
-          <div class="contact-item">
+          </a>
+          <a class="contact-item" href="mailto:trenujjemy@gmail.com?subject=Zapytanie%20o%20trening&body=Cześć%20Majkel%2C%0A%0AChciałbym%2FCHciałabym%20dowiedzieć%20się%20więcej%20o%20Twoich%20usługach%20i%20umówić%20się%20na%20bezpłatną%20konsultację.%0A%0AProszę%20o%20kontakt%20zwrotny.%0A%0APozdrawiam">
             <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
             <div><div class="contact-item-label">Email</div><div class="contact-item-value">trenujjemy@gmail.com</div></div>
-          </div>
+          </a>
           <div class="contact-item">
             <div class="contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
             <div><div class="contact-item-label">Lokalizacja</div><div class="contact-item-value">Warszawa (stacjonarnie) · cała Polska (online)</div></div>
