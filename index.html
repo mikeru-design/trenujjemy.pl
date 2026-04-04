@@ -151,7 +151,8 @@
     .nav-logo:hover .nkw { opacity: 0; }
     .nav-logo:hover .nkb { opacity: 1; }
 
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links { display: none; gap: 28px; list-style: none; }
+    .nav-cta { display: none; }
     .nav-links a { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: #ccc; transition: color var(--tr); }
     .nav-links a:hover { color: var(--gold); }
     .nav-cta .btn { padding: 9px 22px; font-size: 0.8rem; }
@@ -174,29 +175,39 @@
       background-color: #0d0a0e;
       /* hero-bg.jpg — Majkel w siłowni, szerokie zdjęcie */
       background-image: url('hero-bg.jpg');
-      background-size: cover; background-position: center top; background-attachment: fixed;
+      background-size: cover; background-position: 1100px top; background-attachment: scroll; padding-bottom: 50px;
     }
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(105deg, rgba(5,2,8,0.88) 0%, rgba(77,16,48,0.55) 55%, rgba(5,2,8,0.75) 100%);
     }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; padding-top: 80px; position: relative; z-index: 2; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(107,27,63,0.4); border: 1px solid rgba(245,166,35,0.3); border-radius: 50px; padding: 7px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; padding-top: 60px; position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(107,27,63,0.4); border: 1px solid rgba(245,166,35,0.3); border-radius: 50px; padding: 7px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
     .hero-badge i { font-size: 0.65rem; color: var(--gold); }
-    .hero-title { font-size: clamp(3.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.04; margin-bottom: 22px; letter-spacing: -0.02em;}
+    .hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em;}
     .hero-title .acc { color: var(--gold); }
-    .hero-title .dim { background: var(--gold); color: var(--maroon-lt); padding: .5rem 2.5rem; line-height: 1.7;}
-    .hero-sub { font-size: 1.08rem; color: #c0b8bd; max-width: 500px; margin-bottom: 32px; line-height: 1.78; text-shadow: 0 1px 8px rgba(0,0,0,0.65); }
+    .hero-title .dim { background: var(--gold); color: var(--maroon-lt); padding: 5px 5px; line-height: 1.9; font-size: 2.2rem; }
+    .hero-sub { 
+      /* background: rgba(138, 34, 84, 0.499);  */
+      font-size: 1rem; color: #c0b8bd; width: calc(100% + 24px); max-width: 500px; margin-bottom: 50px; margin-left: -24px; line-height: 1.78; padding: 20px 20px 20px 24px; border-radius: 0 20px 20px 0; 
+      /* box-shadow: 8px 8px 4px rgba(0, 0, 0, .2); */
+    }
+    @media (min-width: 769px) { 
+    .hero-sub { width: 110%; margin-left: 0; padding: 20px; border-radius: 20px; } 
+    }
     .hero-sub span {font-family: 'Montserrat' ; font-weight: 600; }
-    .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
-    .hero-tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(0, 0, 0, 0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 13px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #d0c8cc; transition: all var(--tr); }
+    .hero-tags { display: none; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
+    .hero-tag { display: none; align-items: center; gap: 7px; background: rgba(0, 0, 0, 0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 13px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #d0c8cc; transition: all var(--tr); }
     .hero-tag:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,27,63,0.45); background: rgba(0, 0, 0, 0.3); }
     .hero-tag i { color: var(--gold); font-size: 0.9rem; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
-    .hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    .hero-actions { display: flex; flex-direction: column; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+    .hero-stats { display: none;}
+    @media (min-width: 900px) {
+      .hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    }
     .stat-num { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--gold); line-height: 1; }
     .stat-lbl { font-size: 0.75rem; color: #777; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px; }
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual { display: none; align-items: center; justify-content: center; }
     .hero-kettle { width: 100%; max-width: 360px; }
 
     /* ===== VALUES (redesign) ===== */
@@ -217,17 +228,18 @@
     }
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
     }
     .value-block {
-      padding: 52px 160px;
-      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 24px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       position: relative;
       text-align: center;
       overflow: hidden;
       transition: background var(--tr);
     }
-    .value-block:last-child { border-right: none; }
+    .value-block:last-child { border-bottom: none; }
     .value-block::before {
       content: '';
       position: absolute;
@@ -271,12 +283,12 @@
     }
 
     /* ===== ABOUT ===== */
-    #omnie { padding: 150px 0; background: var(--dark); }
+    #omnie { padding: 50px 0 100px; background: var(--dark); }
     @media (max-width: 900px) {
       #omnie { padding: 50px 0 100px; background: var(--dark); }
     }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-photo-wrap { position: relative; margin: 6rem auto auto;}
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+    .about-photo-wrap { position: relative; margin: 0 0; max-width: 420px; }
     .about-photo {
       width: 100%; aspect-ratio: 1/1; margin: 20px auto 20px;
       border-radius: 50px; overflow: hidden;
@@ -330,7 +342,7 @@
       border-radius: 0 12px 12px 0; padding: 18px 22px;
       font-style: italic; color: #ddd; font-size: 0.95rem; line-height: 1.72; margin-top: 26px;
     }
-    .vibe-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .vibe-row { display: none; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
     .vibe-chip {
       display: flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(245,166,35,0.2);
@@ -347,7 +359,7 @@
     .gal-row {
       position: relative;
       overflow: hidden;
-      height: 400px;
+      height: 200px;
     }
     .gal-track {
       display: flex;
@@ -356,7 +368,7 @@
       /* JS controls transform for auto-scroll */
     }
     .gal-item {
-      flex: 0 0 25%;
+      flex: 0 0 50%;
       height: 100%;
       position: relative;
       overflow: hidden;
@@ -402,7 +414,7 @@
     #metoda { padding: 100px 0; background: var(--dark2); }
     .metoda-header { text-align: center; margin-bottom: 60px; }
     .metoda-header .section-subtitle { margin: 0 auto; }
-    .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .methods-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
     .method-card {
       background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 18px; padding: 40px 30px;
@@ -430,7 +442,7 @@
     #oferta { padding: 100px 0; background: var(--dark); }
     .oferta-header { text-align: center; margin-bottom: 56px; }
     .oferta-header .section-subtitle { margin: 0 auto; }
-    .oferta-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 100px; }
+    .oferta-tabs { display: flex; flex-direction: column; align-items: center; gap: 10px; justify-content: center; margin-bottom: 100px; }
     .tab-btn {
       padding: 11px 30px; border-radius: 50px;
       font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem;
@@ -441,7 +453,7 @@
     .tab-btn.active, .tab-btn:hover { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
     .oferta-panel { display: none; }
     .oferta-panel.active { display: block; }
-    .services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .services-list { display: grid; grid-template-columns: 1fr; gap: 22px; }
     .service-item {
       background: var(--dark2); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 14px; padding: 50px 50px;
@@ -457,7 +469,7 @@
     #cennik { padding: 100px 0; background: var(--dark2); }
     .cennik-header { text-align: center; margin-bottom: 60px; }
     .cennik-header .section-subtitle { margin: 0 auto; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: start; }
     .price-card {
       background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 18px; padding: 28px 22px; position: relative;
@@ -467,9 +479,9 @@
     .price-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(0,0,0,0.28); }
     .price-card.featured {
       background: linear-gradient(135deg, var(--maroon-dk) 0%, var(--maroon) 100%);
-      border-color: var(--gold); transform: scale(1.05);
+      border-color: var(--gold); transform: none;
     }
-    .price-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+    .price-card.featured:hover { transform: translateY(-5px); }
     .price-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: var(--dark);
@@ -514,8 +526,8 @@
 
     /* ===== FAQ ===== */
     #faq { padding: 100px 0; background: var(--dark); }
-    .faq-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
-    .faq-sidebar { position: sticky; top: 100px; }
+    .faq-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+    .faq-sidebar { position: static; }
     .faq-list { display: flex; flex-direction: column; gap: 10px; }
     .faq-item { background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; transition: border-color var(--tr); }
     .faq-item.open { border-color: rgba(245,166,35,0.4); }
@@ -530,7 +542,7 @@
     /* ===== KONTAKT ===== */
     #kontakt { padding: 100px 0; background: linear-gradient(135deg, var(--maroon-dk) 0%, #180913 55%, var(--dark2) 100%); position: relative; overflow: hidden; }
     #kontakt::before { content:''; position: absolute; top:-40%; right:-10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 70%); pointer-events:none; }
-    .contact-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; position: relative; z-index:1; }
+    .contact-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; position: relative; z-index:1; }
     .contact-info h2 { margin-bottom: 18px; }
     .contact-info p { color: #aaa; line-height: 1.72; margin-bottom: 32px; }
     .contact-items { display: flex; flex-direction: column; gap: 18px; }
@@ -592,7 +604,7 @@
 
     /* ===== FOOTER ===== */
     footer { background: #080508; padding: 48px 0 22px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; margin-bottom: 36px; }
+    .footer-inner { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 36px; }
     .footer-logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
     .footer-tagline { font-size: 0.84rem; color: #555; line-height: 1.65; max-width: 270px; }
     .footer-social { display: flex; gap: 10px; margin-top: 18px; }
@@ -602,86 +614,98 @@
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .footer-links a, .footer-links li { font-size: 0.86rem; color: #555; transition: color var(--tr); }
     .footer-links a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; justify-content: space-between; font-size: 0.76rem; color: #3a3a3a; flex-wrap: wrap; gap: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; flex-direction: column; text-align: center; justify-content: space-between; font-size: 0.76rem; color: #3a3a3a; flex-wrap: wrap; gap: 6px; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1100px) {
-      .hero-title .dim { line-height: 1.9;}
-      .pricing-grid { grid-template-columns: repeat(2,1fr); }
-      .price-card.featured { transform: none; }
-      .price-card.featured:hover { transform: translateY(-5px); }
-      .methods-grid { grid-template-columns: repeat(2,1fr); }
-      .values-grid { grid-template-columns: repeat(2,1fr); }
-      .value-block { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    /* ===== RESPONSIVE (mobile-first) ===== */
+    @media (min-width: 481px) {
+      .hero-actions { flex-direction: row; }
+      .hero-actions .btn { text-align: left; }
+      .oferta-tabs { flex-direction: row; align-items: initial; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .gal-row { height: 240px; }
     }
-    @media (max-width: 1000px) {
-      .nav-links, .nav-cta { display: none; }
-    }
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-badge {font-size: .7rem; }
-      .value-block { padding: 36px 24px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-photo-wrap { max-width: 420px; margin: 0 0; }
-      .faq-inner { grid-template-columns: 1fr; }
-      .faq-sidebar { position: static; }
-      .contact-inner { grid-template-columns: 1fr; }
+    @media (min-width: 769px) {
+      #hero { background-attachment: fixed; background-position: center top; padding-bottom: 0; }
+      .hero-title .dim { font-size: inherit; padding: .5rem 2.5rem; line-height: 1.9; }
+      .hero-tag { display: inline-flex; }
+      .hero-tags { display: flex; }
+      .vibe-row { display: flex; }
+      .methods-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-list { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: row; text-align: left; }
+      .gal-item { flex: 0 0 25%; }
+      .gal-row { height: 400px; }
     }
-    @media (max-width: 768px) {
-      #hero { background-position: 1150px top; padding-bottom: 50px}
-      .hero-title .dim { font-size: 2.2rem; padding: .6rem 0.6rem; }
-      .hero-tag { display: none; font-size: .6rem;}
-      .methods-grid { grid-template-columns: 1fr; }
-      .services-list { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 901px) {
+      #omnie { padding: 150px 0; }
+      .hero-visual { display: flex; }
+      .hero-badge { font-size: 0.75rem; }
+      .value-block { padding: 52px 160px; }
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+      .about-photo-wrap { max-width: none; margin: 6rem auto auto; }
+      .faq-inner { grid-template-columns: 1fr 1.6fr; gap: 80px; }
+      .faq-sidebar { position: sticky; top: 100px; }
+      .contact-inner { grid-template-columns: 1fr 1.4fr; gap: 80px; }
+      .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; }
     }
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { text-align: center; }
-      .oferta-tabs { flex-direction: column; align-items: center; }
-      .values-grid { grid-template-columns: 1fr; }
+    @media (min-width: 1001px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: block; }
+    }
+    @media (min-width: 1101px) {
+      .hero-title .dim { line-height: 1.7; }
+      .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+      .price-card.featured { transform: scale(1.05); }
+      .price-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+      .methods-grid { grid-template-columns: repeat(3, 1fr); }
+      .values-grid { grid-template-columns: repeat(3, 1fr); }
+      .value-block { border-right: 1px solid rgba(255,255,255,0.06); border-bottom: none; }
+      .value-block:last-child { border-right: none; }
     }
 
     /* iOS parallax fix */
     @supports (-webkit-overflow-scrolling: touch) {
       #hero { background-attachment: scroll; }
     }
-    @media (max-width: 768px) {
-      #hero { background-attachment: scroll; }
-      .hero-tags { display: none; }
-      .vibe-row { display: none; }
-      /* .hero-sub { margin-bottom: 0; } */
-    }
-
-    /* Gallery mobile */
-    @media (max-width: 768px) {
-      .gal-item { flex: 0 0 50%; }
-      .gal-row { height: 240px; }
-    }
-    @media (max-width: 480px) {
-      .gal-item { flex: 0 0 50%; }
-      .gal-row { height: 200px; }
-    }
 
     /* ===== FAB KETTLEBELL ===== */
+    @keyframes fab-ring {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      100% { transform: scale(2.4); opacity: 0;   }
+    }
+    @keyframes fab-bounce {
+      0%, 100% { transform: scale(1); }
+      40%       { transform: scale(1.08); }
+      60%       { transform: scale(0.96); }
+    }
     .fab-kettle { display: none; } /* ukryty na desktop */
     @media (max-width: 1000px) {
       .fab-kettle {
         position: fixed; bottom: 24px; right: 24px; z-index: 1100;
         width: 76px; height: 76px; border-radius: 50%;
-        background: rgba(0,0,0,0.35); border: 2px solid rgba(255,255,255,0.18);
+        background: var(--gold); border: 2px solid rgba(255,255,255,0.18);
         cursor: pointer; display: flex; align-items: center; justify-content: center;
         padding: 8px;
         transition: transform 0.2s ease, background 0.2s;
         box-shadow: 0 4px 18px rgba(0,0,0,0.5);
       }
       .fab-kettle:active { transform: scale(0.93); }
+      /* Fale — widoczne tylko przed pierwszym kliknięciem */
+      .fab-kettle:not(.fab-seen)::before,
+      .fab-kettle:not(.fab-seen)::after {
+        content: '';
+        position: absolute; inset: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(245,166,35,0.75);
+        animation: fab-ring 2.4s ease-out infinite;
+        pointer-events: none;
+      }
+      .fab-kettle:not(.fab-seen)::after { animation-delay: 1s; }
+      /* Delikatne pulsowanie samego guzika */
+      .fab-kettle:not(.fab-seen) { animation: fab-bounce 2.4s ease-in-out infinite; }
       .fab-kettle .fkw { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; transition: opacity 0.3s; }
       .fab-kettle .fkb { position: absolute; width: 90%; height: 90%; object-fit: contain; z-index: 2; opacity: 0; transition: opacity 0.3s; }
       /* Bitten gdy menu otwarte */
@@ -1091,35 +1115,48 @@
     /* ===== FAB SOCIAL STACK ===== */
     .fab-social-stack {
       position: fixed; bottom: 34px; right: 34px; z-index: 1099;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      width: 44px; height: 44px; cursor: pointer;
     }
     @media (max-width: 1000px) {
       .fab-social-stack { left: 24px; right: auto; bottom: 24px; }
     }
     .fab-social-link {
+      position: absolute; bottom: 0; left: 0;
       width: 44px; height: 44px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.05rem; color: #fff;
       box-shadow: 0 3px 12px rgba(0,0,0,0.5);
-      text-decoration: none; transition: transform 0.2s, opacity 0.2s;
-      position: relative;
+      text-decoration: none;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s;
     }
-    .fab-social-link:hover { transform: scale(1.12); }
+    /* Collapsed peek: desktop peeks left, mobile peeks right */
+    .fab-social-link:nth-child(1) { z-index: 3; transform: translate(0, 0); }
+    .fab-social-link:nth-child(2) { z-index: 2; transform: translate(-7px, 0px); }
+    .fab-social-link:nth-child(3) { z-index: 1; transform: translate(-13px, 0px); }
+    @media (max-width: 1000px) {
+      .fab-social-link:nth-child(2) { transform: translate(7px, 0px); }
+      .fab-social-link:nth-child(3) { transform: translate(13px, 0px); }
+    }
+    /* Expanded: desktop spreads left, mobile spreads right */
+    .fab-social-stack.open .fab-social-link:nth-child(1) { transform: translate(0, 0); }
+    .fab-social-stack.open .fab-social-link:nth-child(2) { transform: translate(-54px, 0); }
+    .fab-social-stack.open .fab-social-link:nth-child(3) { transform: translate(-108px, 0); }
+    @media (max-width: 1000px) {
+      .fab-social-stack.open .fab-social-link:nth-child(2) { transform: translate(54px, 0); }
+      .fab-social-stack.open .fab-social-link:nth-child(3) { transform: translate(108px, 0); }
+    }
+    .fab-social-stack.open .fab-social-link:hover { filter: brightness(1.15); box-shadow: 0 4px 18px rgba(0,0,0,0.6); }
     .fab-social-link.fb { background: #1877F2; }
     .fab-social-link.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
     .fab-social-link.ms { background: linear-gradient(135deg,#00B2FF,#006AFF); }
     .fab-social-tooltip {
-      position: absolute; right: 54px; top: 50%; transform: translateY(-50%);
+      position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
       background: rgba(0,0,0,0.85); color: #fff;
       font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600;
       padding: 4px 9px; border-radius: 5px; white-space: nowrap;
       opacity: 0; pointer-events: none; transition: opacity 0.2s;
     }
-    .fab-social-link:hover .fab-social-tooltip { opacity: 1; }
-    @media (max-width: 1000px) {
-      /* Tooltip po prawej stronie ikony gdy stack jest po lewej */
-      .fab-social-tooltip { right: auto; left: 54px; }
-    }
+    .fab-social-stack.open .fab-social-link:hover .fab-social-tooltip { opacity: 1; }
 
     /* ===== CO CIĘ INTERESUJE ===== */
     .inter-tiles {
@@ -1645,6 +1682,47 @@
     .wiz-check-no { color: #e05555; font-size: 0.75rem; flex-shrink: 0; margin-top: 3px; }
     .wiz-when-list li { font-size: 0.84rem; color: #aaa; display: flex; align-items: flex-start; gap: 10px; }
     .wiz-when-list li span { line-height: 1.6; }
+
+    /* ===== WIZARD TILES — MOBILE HORIZONTAL SCROLL ===== */
+    .wiz-tiles-nav { display: none; }
+    @media (max-width: 768px) {
+      .wiz-tiles-scroller-wrap { position: relative; }
+      .inter-tiles,
+      .wiz-type-tiles,
+      .wiz-goal-tiles,
+      .wiz-when-tiles {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 16px;
+        padding-bottom: 4px;
+      }
+      .inter-tiles::-webkit-scrollbar,
+      .wiz-type-tiles::-webkit-scrollbar,
+      .wiz-goal-tiles::-webkit-scrollbar,
+      .wiz-when-tiles::-webkit-scrollbar { display: none; }
+      .inter-tile,
+      .wiz-type-tile,
+      .wiz-goal-tile,
+      .wiz-when-tile {
+        flex: 0 0 82vw !important;
+        width: 82vw;
+        scroll-snap-align: start;
+      }
+      .wiz-tiles-nav {
+        display: flex; justify-content: center; gap: 12px; margin-top: 20px;
+      }
+      .wiz-tiles-nav button {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+        color: var(--gold); font-size: 1.1rem; cursor: pointer;
+        transition: background var(--tr); display: flex; align-items: center; justify-content: center;
+      }
+      .wiz-tiles-nav button:hover { background: rgba(245,166,35,0.25); }
+    }
 </style>
 </head>
 <body>
@@ -1714,7 +1792,7 @@
           <span class="acc">nad Swoim ciałem!</span><br>
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
-        <p class="hero-sub">„Cześć, jestem Majkel — certyfikowany trener personalny z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji, bez skrajności. Aktywność fizyczna to styl życia, a nie sprint. Zacznij teraz, we właściwym dla Ciebie tempie i przestań odkładać zdrowie i jakość życia na później. Później jest tylko trudniej.”</p>
+        <p class="hero-sub">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalny z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu z masą kontuzji. Pozól mi pokaza Ci jak to zrobić.”</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
@@ -1724,7 +1802,7 @@
           <span class="hero-tag"><i class="fa-solid fa-house"></i>W domu</span>
         </div>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Umów bezpłatną konsultację</a>
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault();openHeroPopup()">Umów bezpłatną konsultację</a>
           <a href="#omnie" class="btn btn-secondary">Dowiedz się więcej</a>
         </div>
         <div class="hero-stats">
@@ -1741,19 +1819,19 @@
 <!-- ===== STATS BAR ===== -->
 <div class="stats-bar" id="statsBar">
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="15">0+</span>
+    <span class="stat-number" data-target="15">+0</span>
     <div class="stat-label">lat<br>doświadczenia</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="200">0+</span>
+    <span class="stat-number" data-target="100">+0</span>
     <div class="stat-label">zadowolonych<br>klientów</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="3000">0+</span>
+    <span class="stat-number" data-target="3000">+0</span>
     <div class="stat-label">godzin<br>treningów</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="5">0+</span>
+    <span class="stat-number" data-target="5">+0</span>
     <div class="stat-label">certyfikatów<br>trenerskich</div>
   </div>
 </div>
@@ -2159,6 +2237,7 @@
       </div>
     </div>
     <!-- <div class="divider divider-gap"></div> -->
+    <div class="wiz-tiles-scroller-wrap">
     <div class="inter-tiles">
       <div class="inter-tile reveal" onclick="selectTile(this,'.inter-tile'); wizPath('stacjonarne')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2196,6 +2275,11 @@
           <span class="wiz-pick">Wybieram →</span>
         </div>
       </div>
+    </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
     </div>
   </div>
 </section>
@@ -2237,6 +2321,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-type-tiles">
       <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Trening oporowy')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2265,6 +2350,11 @@
         <p>Stabilizacja, korekcja postawy, poprawa mobilności i techniki oddechowe. Trening w oparciu o ćwiczenia i techniki stosowania formach tj. Pilates, Yoga oraz techniki fizjoterapeutyczne.Idealne uzupełnienie treningu siłowego lub samodzielna forma ruchu dla osób z nadmiernymi napięciami mięśni, sztywnością lub powracającymi kontuzjami i bólami. </p>
         <span class="wiz-pick">Wybieram →</span>
       </div>
+    </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
     </div>
   </div>
 </section>
@@ -2308,6 +2398,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-goal-tiles mt-52">
       <div class="wiz-goal-tile reveal" onclick="selectTile(this,'.wiz-goal-tile'); wizGoal('Schudnąć i ujędrnić')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2358,6 +2449,11 @@
         <span class="wiz-goal-pick">To mój cel →</span>
       </div>
     </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -2400,6 +2496,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-when-tiles mt-52">
       <div class="wiz-when-tile wiz-when-best reveal" onclick="selectTile(this,'.wiz-when-tile'); wizWhen('Trening poranny / południe (6:00–16:00)')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2440,6 +2537,11 @@
         <span class="wiz-pick-big">Wybieram wieczorny →</span>
       </div>
 
+    </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
     </div>
   </div>
 </section>
@@ -3255,14 +3357,51 @@
   if (burgerBtn) burgerBtn.onclick = openMenu;
   document.getElementById('closeMenu').onclick = closeMenu;
   document.querySelectorAll('.mobile-link').forEach(l => l.onclick = closeMenu);
-  // FAB kettlebell: toggle menu on mobile
-  document.getElementById('fabKettle').addEventListener('click', function() {
-    if (document.getElementById('mobileMenu').classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
+  // FAB kettlebell: toggle menu on mobile + wyłącz animację po pierwszym kliknięciu
+  (function() {
+    var kettle = document.getElementById('fabKettle');
+    if (!kettle) return;
+    // Przywróć stan "widziany" z poprzedniej wizyty
+    if (localStorage.getItem('fabKettleSeen')) kettle.classList.add('fab-seen');
+    kettle.addEventListener('click', function() {
+      // Wyłącz animację przy pierwszym kliknięciu
+      if (!kettle.classList.contains('fab-seen')) {
+        kettle.classList.add('fab-seen');
+        localStorage.setItem('fabKettleSeen', '1');
+      }
+      if (document.getElementById('mobileMenu').classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  })();
+
+  // FAB social stack: pierwsze kliknięcie rozwija, drugie nawiguje, klik poza zwija
+  (function() {
+    var stack = document.getElementById('fabSocialStack');
+    if (!stack) return;
+    stack.addEventListener('click', function(e) {
+      if (!stack.classList.contains('open')) {
+        e.preventDefault();
+        stack.classList.add('open');
+        return;
+      }
+      var link = e.target.closest('.fab-social-link');
+      if (link) {
+        stack.classList.remove('open');
+        // nawigacja przebiega naturalnie przez href
+      } else {
+        stack.classList.remove('open');
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (stack.classList.contains('open') && !stack.contains(e.target)) {
+        stack.classList.remove('open');
+      }
+    });
+  })();
 
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
@@ -3271,6 +3410,13 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Wizard tiles nav (mobile horizontal scroll)
+  function tilesNav(btn, dir) {
+    var nav = btn.parentElement;
+    var grid = nav.previousElementSibling;
+    if (grid) grid.scrollBy({ left: dir * (grid.offsetWidth * 0.88), behavior: 'smooth' });
+  }
 
   // Tabs
   function switchTab(e, type) {
@@ -4025,6 +4171,7 @@
 
   // ── Wizard state ─────────────────────────────────────────────────────────────
   var wiz = { path: '', trainingType: '', goal: '', when: '', massage: '' };
+  var heroPopupMsg = null;
   var wizSection = 0; // 1-4: which wizard section is currently in viewport
 
   // ── Popup trigger — all required fields filled? ───────────────────────────────
@@ -4143,6 +4290,9 @@
   }
 
   function buildMessage(name) {
+    if (heroPopupMsg !== null) {
+      return 'Cześć Majkel! 👋\nNazywam się ' + name + '.\n\n' + heroPopupMsg;
+    }
     var lines = ['Cześć Majkel! 👋', 'Nazywam się' + name + '.'];
     if (wiz.path === 'stacjonarne') lines.push('Interesuję mnie trening stacjonarny.');
     else if (wiz.path === 'online') lines.push('Interesuję mnie współpraca online.');
@@ -4156,19 +4306,38 @@
   }
 
   // ===== CONTACT POPUP =====
+  function openHeroPopup() {
+    heroPopupMsg = 'Chcę dowiedzieć się więcej o Twoich usługach.\n\nProszę o kontakt zwrotny.\n\nPozdrawiam';
+    var titleEl = document.getElementById('popupTitle');
+    var subEl = document.getElementById('popupSubTitle');
+    if (titleEl) titleEl.textContent = 'Umówmy się! 💪';
+    if (subEl) subEl.textContent = 'Wpisz swoje imię i wybierz formę kontaktu, a odezwę się do Ciebie najszybciej jak to możliwe.';
+    openContactPopup();
+  }
+
   function openContactPopup() {
     var popup = document.getElementById('contactPopup');
     var summaryEl = document.getElementById('popupSummary');
+    var titleEl = document.getElementById('popupTitle');
+    var subEl = document.getElementById('popupSubTitle');
     if (!popup) return;
-    if (summaryEl) {
-      var s = buildSummary();
-      if (s) { summaryEl.textContent = s; summaryEl.classList.add('has-content'); }
+    if (heroPopupMsg === null) {
+      if (titleEl) titleEl.textContent = 'Prawie gotowe! 🎯';
+      if (subEl) subEl.textContent = 'Jak mam się do Ciebie odezwać?';
+      if (summaryEl) {
+        var s = buildSummary();
+        if (s) { summaryEl.textContent = s; summaryEl.classList.add('has-content'); }
+        else { summaryEl.textContent = ''; summaryEl.classList.remove('has-content'); }
+      }
+    } else {
+      if (summaryEl) { summaryEl.textContent = ''; summaryEl.classList.remove('has-content'); }
     }
+    var nameInput = document.getElementById('popupName');
+    if (nameInput) { nameInput.value = ''; nameInput.classList.remove('error'); nameInput.setAttribute('placeholder', 'Twoje imię'); }
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     setTimeout(function() {
-      var inp = document.getElementById('popupName');
-      if (inp) inp.focus();
+      if (nameInput) nameInput.focus();
     }, 100);
   }
 
@@ -4176,6 +4345,7 @@
     var popup = document.getElementById('contactPopup');
     if (popup) popup.classList.remove('active');
     document.body.style.overflow = '';
+    heroPopupMsg = null;
   }
 
   function sendPopup(channel) {
@@ -4190,12 +4360,12 @@
     }
     nameInput.classList.remove('error');
     var msg = buildMessage(name);
+    var subj = heroPopupMsg !== null ? 'Zapytanie o trening' : 'Zapytanie — ' + (wiz.path || 'kontakt');
     if (channel === 'wa') {
       window.open('https://wa.me/48504151989?text=' + encodeURIComponent(msg), '_blank');
     } else if (channel === 'ms') {
       window.open('https://m.me/trenuj.jemy?text=' + encodeURIComponent(msg), '_blank');
     } else if (channel === 'em') {
-      var subj = 'Zapytanie — ' + (wiz.path || 'kontakt');
       window.open('mailto:trenujjemy@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(msg), '_blank');
     }
     closeContactPopup();
@@ -4215,8 +4385,8 @@
 <div class="popup-overlay" id="contactPopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closeContactPopup()" aria-label="Zamknij">&times;</button>
-    <div class="popup-title">Prawie gotowe! 🎯</div>
-    <div class="popup-sub">Jak mam się do Ciebie odezwać?</div>
+    <div class="popup-title" id="popupTitle">Prawie gotowe! 🎯</div>
+    <div class="popup-sub" id="popupSubTitle">Jak mam się do Ciebie odezwać?</div>
     <div class="popup-summary" id="popupSummary"></div>
     <div class="popup-name-wrap">
       <input type="text" id="popupName" placeholder="Twoje imię" autocomplete="given-name" />
