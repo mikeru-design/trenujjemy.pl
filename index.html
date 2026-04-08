@@ -185,16 +185,15 @@
     .hero-badge { display: none; align-items: center; gap: 8px; background: rgba(107,27,63,0.4); border: 1px solid rgba(245,166,35,0.3); border-radius: 50px; padding: 7px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
     .hero-badge-mobile { display: flex; font-size: 0.6rem;}
     .hero-badge i { font-size: 0.65rem; color: var(--gold); }
-    .hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em;}
+    .hero-title { font-size: clamp(3.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em;}
     .hero-title .acc { color: var(--gold); }
     .hero-title .dim { background: var(--gold); color: var(--maroon-lt); padding: 5px 5px; line-height: 1.9; font-size: 2.2rem; }
-    .hero-sub { 
-      /* background: rgba(138, 34, 84, 0.499);  */
-      font-size: 1rem; color: #c0b8bd; width: calc(100% + 24px); max-width: 500px; margin-bottom: 50px; margin-left: -24px; line-height: 1.78; padding: 20px 20px 20px 24px; border-radius: 0 20px 20px 0; 
-      /* box-shadow: 8px 8px 4px rgba(0, 0, 0, .2); */
-    }
+    .hero-sub { font-size: 1rem; color: #c0b8bd; width: calc(100% + 24px); max-width: 500px; margin-bottom: 10px; margin-left: -24px; line-height: 1.78; padding: 20px 20px 20px 24px; border-radius: 0 20px 20px 0; }
+    .hero-sub-desktop { display: none; } 
+    .hero-sub-mobile { display: block; } 
     @media (min-width: 769px) { 
-    .hero-sub { width: 110%; margin-left: 0; padding: 20px; border-radius: 20px; } 
+    .hero-sub-desktop { display: block; } 
+    .hero-sub-mobile { display: none; } 
     }
     .hero-sub span {font-family: 'Montserrat' ; font-weight: 600; }
     .hero-tags { display: none; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
@@ -1822,7 +1821,8 @@
           <span class="acc">nad Swoim ciałem!</span><br>
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
-        <p class="hero-sub">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalny z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu z masą kontuzji. Pozól mi pokaza Ci jak to zrobić.”</p>
+        <p class="hero-sub hero-sub-desktop">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalnym z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
+        <p class="hero-sub hero-sub-mobile">Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
@@ -1883,7 +1883,7 @@
       <i class="fa-regular fa-face-smile value-icon"></i>
       <div class="value-num">02</div>
       <div class="value-title">W dobrej atmosferze</div>
-      <div class="value-desc">Dobra energia na treningu to nie slogan — to sposób w jaki pracuję od 15 lat. Stawiam na luźną atmosferę i poczucie humoru- gadamy, śmiejemy się, a trening sam się robi.</div>
+      <div class="value-desc">Dobra energia na treningu to nie slogan — to sposób w jaki pracuję od 15 lat. Stawiam na luźną atmosferę i poczucie humoru — gadamy, śmiejemy się, a trening sam się robi.</div>
     </div>
 
       <div class="value-block reveal">
@@ -1926,7 +1926,7 @@
         <div class="section-label">O mnie</div>
         <h2 class="section-title">Michał <span>„Majkel"</span> Sajna</h2>
         <div class="divider"></div>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:14px;">Jestem certyfikowanym trenerem personalnym i instruktorem wielu dyscyplin z tytułem magistra AWF Warszawa. Przez ponad 15 lat pracy na salach fitness i siłowniach z podopiecznymi w różnym wieku, kondycji i z różnymi celami nauczyłem się, że nie ma jednego  sposobu na osiągnięcie celu, ale jest jeden sposób na podążanie drogą do niego- systematyczność, wiedza dlaczego, po co i jak oraz radość i satysfakcja z bycia na tej drodze. Ja staram się jej trzymać od ponad 25 lat, kiedy to jako pulchny 15-letni chłopak postanowiłęm schudnąć i zmienić moje ciało i życie.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:14px;">Jestem certyfikowanym trenerem personalnym i instruktorem wielu dyscyplin z tytułem magistra AWF Warszawa. Przez ponad 15 lat pracy na salach fitness i siłowniach z podopiecznymi w różnym wieku, kondycji i z różnymi celami nauczyłem się, że nie ma jednego  sposobu na osiągnięcie celu, ale jest jeden sposób na podążanie drogą do niego- systematyczność, wiedza dlaczego, po co i jak oraz radość i satysfakcja z bycia na tej drodze. Ja staram się jej trzymać od ponad 25 lat, kiedy to jako pulchny 15-letni chłopak postanowiłem schudnąć i zmienić moje ciało i życie.</p>
         <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Łączę wiedzę z biomechaniki, fizjoterapii, dietetyki, wielu dyscyplin sportu a przede wszystkim własne doświadczenia— bo człowiek to całość, nie zbiór izolowanych mięśni. Trzeba rozumieć co czuje i jak myśli, nie tylko jak działa i rusza się. Stawiam na technikę i świadomość ruchu ale także dobrą atmosferę i zrozumienie. Nie motywuję przez wyniki ani porównania — motywuję przez wiedzę i zaangażowanie.</p>
         <ul class="creds-list">
           <li class="hi">Zaświadczenia i kursy:</li>
@@ -1940,10 +1940,10 @@
           <li><i class="fa-solid fa-check"></i>Instruktor Les Mills Body Combat & Body PUMP</li>
           <li><i class="fa-solid fa-check"></i>Instruktor GT Training</li>
           <li><i class="fa-solid fa-check"></i>Szkolenia z Pilates i technik prozdrowotnych</li>
-          <li><i class="fa-solid fa-check"></i>Masaysta I i II stopnia</li>
+          <li><i class="fa-solid fa-check"></i>Masażysta I i II stopnia</li>
           <li><i class="fa-solid fa-check"></i>Opiekun kolonijny z 10-letnim stażem</li>
         </ul>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodziey. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam równie trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodzież. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam również trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
         <blockquote class="about-quote">
           „Nie sprzedaję metamorfoz na trzy miesiące. Pomagam zbudować zdrową aktywność fizyczną jako część życia — trwałą, naturalną i bez presji."
         </blockquote>
@@ -1988,7 +1988,7 @@
             <div class="review-stars">★★★★★</div>
           </div>
         </div>
-        <p class="review-text">"To juz prawie dwa lata, odkąd trenuję z Majklem  i to jedna z lepszych decyzji, jakie podjąłem. Widoczny progres, zero stagnacji — i zawsze wiem, po co robię dane ćwiczenie."</p>
+        <p class="review-text">"To już prawie dwa lata, odkąd trenuję z Majklem  i to jedna z lepszych decyzji, jakie podjąłem. Widoczny progres, zero stagnacji — i zawsze wiem, po co robię dane ćwiczenie."</p>
         <div class="review-date">Marzec 2026</div>
       </div>
       <div class="review-card">
@@ -2000,7 +2000,7 @@
           </div>
         </div>
         <p class="review-text">"Treningi z Michałem to coś więcej niż zwykłe ćwiczenia — to przemyślany i spokojny proces pracy z ciałem. Od samego początku panuje tu swobodna, przyjazna atmosfera, dzięki której można poczuć się komfortowo i skupić na sobie.
-        Z dużą cierpliwością uczy poprawnej techniki, tłumaczy każdy ruch i dba o to, żeby wszystko było wykonywane świadomie i bezpiecznie. Nie ma tu presji na szybki, „instagramowy” efekt. Ogromnym plusem sa też jego umiejętności fizjoterapeutyczne.
+        Z dużą cierpliwością uczy poprawnej techniki, tłumaczy każdy ruch i dba o to, żeby wszystko było wykonywane świadomie i bezpiecznie. Nie ma tu presji na szybki, „instagramowy” efekt. Ogromnym plusem są też jego umiejętności fizjoterapeutyczne.
         Michał to konkretny i zaangażowany trener, który potrafi dopasować trening zarówno do poziomu, jak i indywidualnych preferencji."</p>
         <div class="review-date">Styczeń 2026</div>
       </div>
