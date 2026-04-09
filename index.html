@@ -3572,6 +3572,10 @@
     const h = document.getElementById('hours').value;
     const m = document.getElementById('message').value;
     const txt = `Cześć Majkel!\nImię: ${n}\nTelefon: ${p}\nEmail: ${em}\nForma: ${t||'—'}\nCel: ${g||'—'}\nGodziny: ${h||'—'}\n${m?'Info: '+m:''}`;
+    // Google Ads conversion tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+    }
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
     setTimeout(() => window.open('https://wa.me/48504151989?text=' + encodeURIComponent(txt), '_blank'), 800);
@@ -4486,6 +4490,10 @@
     }
     nameInput.classList.remove('error');
     var msg = buildMessage(name);
+    // Google Ads conversion tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+    }
     var subj = heroPopupMsg !== null ? 'Zapytanie o trening' : 'Zapytanie — ' + (wiz.path || 'kontakt');
     if (channel === 'wa') {
       window.open('https://wa.me/48504151989?text=' + encodeURIComponent(msg), '_blank');
