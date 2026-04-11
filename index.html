@@ -548,6 +548,116 @@
     .pricing-note { text-align: center; margin-top: 28px; font-size: 0.85rem; color: #666; }
     .pricing-note strong { color: var(--gold); }
 
+      /* ===== MASAŻE SECTION ===== */
+    #masaze { padding: 100px 0; background: var(--dark2); }
+    .masaze-header { text-align: center; margin-bottom: 70px; }
+    .masaze-header .section-subtitle { margin: 0 auto; }
+    #masaz-type-selection { margin-bottom: 70px; }
+
+    /* .masaze-intro {
+      display: grid; grid-template-columns: 1fr; gap: 60px;
+      align-items: center; margin-bottom: 80px;
+    } */
+    
+    .masaze-intro-text p { color: #aaa; line-height: 1.78; margin-bottom: 18px; font-size: 1.02rem; }
+    .masaze-intro-text p strong { color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .masaze-intro-btn{ display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+    .masaze-intro-img {
+      position: relative; border-radius: 18px; overflow: hidden;
+      height: 650px; background: var(--dark3);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(245,166,35,0.15);
+    }
+    .masaze-intro-img img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom;}
+    .masaze-intro-img .placeholder-icon { font-size: 3rem; color: rgba(245,166,35,0.3); }
+
+    /* Service cards */
+    .masaze-grid { display: grid; grid-template-columns: (1fr); gap: 24px; margin-bottom: 20px; }
+    .masaz-card {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 36px 28px; text-align: center;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+      position: relative; overflow: hidden;
+    }
+    .masaz-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(107,27,63,0.08) 0%, transparent 60%);
+      opacity: 0; transition: opacity var(--tr);
+    }
+    .masaz-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .masaz-card:hover::before { opacity: 1; }
+    .masaz-card.featured { border-color: rgba(245,166,35,0.25); }
+    .masaz-icon { font-size: 2rem; color: var(--gold); margin-bottom: 22px; display: block; }
+    .masaz-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 14px; color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .masaz-desc { font-size: 0.88rem; color: #888; line-height: 1.72; }
+    .masaz-badge {
+      display: inline-block; margin-top: 18px;
+      background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3);
+      color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
+    }
+
+    /* Pressotherapy highlight */
+    .press-highlight {
+      background: linear-gradient(135deg, rgba(77,16,48,0.4) 0%, rgba(107,27,63,0.25) 100%);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 20px; padding: 32px; margin-bottom: 60px;
+      display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center;
+    }
+    .press-text h3 { font-size: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 16px; }
+    .press-text h3 span { color: var(--gold); }
+    .press-text p { color: #999; line-height: 1.78; margin-bottom: 14px; font-size: 0.95rem; }
+    .press-benefits { list-style: none; margin-top: 20px; }
+    .press-benefits li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; color: #bbb; }
+    .press-benefits li i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+    .press-visual {
+      border-radius: 16px; overflow: hidden; height: 320px;
+      background: var(--dark3); display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(245,166,35,0.12);
+    }
+    .press-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .press-visual .placeholder-icon { font-size: 4rem; color: rgba(245,166,35,0.25); }
+
+    /* Mobile service banner */
+    .masaze-mobile-banner {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 36px 40px;
+      display: flex; align-items: center; gap: 32px; margin-bottom: 60px;
+    }
+    .masaze-mobile-banner .mob-icon { font-size: 2.8rem; color: var(--gold); flex-shrink: 0; }
+    .masaze-mobile-banner h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .masaze-mobile-banner p { font-size: 0.9rem; color: #999; line-height: 1.65; }
+
+    /* Gallery placeholder for massage photos */
+    .masaze-gallery { margin-bottom: 60px; }
+    .masaze-gallery h3 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; text-align: center; margin-bottom: 28px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; }
+    .masaze-photo-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .masaze-photo-item {
+      border-radius: 12px; overflow: hidden; aspect-ratio: 1;
+      background: var(--dark3); border: 1px dashed rgba(255,255,255,0.12);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2); font-size: 0.75rem; gap: 10px;
+      cursor: pointer;
+      transition: border-color var(--tr);
+    }
+    .masaze-photo-item:not(.placeholder):hover { border-color: rgba(245,166,35,0.4); }
+    .masaze-photo-item.placeholder i { font-size: 1.8rem; color: rgba(255,255,255,0.1); }
+    .masaze-photo-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Masaze pricing */
+    .masaze-pricing { background: var(--dark); border-radius: 20px; padding: 40px; }
+    .masaze-pricing h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 30px; }
+    .masaze-price-table { width: 100%; border-collapse: collapse; }
+    .masaze-price-table th { text-align: left; padding: 14px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .masaze-price-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #bbb; font-size: 0.92rem; line-height: 1.5; }
+    .masaze-price-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .masaze-price-table td:last-child { color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
+    .masaze-note { text-align: center; margin-top: 22px; font-size: 0.82rem; color: #666; }
+
+    /* masaze breakpoints — handled in consolidated min-width blocks below */
+
     /* ===== FAQ ===== */
     #faq { padding: 100px 0; background: var(--dark); }
     .faq-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
@@ -640,6 +750,7 @@
     .footer-links a:hover { color: var(--white); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; flex-direction: column; text-align: center; justify-content: space-between; font-size: 0.76rem; color: #3a3a3a; flex-wrap: wrap; gap: 6px; }
 
+
     /* ===== RESPONSIVE (mobile-first) ===== */
     @media (min-width: 481px) {
       .hero-actions { flex-direction: row; }
@@ -693,6 +804,10 @@
       .faq-sidebar { position: sticky; top: 100px; }
       .contact-inner { grid-template-columns: 1fr 1.4fr; gap: 80px; }
       .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; }
+      .masaze-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+      .masaze-photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;}
+      .masaze-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+      .press-highlight { grid-template-columns: 1fr 1fr; gap: 50px; }
     }
     @media (min-width: 1001px) {
       .nav-links { display: flex; }
@@ -792,117 +907,6 @@
     }
     /* Make gallery items show pointer */
     .gal-item { cursor: zoom-in; }
-
-
-    /* ===== MASAŻE SECTION ===== */
-    #masaze { padding: 100px 0; background: var(--dark2); }
-    .masaze-header { text-align: center; margin-bottom: 70px; }
-    .masaze-header .section-subtitle { margin: 0 auto; }
-    #masaz-type-selection { margin-bottom: 50px; }
-
-    .masaze-intro {
-      display: grid; grid-template-columns: 1fr; gap: 60px;
-      align-items: center; margin-bottom: 80px;
-    }
-    .masaze-intro-text p { color: #aaa; line-height: 1.78; margin-bottom: 18px; font-size: 1.02rem; }
-    .masaze-intro-text p strong { color: var(--white); font-family: 'Montserrat', sans-serif; }
-    .masaze-intro-btn{ display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
-    .masaze-intro-img {
-      position: relative; border-radius: 18px; overflow: hidden;
-      height: 650px; background: var(--dark3);
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(245,166,35,0.15);
-    }
-    .masaze-intro-img img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom;}
-    .masaze-intro-img .placeholder-icon { font-size: 3rem; color: rgba(245,166,35,0.3); }
-
-    /* Service cards */
-    .masaze-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 60px; }
-    .masaz-card {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px; padding: 36px 28px; text-align: center;
-      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
-      position: relative; overflow: hidden;
-    }
-    .masaz-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(107,27,63,0.08) 0%, transparent 60%);
-      opacity: 0; transition: opacity var(--tr);
-    }
-    .masaz-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-    .masaz-card:hover::before { opacity: 1; }
-    .masaz-card.featured { border-color: rgba(245,166,35,0.25); }
-    .masaz-icon { font-size: 2rem; color: var(--gold); margin-bottom: 22px; display: block; }
-    .masaz-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 14px; color: var(--white); font-family: 'Montserrat', sans-serif; }
-    .masaz-desc { font-size: 0.88rem; color: #888; line-height: 1.72; }
-    .masaz-badge {
-      display: inline-block; margin-top: 18px;
-      background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3);
-      color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
-    }
-
-    /* Pressotherapy highlight */
-    .press-highlight {
-      background: linear-gradient(135deg, rgba(77,16,48,0.4) 0%, rgba(107,27,63,0.25) 100%);
-      border: 1px solid rgba(245,166,35,0.2);
-      border-radius: 20px; padding: 32px; margin-bottom: 60px;
-      display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center;
-    }
-    .press-text h3 { font-size: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 16px; }
-    .press-text h3 span { color: var(--gold); }
-    .press-text p { color: #999; line-height: 1.78; margin-bottom: 14px; font-size: 0.95rem; }
-    .press-benefits { list-style: none; margin-top: 20px; }
-    .press-benefits li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; color: #bbb; }
-    .press-benefits li i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-    .press-visual {
-      border-radius: 16px; overflow: hidden; height: 320px;
-      background: var(--dark3); display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(245,166,35,0.12);
-    }
-    .press-visual img { width: 100%; height: 100%; object-fit: cover; }
-    .press-visual .placeholder-icon { font-size: 4rem; color: rgba(245,166,35,0.25); }
-
-    /* Mobile service banner */
-    .masaze-mobile-banner {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 36px 40px;
-      display: flex; align-items: center; gap: 32px; margin-bottom: 60px;
-    }
-    .masaze-mobile-banner .mob-icon { font-size: 2.8rem; color: var(--gold); flex-shrink: 0; }
-    .masaze-mobile-banner h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .masaze-mobile-banner p { font-size: 0.9rem; color: #999; line-height: 1.65; }
-
-    /* Gallery placeholder for massage photos */
-    .masaze-gallery { margin-bottom: 60px; }
-    .masaze-gallery h3 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; text-align: center; margin-bottom: 28px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; }
-    .masaze-photo-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
-    }
-    .masaze-photo-item {
-      border-radius: 12px; overflow: hidden; aspect-ratio: 1;
-      background: var(--dark3); border: 1px dashed rgba(255,255,255,0.12);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2); font-size: 0.75rem; gap: 10px;
-      cursor: pointer;
-      transition: border-color var(--tr);
-    }
-    .masaze-photo-item:not(.placeholder):hover { border-color: rgba(245,166,35,0.4); }
-    .masaze-photo-item.placeholder i { font-size: 1.8rem; color: rgba(255,255,255,0.1); }
-    .masaze-photo-item img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Masaze pricing */
-    .masaze-pricing { background: var(--dark); border-radius: 20px; padding: 40px; }
-    .masaze-pricing h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 30px; }
-    .masaze-price-table { width: 100%; border-collapse: collapse; }
-    .masaze-price-table th { text-align: left; padding: 14px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .masaze-price-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #bbb; font-size: 0.92rem; line-height: 1.5; }
-    .masaze-price-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .masaze-price-table td:last-child { color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
-    .masaze-note { text-align: center; margin-top: 22px; font-size: 0.82rem; color: #666; }
-
-    /* masaze breakpoints — handled in consolidated min-width blocks below */
-
 
     .lb-loading {
       position: absolute; top: 50%; left: 50%;
@@ -1054,10 +1058,19 @@
     padding: 10px 22px; border-radius: 6px; font-family: 'Montserrat',sans-serif;
     font-weight: 600; font-size: 0.82rem; cursor: pointer;
     transition: border-color .2s, color .2s;
-    flex: 1; text-align: center;
+    flex: 1;
+    text-align: center;
   }
   .cb-reject:hover { border-color: #555; color: #999; }
   /* min-width: 601px cookie overrides — see consolidated block below */
+
+  @media (min-width: 1100px) {
+    #cookie-banner { padding: 16px 28px; }
+    .cb-btns { width: auto; padding: 0;}
+    .cb-reject {
+    flex: auto;
+  }
+  }
 
   /* ===== OPINIE ===== */
   #opinie { padding: 50px 0; background: var(--dark2); }
@@ -1071,7 +1084,7 @@
   }
   .opinie-track:active { cursor: grabbing; }
   .review-card {
-    flex: 0 0 78vw;
+    flex: 0 0 300px;
     background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
     border-radius: 16px; padding: 24px;
     transition: border-color var(--tr), transform var(--tr);
@@ -1177,7 +1190,7 @@
 
     /* ===== CO CIĘ INTERESUJE ===== */
     .inter-tiles {
-      display: grid; grid-template-columns: 1fr; gap: 24px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-top: 56px;
     }
    
@@ -1231,7 +1244,7 @@
     }
     .wiz-breadcrumb span:hover { text-decoration: underline; }
     /* Type tiles */
-    .wiz-type-tiles { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .wiz-type-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .wiz-type-tile {
       background: var(--dark2); border: 1.5px solid rgba(255,255,255,0.08);
       border-radius: 20px; padding: 60px 28px; cursor: pointer; text-align: center;
@@ -1285,7 +1298,7 @@
     /* online-cards 769px+ — see consolidated block below */
     /* Goal tiles */
     .wiz-goal-tiles {
-      display: grid; grid-template-columns: 1fr; gap: 24px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
     .wiz-goal-tile {
       background: var(--dark2); border: 1.5px solid rgba(255,255,255,0.08);
@@ -1329,7 +1342,7 @@
     /* wiz-goal-tiles 601px+ and 901px+ — see consolidated blocks below */
     /* When tiles */
     .wiz-when-tiles {
-      display: grid; grid-template-columns: 1fr; gap: 32px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
       max-width: 860px; margin: 0 auto;
     }
     .wiz-when-tile {
@@ -1703,7 +1716,8 @@
       .inter-tiles,
       .wiz-type-tiles,
       .wiz-goal-tiles,
-      .wiz-when-tiles {
+      .wiz-when-tiles,
+      .masaze-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto;
@@ -1720,7 +1734,8 @@
       .inter-tile,
       .wiz-type-tile,
       .wiz-goal-tile,
-      .wiz-when-tile {
+      .wiz-when-tile,
+      .masaz-card {
         flex: 0 0 82vw !important;
         width: 82vw;
         scroll-snap-align: start;
@@ -1807,7 +1822,7 @@
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
         <p class="hero-sub hero-sub-desktop">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalnym z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
-        <p class="hero-sub hero-sub-mobile">Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
+        <p class="hero-sub hero-sub-mobile">Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
@@ -1927,8 +1942,8 @@
           <li><i class="fa-solid fa-check"></i>Opiekun kolonijny z 10-letnim stażem</li>
         </ul>
         <p style="color:#bbb;line-height:1.75;margin-bottom:14px;">Jestem certyfikowanym trenerem personalnym i instruktorem wielu dyscyplin z tytułem magistra AWF Warszawa. Przez ponad 15 lat pracy na salach fitness i siłowniach z podopiecznymi w różnym wieku, kondycji i z różnymi celami nauczyłem się, że nie ma jednego  sposobu na osiągnięcie celu, ale jest jeden sposób na podążanie drogą do niego- systematyczność, wiedza dlaczego, po co i jak oraz radość i satysfakcja z bycia na tej drodze. Ja staram się jej trzymać od ponad 25 lat, kiedy to jako pulchny 15-letni chłopak postanowiłem schudnąć i zmienić moje ciało i życie.</p>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Łączę wiedzę z biomechaniki, fizjoterapii, dietetyki, wielu dyscyplin sportu a przede wszystkim własne doświadczenia— bo człowiek to całość, nie zbiór izolowanych mięśni. Trzeba rozumieć co czuje i jak myśli, nie tylko jak działa i rusza się. Stawiam na technikę i świadomość ruchu ale także dobrą atmosferę i zrozumienie. Nie motywuję przez wyniki ani porównania — motywuję przez wiedzę i zaangażowanie.</p>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodzież. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam również trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Łączę wiedzę z biomechaniki, fizjoterapii, dietetyki, wielu dyscyplin sportu a przede wszystkim własne doświadczenia— bo człowiek to całość, nie zbiór izolowanych mięśni. Trzeba rozumieć, co czuje i jak myśli, nie tylko jak działa i rusza się. Stawiam na technikę i świadomość ruchu ale także dobrą atmosferę i zrozumienie. Nie motywuję przez wyniki ani porównania — motywuję przez wiedzę i zaangażowanie.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodzieży. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam również trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
         <blockquote class="about-quote">
           „Nie sprzedaję metamorfoz na trzy miesiące. Pomagam zbudować zdrową aktywność fizyczną jako część życia — trwałą, naturalną i bez presji."
         </blockquote>
@@ -2228,7 +2243,7 @@
       <div class="section-label">Zacznijmy od</div>
       <h2 class="section-title">Co Cię <span>interesuje?</span></h2>
       <div class="divider divider-center"></div>
-      <p class="section-subtitle-wide">Wybierz krok po kroku jak mogę Ci pomóc. Dopasujemy sposób współpracy, interesujące Cię formy ćwiczeń, plan treningowy oraz oreferowane godziny spotkać odpowiednio do Twoich potrzeb i stylu życia.</p>
+      <p class="section-subtitle-wide">Wybierz krok po kroku jak mogę Ci pomóc. Dopasujemy sposób współpracy, interesujące Cię formy ćwiczeń, plan treningowy oraz preferowane godziny spotkań, odpowiednio do Twoich potrzeb i stylu życia.</p>
     </div>
     <div class="wiz-progress reveal">
       <div class="wiz-progress-step">
@@ -2262,7 +2277,7 @@
           <div class="card-title-holder">
             <h3>Treningi stacjonarne</h3>
           </div>
-          <p>Wspóle treningi na siłowni lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
+          <p>Wspólne treningi na siłowni lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
           <span class="wiz-pick">Wybieram →</span>
         </div>
       </div>
@@ -2353,7 +2368,7 @@
          <div class="card-title-holder">
            <h4>Kalistenika</h4>
           </div>
-        <p>Przysiady, wypady, pompki, podciąganie, podpory w różnych wersjach, wykonane z ciężarem własnego ciała. Stosujemy modyfikacje pozwalające dostosować poziom trudności ćwiczeń do Twojego poziomu zaawansowania. Siła, mobilność i koordynacja. Możemy ćwiczyć w domu na siłowni lub w parku zarówno stacjonarnie jak i online.</p>
+        <p>Przysiady, wypady, pompki, podciąganie, podpory w różnych wersjach, wykonane z ciężarem własnego ciała. Stosujemy modyfikacje pozwalające dostosować poziom trudności ćwiczeń do Twojego poziomu zaawansowania. Siła, mobilność i koordynacja. Możemy ćwiczyć w domu, na siłowni lub w parku- zarówno stacjonarnie jak i online.</p>
         <span class="wiz-pick">Wybieram →</span>
       </div>
       <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Pilates / Trening mentalny')">
@@ -2362,7 +2377,7 @@
         <div class="card-title-holder">
           <h4>Trening mentalny</h4>
         </div>
-        <p>Stabilizacja, korekcja postawy, poprawa mobilności i techniki oddechowe. Trening w oparciu o ćwiczenia i techniki stosowania formach tj. Pilates, Yoga oraz techniki fizjoterapeutyczne.Idealne uzupełnienie treningu siłowego lub samodzielna forma ruchu dla osób z nadmiernymi napięciami mięśni, sztywnością lub powracającymi kontuzjami i bólami. </p>
+        <p>Stabilizacja, korekcja postawy, poprawa mobilności i techniki oddechowe. Trening w oparciu o ćwiczenia i techniki stosowane w formach tj. Pilates, Yoga oraz techniki fizjoterapeutyczne. Idealne uzupełnienie treningu siłowego lub samodzielna forma ruchu dla osób z nadmiernymi napięciami mięśni, sztywnością lub powracającymi kontuzjami i bólami. </p>
         <span class="wiz-pick">Wybieram →</span>
       </div>
     </div>
@@ -2390,7 +2405,7 @@
       <div class="section-label">Krok 3 z 4 — Twój cel</div>
       <h2 class="section-title">Co <span>chcesz osiągnąć?</span></h2>
       <div class="divider divider-center"></div>
-      <p class="section-subtitle-wide">Wybierz jeden główny cel który wyznaczy dobór ćwiczeń, intensywność, częstotliwość i metodę pracy. Pod każdy cel dobieramy odpowiedni program, który daje konkretne efekty.</p>
+      <p class="section-subtitle-wide">Wybierz jeden główny cel, który wyznaczy dobór ćwiczeń, intensywność, częstotliwość i metodę pracy. Pod każdy cel dobieramy odpowiedni program, który daje konkretne efekty.</p>
     </div>
     <div class="wiz-progress reveal">
       <div class="wiz-progress-step" id="wpS1">
@@ -2421,7 +2436,7 @@
         <div class="card-title-holder">
           <h4>Schudnąć i ujędrnić</h4>
         </div>
-        <p>Chcesz zrzucić zbędne kilogramy i nadać ciału jędrność bez efektu jojo i bez głodówek. Łączymy trening interwałowy z siłowym, który spala tkankę tłuszczową i jednocześnie nie pozwala na utratę mięśni co utrzymuje jędrność. Żywienie i kaloryczność dopasowane do Ciebie i Twojego celu, nie odwrotnie.</p>
+        <p>Chcesz zrzucić zbędne kilogramy i nadać ciału jędrność bez efektu jojo i bez głodówek. Łączymy trening interwałowy z siłowym, który spala tkankę tłuszczową i jednocześnie nie pozwala na utratę mięśni, co utrzymuje jędrność. Żywienie i kaloryczność dopasowane do Ciebie i Twojego celu, nie odwrotnie.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening cardio i siłowy</span></li>
@@ -2437,7 +2452,7 @@
         <div class="card-title-holder">
           <h4>Zbudować siłę i masę</h4>
         </div>
-        <p>Chcesz być silniejszy, bardziej umięśniony i wyglądać, jak czujesz się w środku. Pracujemy metodą progresywnego przeciążenia — każdy trening jest trudniejszy niż poprzedni. Budujemy masę mięśniową bez przepaleń i kontuzji, w Twoim tempie.</p>
+        <p>Chcesz być silniejszy, bardziej umięśniony i wyglądać tak, jak czujesz się w środku. Pracujemy metodą progresywnego przeciążenia — każdy trening jest trudniejszy niż poprzedni. Budujemy masę mięśniową bez przepaleń i kontuzji, w Twoim tempie.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening dzielony</span></li>
@@ -2453,7 +2468,7 @@
         <div class="card-title-holder">
           <h4>Lepiej się czuć i ruszać</h4>
         </div>
-        <p>Chcesz mieć więcej energii na co dzień, mniej bólu pleców, lepsza postawę i kondycję. Łączymy mobilność, stabilizację i ruch funkcjonalny — żeby codzienne życie było łatwiejsze i przyjemniejsze. Bez siłownianej presji, z pełnym szacunkiem do Twojego tempa.</p>
+        <p>Chcesz mieć więcej energii na co dzień, mniej bólu pleców, lepszą postawę i kondycję. Łączymy mobilność, stabilizację i ruch funkcjonalny — żeby codzienne życie było łatwiejsze i przyjemniejsze. Bez siłownianej presji, z pełnym szacunkiem do Twojego tempa.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening funkcjonalny</span></li>
@@ -2519,7 +2534,7 @@
         <span class="wiz-when-tile-icon fa-solid fa-sun"></span>
         <h4>Trening poranny / południe</h4>
         <div class="wiz-when-hours">6:00 – 16:00</div>
-        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego, i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne — poranek nie jest „zjadany” przez codzienność.</p>
+        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne — poranek nie jest „zjadany” przez codzienność.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Niższa cena</strong> — od 130 zł/godz. (oszczędzasz do 70 zł na treningu)</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Pusta siłownia</strong> — pełen sprzęt do dyspozycji, bez kolejek</span></li>
@@ -2538,7 +2553,7 @@
                 <span class="wiz-when-tile-icon fa-solid fa-moon"></span>
         <h4>Trening wieczorny</h4>
         <div class="wiz-when-hours">16:00 – 22:00</div>
-        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie — i to mocne. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocieć z siebie stres po pracy i „przestawić” głowę. Uwaga: intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie.</p>
+        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie — i to mocne. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocić z siebie stres po pracy i „przestawić” głowę. Uwaga: intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższa temperatura ciała</strong> — mięśnie elastyczniejsze, mniejsze ryzyko kontuzji</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższy poziom testosteronu</strong> po południu — sprzyja budowaniu siły</span></li>
@@ -2631,7 +2646,7 @@
   <div class="container">
     <div class="cennik-header reveal">
       <div class="section-label">Cennik</div>
-    <div class="cennik-pair-note reveal">💑 Trenujesz w parze? <strong>Druga osoba płaci tylko 50% ceny!</strong> Zapisz się razem i trenujcie razem.</div>
+    <div class="cennik-pair-note reveal">💑 Trenujesz w parze? <strong>Druga osoba płaci tylko 50% ceny!</strong> Zapiszcie się i trenujcie razem.</div>
       <h2 class="section-title">Przejrzyste <span>ceny</span></h2>
       <div class="divider divider-center"></div>
       <p class="section-subtitle">Treningi stacjonarne i online w tej samej cenie. Im więcej planujesz z góry i im wcześniej trenujesz — tym korzystniejsza stawka.</p>
@@ -2739,8 +2754,8 @@
     <div class="masaze-intro">
       <div class="masaze-intro-text reveal">
         <p>Masaż to coś więcej niż chwila relaksu. <strong>Regularne sesje masażu</strong> realnie wpływają na zdrowie: redukują napięcia mięśniowe, poprawiają krążenie, wspierają układ odpornościowy i zmniejszają poziom kortyzolu (hormonu stresu).</p>
-        <p>Jako dyplomowany <strong>masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywoże własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
-        <p>Wykonuję również <strong>drenaż limfatyczny</strong> — zarówno manualnym, jak i aparatowym (pressoterapia — kompresjoterapia nóg). To szczególnie skuteczna forma terapii przy obrzękach, cellulicie i regemeracji po intensywnym treningu.</p>
+        <p>Jako dyplomowany <strong>masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywożę własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
+        <p>Wykonuję również <strong>drenaż limfatyczny</strong> — zarówno manualny, jak i aparatowy (pressoterapia — kompresjoterapia nóg). To szczególnie skuteczna forma terapii przy obrzękach, cellulicie i regeneracji po intensywnym treningu.</p>
         <div class="masaze-intro-btn" style="margin-top:28px;">
           <a href="#kontakt" class="btn btn-primary">Umów masaż</a>
           <a href="#masaze-cennik" class="btn btn-secondary">Cennik masaży</a>
@@ -2773,7 +2788,7 @@
         </div>
         <h3 class="section-title section-title-sm">Wybierz <span>rodzaj masażu</span></h3>
         <div class="divider divider-center"></div>
-        <p class="section-subtitle-wide">Kliknij typ masażu, który Cię interesuje — pojawi się okienko, gdzie wpiszesz imię i wybierzesz jak się do Ciebie odezwę.</p>
+        <p class="section-subtitle-wide">Kliknij typ masażu, który Cię interesuje — pojawi się okienko, gdzie wpiszesz imię i wybierzesz jak mam się do Ciebie odezwać.</p>
       </div>
       <!-- Service cards: 3 types -->
       <div class="masaze-grid">
@@ -2802,13 +2817,17 @@
           <span class="masaz-badge">75 lub 90 min</span>
         </div>
 
-        <div class="masaz-card reveal" style="cursor:pointer; position:relative;" onclick="selectTile(this,'.masaz-card'); wizMassage('Pressoterapia (drenaż aparatowy)')">
+        <!-- <div class="masaz-card reveal" style="cursor:pointer; position:relative;" onclick="selectTile(this,'.masaz-card'); wizMassage('Pressoterapia (drenaż aparatowy)')">
           <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
           <i class="fa-solid fa-wind masaz-icon"></i>
           <div class="masaz-title">Pressoterapia</div>
           <div class="masaz-desc">Aparatowy drenaż limfatyczny — specjalne spodnie z wielokomorowymi rękawami, które falowo uciskają nogi naśladując drenaż manualny. Redukuje obrzęki, cellulit i zmęczenie nóg.</div>
           <span class="masaz-badge">45 lub 60 min</span>
-        </div>
+        </div> -->
+      </div>
+       <div class="wiz-tiles-nav">
+        <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+        <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
       </div>
     </div>
 
