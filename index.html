@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+  <!-- Google Tag – GA4 + Google Ads -->
+  <!-- GA4 ID: G-JM020YW9TB | Google Ads ID: AW-18003814234 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM020YW9TB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JM020YW9TB');   /* GA4 */
+    gtag('config', 'AW-18003814234'); /* Google Ads */
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRENUJjemy z Majklem – Trener Personalny & Masaż Warszawa</title>
@@ -33,27 +43,6 @@
   <!-- Font Awesome 6 Free (line/solid icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
-  <!--
-  ============================================================
-  PLIKI GRAFICZNE — umieść w tym samym folderze co ten plik:
-    hero-bg.jpg         ← szerokie zdjęcie na tle hero (Majkel w siłowni na tle/panorama)
-    foto-portret.jpg    ← portret (biała bluza z kapturem, niebieskie tło)
-    foto-gym.jpg        ← Majkel przy sztandze (niebieska koszulka, żółte talerze)
-    foto-trening-1.jpg  ← trening z klientką przy maszynie
-    foto-trening-2.jpg  ← kettlebell z klientką
-    foto-trening-3.jpg  ← stretching / mobilność z klientką
-    foto-trening-4.jpg  ← planowanie z klientem (czerwona bluza, clipboard)
-    foto-trening-5.jpg  ← core na macie z klientką
-    foto-trening-6.jpg  ← trening z klientem przy maszynie
-    kettle-whole.png    ← kettlebell cały (bez ugryzienia)
-    kettle-bitten.png   ← kettlebell z ugryzieniem
-    masaz-1.jpg         ← zdjęcie masażu (np. masaż pleców na stole)
-    masaz-2.jpg         ← drenaż limfatyczny manualny
-    masaz-3.jpg         ← pressoterapia - spodnie
-    masaz-4.jpg         ← stół do masażu i sprzęt
-  ============================================================
-  -->
-
   <style>
     /* ===== RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +65,7 @@
     img { max-width: 100%; display: block; }
 
     /* ===== UTILITY ===== */
-    .section-container {padding: 100px 0 200px; background: var(--dark);}
+    .section-container {padding: 50px 0 100px; background: var(--dark);}
     .container { max-width: 1240px; margin: 0 auto; padding: 48px 24px 0; }
     .section-label { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
     .section-title { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 900; margin-bottom: 18px; }
@@ -151,7 +140,8 @@
     .nav-logo:hover .nkw { opacity: 0; }
     .nav-logo:hover .nkb { opacity: 1; }
 
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links { display: none; gap: 28px; list-style: none; }
+    .nav-cta { display: none; }
     .nav-links a { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: #ccc; transition: color var(--tr); }
     .nav-links a:hover { color: var(--gold); }
     .nav-cta .btn { padding: 9px 22px; font-size: 0.8rem; }
@@ -174,29 +164,39 @@
       background-color: #0d0a0e;
       /* hero-bg.jpg — Majkel w siłowni, szerokie zdjęcie */
       background-image: url('hero-bg.jpg');
-      background-size: cover; background-position: center top; background-attachment: fixed;
+      background-size: cover; background-position: 1000px top; background-attachment: scroll; padding-bottom: 50px;
     }
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(105deg, rgba(5,2,8,0.88) 0%, rgba(77,16,48,0.55) 55%, rgba(5,2,8,0.75) 100%);
     }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; padding-top: 80px; position: relative; z-index: 2; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(107,27,63,0.4); border: 1px solid rgba(245,166,35,0.3); border-radius: 50px; padding: 7px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; padding-top: 40px; position: relative; z-index: 2; }
+    .hero-badge { display: none; align-items: center; gap: 8px; background: rgba(107,27,63,0.4); border: 1px solid rgba(245,166,35,0.3); border-radius: 50px; padding: 7px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+    .hero-badge-mobile { display: flex; font-size: 0.6rem;}
     .hero-badge i { font-size: 0.65rem; color: var(--gold); }
-    .hero-title { font-size: clamp(3.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.04; margin-bottom: 22px; letter-spacing: -0.02em;}
+    .hero-title { font-size: clamp(3.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em;}
     .hero-title .acc { color: var(--gold); }
-    .hero-title .dim { background: var(--gold); color: var(--maroon-lt); padding: .5rem 2.5rem; line-height: 1.7;}
-    .hero-sub { font-size: 1.08rem; color: #c0b8bd; max-width: 500px; margin-bottom: 32px; line-height: 1.78; text-shadow: 0 1px 8px rgba(0,0,0,0.65); }
+    .hero-title .dim { background: var(--gold); color: var(--maroon-lt); padding: 5px 5px; line-height: 1.9; font-size: 2.2rem; }
+    .hero-sub { font-size: 1rem; color: #c0b8bd; width: calc(100% + 24px); max-width: 500px; margin-bottom: 10px; margin-left: -24px; line-height: 1.78; padding: 20px 20px 20px 24px; border-radius: 0 20px 20px 0; }
+    .hero-sub-desktop { display: none; } 
+    .hero-sub-mobile { display: block; } 
+    @media (min-width: 769px) { 
+    .hero-sub-desktop { display: block; } 
+    .hero-sub-mobile { display: none; } 
+    }
     .hero-sub span {font-family: 'Montserrat' ; font-weight: 600; }
-    .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
-    .hero-tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(0, 0, 0, 0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 13px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #d0c8cc; transition: all var(--tr); }
+    .hero-tags { display: none; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
+    .hero-tag { display: none; align-items: center; gap: 7px; background: rgba(0, 0, 0, 0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 13px; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: #d0c8cc; transition: all var(--tr); }
     .hero-tag:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,27,63,0.45); background: rgba(0, 0, 0, 0.3); }
     .hero-tag i { color: var(--gold); font-size: 0.9rem; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
-    .hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    .hero-actions { display: flex; flex-direction: column; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+    .hero-stats { display: none;}
+    @media (min-width: 900px) {
+      .hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    }
     .stat-num { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--gold); line-height: 1; }
     .stat-lbl { font-size: 0.75rem; color: #777; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px; }
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual { display: none; align-items: center; justify-content: center; }
     .hero-kettle { width: 100%; max-width: 360px; }
 
     /* ===== VALUES (redesign) ===== */
@@ -217,17 +217,18 @@
     }
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
     }
     .value-block {
-      padding: 52px 160px;
-      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 24px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       position: relative;
       text-align: center;
       overflow: hidden;
       transition: background var(--tr);
     }
-    .value-block:last-child { border-right: none; }
+    .value-block:last-child { border-bottom: none; }
     .value-block::before {
       content: '';
       position: absolute;
@@ -271,29 +272,44 @@
     }
 
     /* ===== ABOUT ===== */
-    #omnie { padding: 150px 0; background: var(--dark); }
-    @media (max-width: 900px) {
-      #omnie { padding: 50px 0 100px; background: var(--dark); }
+    #omnie { padding: 50px 0 100px; background: var(--dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+    /* ===== ABOUT PHOTO — mobile: stos kart z przeciąganiem (base = mobile) ===== */
+    .about-photo-wrap {
+      position: relative; margin: 0 0; max-width: 420px;
+      aspect-ratio: 1/1;
+      cursor: grab; user-select: none; -webkit-user-select: none;
     }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-photo-wrap { position: relative; margin: 6rem auto auto;}
+    .about-photo-wrap:active { cursor: grabbing; }
     .about-photo {
-      width: 100%; aspect-ratio: 1/1; margin: 20px auto 20px;
+      width: 100%; aspect-ratio: 1/1;
       border-radius: 50px; overflow: hidden;
       background: linear-gradient(135deg, var(--maroon-dk), var(--maroon));
-      position: relative;
+      position: absolute; inset: 0;
+      width: auto; margin: 0;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s, opacity 0.3s;
+      will-change: transform;
+    }
+    .about-photo.photo-top {
+      z-index: 2;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    }
+    .about-photo:not(.photo-top) {
+      z-index: 1;
+      transform: rotate(4deg) translate(10px, 8px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
     .about-photo img {
       width: 100%; height: 100%; object-fit: cover; object-position: top;
       display: block; border-radius: 50px;
+      pointer-events: none;
     }
-    .about-photo-arrow{
-      width: 100%;
-      text-align: center;
-    }
-    .about-photo-arrow i{
-      font-size: 2rem;
-      color: var(--gold);
+    .about-photo-hint {
+      display: block;
+      position: absolute; bottom: -28px; left: 0; right: 0; z-index: 4;
+      text-align: center; font-size: 0.68rem; font-family: 'Montserrat', sans-serif;
+      color: rgba(255,255,255,0.28); letter-spacing: 0.08em; pointer-events: none;
     }
     .about-photo-fallback {
       width: 100%; height: 100%;
@@ -304,7 +320,7 @@
     }
     .about-photo-fallback i { font-size: 3rem; opacity: 0.3; }
     .about-exp-badge {
-      position: absolute; bottom: -16px; right: -16px;
+      position: absolute; bottom: -16px; right: -16px; z-index: 3;
       background: var(--gold); color: var(--dark);
       border-radius: 16px; padding: 18px 22px;
       font-family: 'Montserrat', sans-serif; font-weight: 900; text-align: center;
@@ -330,7 +346,7 @@
       border-radius: 0 12px 12px 0; padding: 18px 22px;
       font-style: italic; color: #ddd; font-size: 0.95rem; line-height: 1.72; margin-top: 26px;
     }
-    .vibe-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .vibe-row { display: none; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
     .vibe-chip {
       display: flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(245,166,35,0.2);
@@ -347,7 +363,7 @@
     .gal-row {
       position: relative;
       overflow: hidden;
-      height: 400px;
+      height: 200px;
     }
     .gal-track {
       display: flex;
@@ -356,7 +372,7 @@
       /* JS controls transform for auto-scroll */
     }
     .gal-item {
-      flex: 0 0 25%;
+      flex: 0 0 50%;
       height: 100%;
       position: relative;
       overflow: hidden;
@@ -402,7 +418,7 @@
     #metoda { padding: 100px 0; background: var(--dark2); }
     .metoda-header { text-align: center; margin-bottom: 60px; }
     .metoda-header .section-subtitle { margin: 0 auto; }
-    .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .methods-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
     .method-card {
       background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 18px; padding: 40px 30px;
@@ -430,7 +446,7 @@
     #oferta { padding: 100px 0; background: var(--dark); }
     .oferta-header { text-align: center; margin-bottom: 56px; }
     .oferta-header .section-subtitle { margin: 0 auto; }
-    .oferta-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 100px; }
+    .oferta-tabs { display: flex; flex-direction: column; align-items: center; gap: 10px; justify-content: center; margin-bottom: 100px; }
     .tab-btn {
       padding: 11px 30px; border-radius: 50px;
       font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem;
@@ -441,7 +457,7 @@
     .tab-btn.active, .tab-btn:hover { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
     .oferta-panel { display: none; }
     .oferta-panel.active { display: block; }
-    .services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .services-list { display: grid; grid-template-columns: 1fr; gap: 22px; }
     .service-item {
       background: var(--dark2); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 14px; padding: 50px 50px;
@@ -454,10 +470,10 @@
     .service-item-desc { font-size: 0.86rem; color: #888; line-height: 1.65; }
 
     /* ===== CENNIK ===== */
-    #cennik { padding: 100px 0; background: var(--dark2); }
+    #cennik { padding: 50px 0; background: var(--dark2); }
     .cennik-header { text-align: center; margin-bottom: 60px; }
     .cennik-header .section-subtitle { margin: 0 auto; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: start; }
     .price-card {
       background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 18px; padding: 28px 22px; position: relative;
@@ -467,9 +483,9 @@
     .price-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(0,0,0,0.28); }
     .price-card.featured {
       background: linear-gradient(135deg, var(--maroon-dk) 0%, var(--maroon) 100%);
-      border-color: var(--gold); transform: scale(1.05);
+      border-color: var(--gold); transform: none;
     }
-    .price-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+    .price-card.featured:hover { transform: translateY(-5px); }
     .price-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: var(--dark);
@@ -512,10 +528,120 @@
     .pricing-note { text-align: center; margin-top: 28px; font-size: 0.85rem; color: #666; }
     .pricing-note strong { color: var(--gold); }
 
+      /* ===== MASAŻE SECTION ===== */
+    #masaze { padding: 100px 0; background: var(--dark2); }
+    .masaze-header { text-align: center; margin-bottom: 70px; }
+    .masaze-header .section-subtitle { margin: 0 auto; }
+    #masaz-type-selection { margin-bottom: 70px; }
+
+    /* .masaze-intro {
+      display: grid; grid-template-columns: 1fr; gap: 60px;
+      align-items: center; margin-bottom: 80px;
+    } */
+    
+    .masaze-intro-text p { color: #aaa; line-height: 1.78; margin-bottom: 18px; font-size: 1.02rem; }
+    .masaze-intro-text p strong { color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .masaze-intro-btn{ display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+    .masaze-intro-img {
+      position: relative; border-radius: 18px; overflow: hidden;
+      height: 650px; background: var(--dark3);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(245,166,35,0.15);
+    }
+    .masaze-intro-img img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom;}
+    .masaze-intro-img .placeholder-icon { font-size: 3rem; color: rgba(245,166,35,0.3); }
+
+    /* Service cards */
+    .masaze-grid { display: grid; grid-template-columns: (1fr); gap: 24px; margin-bottom: 20px; }
+    .masaz-card {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 36px 28px; text-align: center;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+      position: relative; overflow: hidden;
+    }
+    .masaz-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(107,27,63,0.08) 0%, transparent 60%);
+      opacity: 0; transition: opacity var(--tr);
+    }
+    .masaz-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .masaz-card:hover::before { opacity: 1; }
+    .masaz-card.featured { border-color: rgba(245,166,35,0.25); }
+    .masaz-icon { font-size: 2rem; color: var(--gold); margin-bottom: 22px; display: block; }
+    .masaz-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 14px; color: var(--white); font-family: 'Montserrat', sans-serif; }
+    .masaz-desc { font-size: 0.88rem; color: #888; line-height: 1.72; }
+    .masaz-badge {
+      display: inline-block; margin-top: 18px;
+      background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3);
+      color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
+    }
+
+    /* Pressotherapy highlight */
+    .press-highlight {
+      background: linear-gradient(135deg, rgba(77,16,48,0.4) 0%, rgba(107,27,63,0.25) 100%);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 20px; padding: 32px; margin-bottom: 60px;
+      display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center;
+    }
+    .press-text h3 { font-size: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 16px; }
+    .press-text h3 span { color: var(--gold); }
+    .press-text p { color: #999; line-height: 1.78; margin-bottom: 14px; font-size: 0.95rem; }
+    .press-benefits { list-style: none; margin-top: 20px; }
+    .press-benefits li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; color: #bbb; }
+    .press-benefits li i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+    .press-visual {
+      border-radius: 16px; overflow: hidden; height: 320px;
+      background: var(--dark3); display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(245,166,35,0.12);
+    }
+    .press-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .press-visual .placeholder-icon { font-size: 4rem; color: rgba(245,166,35,0.25); }
+
+    /* Mobile service banner */
+    .masaze-mobile-banner {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 36px 40px;
+      display: flex; align-items: center; gap: 32px; margin-bottom: 60px;
+    }
+    .masaze-mobile-banner .mob-icon { font-size: 2.8rem; color: var(--gold); flex-shrink: 0; }
+    .masaze-mobile-banner h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .masaze-mobile-banner p { font-size: 0.9rem; color: #999; line-height: 1.65; }
+
+    /* Gallery placeholder for massage photos */
+    .masaze-gallery { margin-bottom: 60px; }
+    .masaze-gallery h3 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; text-align: center; margin-bottom: 28px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; }
+    .masaze-photo-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .masaze-photo-item {
+      border-radius: 12px; overflow: hidden; aspect-ratio: 1;
+      background: var(--dark3); border: 1px dashed rgba(255,255,255,0.12);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2); font-size: 0.75rem; gap: 10px;
+      cursor: pointer;
+      transition: border-color var(--tr);
+    }
+    .masaze-photo-item:not(.placeholder):hover { border-color: rgba(245,166,35,0.4); }
+    .masaze-photo-item.placeholder i { font-size: 1.8rem; color: rgba(255,255,255,0.1); }
+    .masaze-photo-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Masaze pricing */
+    .masaze-pricing { background: var(--dark); border-radius: 20px; padding: 40px; }
+    .masaze-pricing h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 30px; }
+    .masaze-price-table { width: 100%; border-collapse: collapse; }
+    .masaze-price-table th { text-align: left; padding: 14px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .masaze-price-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #bbb; font-size: 0.92rem; line-height: 1.5; }
+    .masaze-price-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .masaze-price-table td:last-child { color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
+    .masaze-note { text-align: center; margin-top: 22px; font-size: 0.82rem; color: #666; }
+
+    /* masaze breakpoints — handled in consolidated min-width blocks below */
+
     /* ===== FAQ ===== */
     #faq { padding: 100px 0; background: var(--dark); }
-    .faq-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
-    .faq-sidebar { position: sticky; top: 100px; }
+    .faq-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+    .faq-sidebar { position: static; }
     .faq-list { display: flex; flex-direction: column; gap: 10px; }
     .faq-item { background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; transition: border-color var(--tr); }
     .faq-item.open { border-color: rgba(245,166,35,0.4); }
@@ -530,7 +656,7 @@
     /* ===== KONTAKT ===== */
     #kontakt { padding: 100px 0; background: linear-gradient(135deg, var(--maroon-dk) 0%, #180913 55%, var(--dark2) 100%); position: relative; overflow: hidden; }
     #kontakt::before { content:''; position: absolute; top:-40%; right:-10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 70%); pointer-events:none; }
-    .contact-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; position: relative; z-index:1; }
+    .contact-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; position: relative; z-index:1; }
     .contact-info h2 { margin-bottom: 18px; }
     .contact-info p { color: #aaa; line-height: 1.72; margin-bottom: 32px; }
     .contact-items { display: flex; flex-direction: column; gap: 18px; }
@@ -592,7 +718,7 @@
 
     /* ===== FOOTER ===== */
     footer { background: #080508; padding: 48px 0 22px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; margin-bottom: 36px; }
+    .footer-inner { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 36px; }
     .footer-logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
     .footer-tagline { font-size: 0.84rem; color: #555; line-height: 1.65; max-width: 270px; }
     .footer-social { display: flex; gap: 10px; margin-top: 18px; }
@@ -602,93 +728,128 @@
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .footer-links a, .footer-links li { font-size: 0.86rem; color: #555; transition: color var(--tr); }
     .footer-links a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; justify-content: space-between; font-size: 0.76rem; color: #3a3a3a; flex-wrap: wrap; gap: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; flex-direction: column; text-align: center; justify-content: space-between; font-size: 0.76rem; color: #3a3a3a; flex-wrap: wrap; gap: 6px; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1100px) {
-      .hero-title .dim { line-height: 1.9;}
-      .pricing-grid { grid-template-columns: repeat(2,1fr); }
-      .price-card.featured { transform: none; }
-      .price-card.featured:hover { transform: translateY(-5px); }
-      .methods-grid { grid-template-columns: repeat(2,1fr); }
-      .values-grid { grid-template-columns: repeat(2,1fr); }
-      .value-block { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    /* ===== RESPONSIVE (mobile-first) ===== */
+    @media (min-width: 481px) {
+      .hero-actions { flex-direction: row; }
+      .hero-actions .btn { text-align: left; }
+      .oferta-tabs { flex-direction: row; align-items: initial; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .gal-row { height: 240px; }
     }
-    @media (max-width: 1000px) {
-      .nav-links, .nav-cta { display: none; }
-    }
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-badge {font-size: .7rem; }
-      .value-block { padding: 36px 24px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-photo-wrap { max-width: 420px; margin: 0 0; }
-      .faq-inner { grid-template-columns: 1fr; }
-      .faq-sidebar { position: static; }
-      .contact-inner { grid-template-columns: 1fr; }
+    .mobile-display-none{ display: none; }
+    @media (min-width: 769px) {
+      #hero { background-attachment: fixed; background-position: center top; padding-bottom: 0; }
+      .hero-title .dim { font-size: inherit; padding: .5rem 2.5rem; line-height: 1.9; }
+      .hero-tag { display: inline-flex; }
+      .hero-tags { display: flex; }
+      .vibe-row { display: flex; }
+      .methods-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-list { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: row; text-align: left; }
+      .gal-item { flex: 0 0 25%; }
+      .gal-row { height: 400px; }
+      .mobile-display-none { display: block; }
     }
-    @media (max-width: 768px) {
-      #hero { background-position: 1150px top; padding-bottom: 50px}
-      .hero-title .dim { font-size: 2.2rem; padding: .6rem 0.6rem; }
-      .hero-tag { display: none; font-size: .6rem;}
-      .methods-grid { grid-template-columns: 1fr; }
-      .services-list { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 901px) {
+      #omnie { padding: 150px 0; }
+      .hero-visual { display: flex; }
+      .hero-badge { display: inline-flex; }
+      .hero-badge-mobile { display: none; }
+      .hero-badge { font-size: 0.75rem; }
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+      /* Desktop about photo: static layout, no drag stack */
+      .about-photo-wrap {
+        max-width: none; margin: 6rem auto auto;
+        aspect-ratio: auto;
+        cursor: default; user-select: auto; -webkit-user-select: auto;
+      }
+      .about-photo-wrap:active { cursor: default; }
+      .about-photo {
+        position: relative; inset: auto;
+        width: 100%; margin: 20px auto 20px;
+        transition: none; will-change: auto;
+        transform: none; box-shadow: none;
+      }
+      .about-photo.photo-top { z-index: auto; transform: none; box-shadow: none; }
+      .about-photo:not(.photo-top) { z-index: auto; transform: none; box-shadow: none; }
+      .about-photo img { pointer-events: auto; }
+      .about-photo-hint { display: none; }
+      .faq-inner { grid-template-columns: 1fr 1.6fr; gap: 80px; }
+      .faq-sidebar { position: sticky; top: 100px; }
+      .contact-inner { grid-template-columns: 1fr 1.4fr; gap: 80px; }
+      .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; }
+      .masaze-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+      .masaze-photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;}
+      .masaze-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+      .press-highlight { grid-template-columns: 1fr 1fr; gap: 50px; }
     }
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { text-align: center; }
-      .oferta-tabs { flex-direction: column; align-items: center; }
-      .values-grid { grid-template-columns: 1fr; }
+    @media (min-width: 1001px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: block; }
+    }
+    @media (min-width: 1101px) {
+      .hero-title .dim { line-height: 1.7; }
+      .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+      .price-card.featured { transform: scale(1.05); }
+      .price-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+      .methods-grid { grid-template-columns: repeat(3, 1fr); }
+      .values-grid { grid-template-columns: repeat(3, 1fr); }
+      .value-block { border-right: 1px solid rgba(255,255,255,0.06); border-bottom: none; padding: 52px 160px; }
+      .value-block:last-child { border-right: none; }
     }
 
     /* iOS parallax fix */
     @supports (-webkit-overflow-scrolling: touch) {
       #hero { background-attachment: scroll; }
     }
-    @media (max-width: 768px) {
-      #hero { background-attachment: scroll; }
-      .hero-tags { display: none; }
-      .vibe-row { display: none; }
-      /* .hero-sub { margin-bottom: 0; } */
-    }
-
-    /* Gallery mobile */
-    @media (max-width: 768px) {
-      .gal-item { flex: 0 0 50%; }
-      .gal-row { height: 240px; }
-    }
-    @media (max-width: 480px) {
-      .gal-item { flex: 0 0 50%; }
-      .gal-row { height: 200px; }
-    }
 
     /* ===== FAB KETTLEBELL ===== */
-    .fab-kettle { display: none; } /* ukryty na desktop */
-    @media (max-width: 1000px) {
-      .fab-kettle {
-        position: fixed; bottom: 24px; right: 24px; z-index: 1100;
-        width: 76px; height: 76px; border-radius: 50%;
-        background: rgba(0,0,0,0.35); border: 2px solid rgba(255,255,255,0.18);
-        cursor: pointer; display: flex; align-items: center; justify-content: center;
-        padding: 8px;
-        transition: transform 0.2s ease, background 0.2s;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.5);
-      }
-      .fab-kettle:active { transform: scale(0.93); }
-      .fab-kettle .fkw { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; transition: opacity 0.3s; }
-      .fab-kettle .fkb { position: absolute; width: 90%; height: 90%; object-fit: contain; z-index: 2; opacity: 0; transition: opacity 0.3s; }
-      /* Bitten gdy menu otwarte */
-      body.menu-open .fab-kettle .fkw { opacity: 0; }
-      body.menu-open .fab-kettle .fkb { opacity: 1; }
-      body.menu-open .fab-kettle { border-color: rgba(245,166,35,0.5); }
+    @keyframes fab-ring {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      100% { transform: scale(2.4); opacity: 0;   }
     }
+    @keyframes fab-bounce {
+      0%, 100% { transform: scale(1); }
+      40%       { transform: scale(1.08); }
+      60%       { transform: scale(0.96); }
+    }
+    /* ===== FAB KETTLEBELL — mobile base: visible ===== */
+    .fab-kettle {
+      position: fixed; bottom: 24px; right: 24px; z-index: 1100;
+      width: 76px; height: 76px; border-radius: 50%;
+      background: var(--gold); border: 2px solid rgba(255,255,255,0.18);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      padding: 8px;
+      transition: transform 0.2s ease, background 0.2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+    }
+    .fab-kettle:active { transform: scale(0.93); }
+    /* Fale — widoczne tylko przed pierwszym kliknięciem */
+    .fab-kettle:not(.fab-seen)::before,
+    .fab-kettle:not(.fab-seen)::after {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      border: 2px solid rgba(245,166,35,0.75);
+      animation: fab-ring 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+    .fab-kettle:not(.fab-seen)::after { animation-delay: 1s; }
+    /* Delikatne pulsowanie samego guzika */
+    .fab-kettle:not(.fab-seen) { animation: fab-bounce 2.4s ease-in-out infinite; }
+    .fab-kettle .fkw { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; transition: opacity 0.3s; }
+    .fab-kettle .fkb { position: absolute; width: 90%; height: 90%; object-fit: contain; z-index: 2; opacity: 0; transition: opacity 0.3s; }
+    /* Bitten gdy menu otwarte */
+    body.menu-open .fab-kettle .fkw { opacity: 0; }
+    body.menu-open .fab-kettle .fkb { opacity: 1; }
+    body.menu-open .fab-kettle { border-color: rgba(245,166,35,0.5); }
+    /* min-width: 1001px — hidden on desktop (see consolidated block below) */
 
 
     /* ===== LIGHTBOX ===== */
@@ -726,128 +887,6 @@
     }
     /* Make gallery items show pointer */
     .gal-item { cursor: zoom-in; }
-
-
-    /* ===== MASAŻE SECTION ===== */
-    #masaze { padding: 100px 0; background: var(--dark2); }
-    .masaze-header { text-align: center; margin-bottom: 70px; }
-    .masaze-header .section-subtitle { margin: 0 auto; }
-    #masaz-type-selection { margin-bottom: 50px; }
-
-    .masaze-intro {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      align-items: center; margin-bottom: 80px;
-    }
-    .masaze-intro-text p { color: #aaa; line-height: 1.78; margin-bottom: 18px; font-size: 1.02rem; }
-    .masaze-intro-text p strong { color: var(--white); font-family: 'Montserrat', sans-serif; }
-    .masaze-intro-btn{ display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
-    .masaze-intro-img {
-      position: relative; border-radius: 18px; overflow: hidden;
-      height: 650px; background: var(--dark3);
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(245,166,35,0.15);
-    }
-    .masaze-intro-img img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom;}
-    .masaze-intro-img .placeholder-icon { font-size: 3rem; color: rgba(245,166,35,0.3); }
-
-    /* Service cards */
-    .masaze-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 60px; }
-    .masaz-card {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px; padding: 36px 28px; text-align: center;
-      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
-      position: relative; overflow: hidden;
-    }
-    .masaz-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(107,27,63,0.08) 0%, transparent 60%);
-      opacity: 0; transition: opacity var(--tr);
-    }
-    .masaz-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-    .masaz-card:hover::before { opacity: 1; }
-    .masaz-card.featured { border-color: rgba(245,166,35,0.25); }
-    .masaz-icon { font-size: 2rem; color: var(--gold); margin-bottom: 22px; display: block; }
-    .masaz-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 14px; color: var(--white); font-family: 'Montserrat', sans-serif; }
-    .masaz-desc { font-size: 0.88rem; color: #888; line-height: 1.72; }
-    .masaz-badge {
-      display: inline-block; margin-top: 18px;
-      background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3);
-      color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
-    }
-
-    /* Pressotherapy highlight */
-    .press-highlight {
-      background: linear-gradient(135deg, rgba(77,16,48,0.4) 0%, rgba(107,27,63,0.25) 100%);
-      border: 1px solid rgba(245,166,35,0.2);
-      border-radius: 20px; padding: 48px; margin-bottom: 60px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
-    }
-    .press-text h3 { font-size: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 16px; }
-    .press-text h3 span { color: var(--gold); }
-    .press-text p { color: #999; line-height: 1.78; margin-bottom: 14px; font-size: 0.95rem; }
-    .press-benefits { list-style: none; margin-top: 20px; }
-    .press-benefits li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; color: #bbb; }
-    .press-benefits li i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-    .press-visual {
-      border-radius: 16px; overflow: hidden; height: 320px;
-      background: var(--dark3); display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(245,166,35,0.12);
-    }
-    .press-visual img { width: 100%; height: 100%; object-fit: cover; }
-    .press-visual .placeholder-icon { font-size: 4rem; color: rgba(245,166,35,0.25); }
-
-    /* Mobile service banner */
-    .masaze-mobile-banner {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 36px 40px;
-      display: flex; align-items: center; gap: 32px; margin-bottom: 60px;
-    }
-    .masaze-mobile-banner .mob-icon { font-size: 2.8rem; color: var(--gold); flex-shrink: 0; }
-    .masaze-mobile-banner h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .masaze-mobile-banner p { font-size: 0.9rem; color: #999; line-height: 1.65; }
-
-    /* Gallery placeholder for massage photos */
-    .masaze-gallery { margin-bottom: 60px; }
-    .masaze-gallery h3 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; text-align: center; margin-bottom: 28px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; }
-    .masaze-photo-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-    }
-    .masaze-photo-item {
-      border-radius: 12px; overflow: hidden; aspect-ratio: 1;
-      background: var(--dark3); border: 1px dashed rgba(255,255,255,0.12);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2); font-size: 0.75rem; gap: 10px;
-      cursor: pointer;
-      transition: border-color var(--tr);
-    }
-    .masaze-photo-item:not(.placeholder):hover { border-color: rgba(245,166,35,0.4); }
-    .masaze-photo-item.placeholder i { font-size: 1.8rem; color: rgba(255,255,255,0.1); }
-    .masaze-photo-item img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Masaze pricing */
-    .masaze-pricing { background: var(--dark); border-radius: 20px; padding: 40px; }
-    .masaze-pricing h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 30px; }
-    .masaze-price-table { width: 100%; border-collapse: collapse; }
-    .masaze-price-table th { text-align: left; padding: 14px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .masaze-price-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #bbb; font-size: 0.92rem; line-height: 1.5; }
-    .masaze-price-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .masaze-price-table td:last-child { color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
-    .masaze-note { text-align: center; margin-top: 22px; font-size: 0.82rem; color: #666; }
-
-    @media (max-width: 900px) {
-      .masaze-intro { grid-template-columns: 1fr; }
-      .masaze-grid { grid-template-columns: 1fr 1fr; }
-      .press-highlight { grid-template-columns: 1fr; gap: 30px; padding: 32px; }
-      .masaze-photo-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .masaze-grid { grid-template-columns: 1fr; }
-      .masaze-mobile-banner { flex-direction: column; padding: 28px 24px; text-align: center; }
-      .masaze-price-table th, .masaze-price-table td { padding: 12px 14px; font-size: 0.82rem; }
-      .masaze-pricing { padding: 24px 16px; }
-    }
-
 
     .lb-loading {
       position: absolute; top: 50%; left: 50%;
@@ -969,11 +1008,12 @@
   }
 
   /* ===== BANER COOKIES ===== */
+  /* ===== BANER COOKIES — mobile base ===== */
   #cookie-banner {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
     background: rgba(15,10,15,0.97);
     border-top: 1px solid rgba(245,166,35,0.35);
-    padding: 18px 28px;
+    padding: 16px 18px;
     display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
     backdrop-filter: blur(8px);
     transform: translateY(100%);
@@ -984,12 +1024,13 @@
     flex: 1; min-width: 260px; font-size: 0.82rem; color: #aaa; line-height: 1.6; margin: 0;
   }
   #cookie-banner a { color: var(--gold); text-decoration: underline; }
-  .cb-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+  .cb-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; width: 100%; }
   .cb-accept {
     background: var(--gold); color: #111; border: none;
     padding: 10px 22px; border-radius: 6px; font-family: 'Montserrat',sans-serif;
     font-weight: 700; font-size: 0.82rem; cursor: pointer;
     transition: background .2s, transform .15s;
+    flex: 1; text-align: center;
   }
   .cb-accept:hover { background: #ffc04a; transform: translateY(-1px); }
   .cb-reject {
@@ -997,19 +1038,22 @@
     padding: 10px 22px; border-radius: 6px; font-family: 'Montserrat',sans-serif;
     font-weight: 600; font-size: 0.82rem; cursor: pointer;
     transition: border-color .2s, color .2s;
+    flex: 1;
+    text-align: center;
   }
   .cb-reject:hover { border-color: #555; color: #999; }
-  @media (max-width: 600px) {
-    #cookie-banner { padding: 16px 18px; }
-    .cb-btns { width: 100%; }
-    .cb-accept, .cb-reject { flex: 1; text-align: center; }
+  /* min-width: 601px cookie overrides — see consolidated block below */
+
+  @media (min-width: 1100px) {
+    #cookie-banner { padding: 16px 28px; }
+    .cb-btns { width: auto; padding: 0;}
+    .cb-reject {
+    flex: auto;
+  }
   }
 
   /* ===== OPINIE ===== */
-  #opinie { padding: 100px 0; background: var(--dark2); }
-  @media (max-width: 900px) {
-    /* #opinie { padding: 0px 0 100px; background: var(--dark2); } */
-  }
+  #opinie { padding: 50px 0; background: var(--dark2); }
   .opinie-header { text-align: center; margin-bottom: 56px; }
   .opinie-track-wrap { position: relative; overflow: hidden; }
   .opinie-track {
@@ -1020,7 +1064,7 @@
   }
   .opinie-track:active { cursor: grabbing; }
   .review-card {
-    flex: 0 0 320px;
+    flex: 0 0 300px;
     background: var(--dark3); border: 1px solid rgba(255,255,255,0.07);
     border-radius: 16px; padding: 24px;
     transition: border-color var(--tr), transform var(--tr);
@@ -1084,42 +1128,45 @@
     transition: background var(--tr); display: flex; align-items: center; justify-content: center;
   }
   .opinie-nav button:hover { background: rgba(245,166,35,0.25); }
-  @media (max-width: 768px) {
-    .review-card { flex: 0 0 78vw; }
-  }
-  
-    /* ===== FAB SOCIAL STACK ===== */
+  /* review-card 769px+ override in consolidated block below */
+
+    /* ===== FAB SOCIAL STACK — mobile base ===== */
     .fab-social-stack {
-      position: fixed; bottom: 34px; right: 34px; z-index: 1099;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      position: fixed; bottom: 24px; left: 24px; right: auto; z-index: 1099;
+      width: 44px; height: 44px; cursor: pointer;
     }
-    @media (max-width: 1000px) {
-      .fab-social-stack { left: 24px; right: auto; bottom: 24px; }
-    }
+    /* min-width: 1001px desktop position — see consolidated block below */
     .fab-social-link {
+      position: absolute; bottom: 0; left: 0;
       width: 44px; height: 44px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.05rem; color: #fff;
       box-shadow: 0 3px 12px rgba(0,0,0,0.5);
-      text-decoration: none; transition: transform 0.2s, opacity 0.2s;
-      position: relative;
+      text-decoration: none;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s;
     }
-    .fab-social-link:hover { transform: scale(1.12); }
+    /* Collapsed peek: mobile peeks right */
+    .fab-social-link:nth-child(1) { z-index: 3; transform: translate(0, 0); }
+    .fab-social-link:nth-child(2) { z-index: 2; transform: translate(7px, 0px); }
+    .fab-social-link:nth-child(3) { z-index: 1; transform: translate(13px, 0px); }
+    /* min-width: 1001px desktop peek left — see consolidated block below */
+    /* Expanded: mobile spreads right */
+    .fab-social-stack.open .fab-social-link:nth-child(1) { transform: translate(0, 0); }
+    .fab-social-stack.open .fab-social-link:nth-child(2) { transform: translate(54px, 0); }
+    .fab-social-stack.open .fab-social-link:nth-child(3) { transform: translate(108px, 0); }
+    /* min-width: 1001px desktop spreads left — see consolidated block below */
+    .fab-social-stack.open .fab-social-link:hover { filter: brightness(1.15); box-shadow: 0 4px 18px rgba(0,0,0,0.6); }
     .fab-social-link.fb { background: #1877F2; }
     .fab-social-link.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
     .fab-social-link.ms { background: linear-gradient(135deg,#00B2FF,#006AFF); }
     .fab-social-tooltip {
-      position: absolute; right: 54px; top: 50%; transform: translateY(-50%);
+      position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
       background: rgba(0,0,0,0.85); color: #fff;
       font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600;
       padding: 4px 9px; border-radius: 5px; white-space: nowrap;
       opacity: 0; pointer-events: none; transition: opacity 0.2s;
     }
-    .fab-social-link:hover .fab-social-tooltip { opacity: 1; }
-    @media (max-width: 1000px) {
-      /* Tooltip po prawej stronie ikony gdy stack jest po lewej */
-      .fab-social-tooltip { right: auto; left: 54px; }
-    }
+    .fab-social-stack.open .fab-social-link:hover .fab-social-tooltip { opacity: 1; }
 
     /* ===== CO CIĘ INTERESUJE ===== */
     .inter-tiles {
@@ -1154,20 +1201,17 @@
       font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
     } */
-    @media (max-width: 768px) {
-      .inter-tiles { grid-template-columns: 1fr; }
-      .inter-tile { min-height: 240px; }
-    }
+    /* inter-tiles 769px+ — see consolidated block below */
 
     /* ===== WIZARD SECTIONS ===== */
-    .wiz-section { padding: 0 0 200px; background: var(--dark); }
+    .wiz-section { padding: 0 0 100px; background: var(--dark); }
     .wiz-section-alt { background: var(--dark2); }
     .wiz-section-cards-label {
       text-align: center; margin-bottom: 40px;
     }
     .wiz-section-top {
       background-size: cover; background-position: center;
-      padding: 80px 0 60px; position: relative;
+      padding: 0px 0 40px; position: relative;
     }
     .wiz-section-overlay {
       position: absolute; inset: 0;
@@ -1209,9 +1253,9 @@
       opacity: 0.6; transition: opacity 0.2s;
     }
     .wiz-type-tile:hover .wiz-pick { opacity: 1; }
-    @media (max-width: 768px) { .wiz-type-tiles { grid-template-columns: 1fr; } }
+    /* wiz-type-tiles 769px+ — see consolidated block below */
     /* Online cards */
-    .online-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .online-cards { display: grid; grid-template-columns: 1fr; gap: 22px; }
     .online-card {
       background: var(--dark2); border: 1.5px solid rgba(255,255,255,0.08);
       border-radius: 20px; padding: 36px 26px; text-align: center;
@@ -1231,7 +1275,7 @@
       margin-bottom: 12px; letter-spacing: 0.4px;
     }
     .online-card p { font-size: 0.86rem; color: #888; line-height: 1.75; }
-    @media (max-width: 768px) { .online-cards { grid-template-columns: 1fr; } }
+    /* online-cards 769px+ — see consolidated block below */
     /* Goal tiles */
     .wiz-goal-tiles {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
@@ -1275,8 +1319,7 @@
       opacity: 0.6; transition: opacity 0.2s;
     }
     .wiz-goal-tile:hover .wiz-goal-pick { opacity: 1; }
-    @media (max-width: 900px) { .wiz-goal-tiles { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .wiz-goal-tiles { grid-template-columns: 1fr; } }
+    /* wiz-goal-tiles 601px+ and 901px+ — see consolidated blocks below */
     /* When tiles */
     .wiz-when-tiles {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
@@ -1321,7 +1364,7 @@
     @media (max-width: 600px) { .wiz-when-tiles { grid-template-columns: 1fr; } }
 
     /* ===== MYPTUB SECTION ===== */
-    #myptub { padding: 100px 0; background: var(--dark2); }
+    #myptub { padding: 50px 0; background: var(--dark2); }
     .myptub-header { text-align: center; margin-bottom: 64px; }
     .myptub-intro {
       max-width: 720px; margin: 0 auto 56px;
@@ -1547,7 +1590,7 @@
      .wiz-top-desc { max-width: 100%; }
    }
     .wiz-top-link  { color: var(--gold); text-decoration: underline; }
-    .wiz-container-top { padding-top: 64px; }
+    /* .wiz-container-top { padding-top: 64px; } */
 
     /* === SELECTED TILE STATE === */
     .wiz-tile-selected {
@@ -1645,6 +1688,49 @@
     .wiz-check-no { color: #e05555; font-size: 0.75rem; flex-shrink: 0; margin-top: 3px; }
     .wiz-when-list li { font-size: 0.84rem; color: #aaa; display: flex; align-items: flex-start; gap: 10px; }
     .wiz-when-list li span { line-height: 1.6; }
+
+    /* ===== WIZARD TILES — MOBILE HORIZONTAL SCROLL ===== */
+    .wiz-tiles-nav { display: none; }
+    @media (max-width: 768px) {
+      .wiz-tiles-scroller-wrap { position: relative; }
+      .inter-tiles,
+      .wiz-type-tiles,
+      .wiz-goal-tiles,
+      .wiz-when-tiles,
+      .masaze-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 16px;
+        padding-bottom: 4px;
+      }
+      .inter-tiles::-webkit-scrollbar,
+      .wiz-type-tiles::-webkit-scrollbar,
+      .wiz-goal-tiles::-webkit-scrollbar,
+      .wiz-when-tiles::-webkit-scrollbar { display: none; }
+      .inter-tile,
+      .wiz-type-tile,
+      .wiz-goal-tile,
+      .wiz-when-tile,
+      .masaz-card {
+        flex: 0 0 82vw !important;
+        width: 82vw;
+        scroll-snap-align: start;
+      }
+      .wiz-tiles-nav {
+        display: flex; justify-content: center; gap: 12px; margin-top: 20px;
+      }
+      .wiz-tiles-nav button {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+        color: var(--gold); font-size: 1.1rem; cursor: pointer;
+        transition: background var(--tr); display: flex; align-items: center; justify-content: center;
+      }
+      .wiz-tiles-nav button:hover { background: rgba(245,166,35,0.25); }
+    }
 </style>
 </head>
 <body>
@@ -1709,12 +1795,14 @@
     <div class="hero-grid">
       <div class="hero-content">
         <div class="hero-badge"><i class="fa-solid fa-location-dot"></i>Trener Personalny &nbsp;·&nbsp; Warszawa i Online</div>
+        <div class="hero-badge hero-badge-mobile"><i class="fa-solid fa-location-dot"></i>Trener Personalny<br>Warszawa i Online</div>
         <h1 class="hero-title">
           Zyskaj kontrolę<br>
           <span class="acc">nad Swoim ciałem!</span><br>
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
-        <p class="hero-sub">„Cześć, jestem Majkel — certyfikowany trener personalny z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji, bez skrajności. Aktywność fizyczna to styl życia, a nie sprint. Zacznij teraz, we właściwym dla Ciebie tempie i przestań odkładać zdrowie i jakość życia na później. Później jest tylko trudniej.”</p>
+        <p class="hero-sub hero-sub-desktop">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalnym z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
+        <p class="hero-sub hero-sub-mobile">Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
           <span class="hero-tag"><i class="fa-regular fa-sun"></i>Z energią</span>
@@ -1724,11 +1812,11 @@
           <span class="hero-tag"><i class="fa-solid fa-house"></i>W domu</span>
         </div>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Umów bezpłatną konsultację</a>
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault();openHeroPopup()">Umów bezpłatną konsultację</a>
           <a href="#omnie" class="btn btn-secondary">Dowiedz się więcej</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-num">15+</div><div class="stat-lbl">lat doświadczenia</div></div>
+          <div><div class="stat-num">110%</div><div class="stat-lbl">zaangażowania</div></div>
           <div><div class="stat-num">AWF</div><div class="stat-lbl">Sprawdzona wiedza</div></div>
           <div><div class="stat-num">100%</div><div class="stat-lbl">indywidualnie</div></div>
           <div><div class="stat-num">6:00</div><div class="stat-lbl">Energia na resztę dnia</div></div>
@@ -1741,19 +1829,19 @@
 <!-- ===== STATS BAR ===== -->
 <div class="stats-bar" id="statsBar">
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="15">0+</span>
+    <span class="stat-number" data-target="15">+0</span>
     <div class="stat-label">lat<br>doświadczenia</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="200">0+</span>
+    <span class="stat-number" data-target="100">+0</span>
     <div class="stat-label">zadowolonych<br>klientów</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="3000">0+</span>
+    <span class="stat-number" data-target="3000">+0</span>
     <div class="stat-label">godzin<br>treningów</div>
   </div>
   <div class="stat-item reveal">
-    <span class="stat-number" data-target="5">0+</span>
+    <span class="stat-number" data-target="5">+0</span>
     <div class="stat-label">certyfikatów<br>trenerskich</div>
   </div>
 </div>
@@ -1775,7 +1863,7 @@
       <i class="fa-regular fa-face-smile value-icon"></i>
       <div class="value-num">02</div>
       <div class="value-title">W dobrej atmosferze</div>
-      <div class="value-desc">Dobra energia na treningu to nie slogan — to sposób w jaki pracuję od 15 lat. Stawiam na luźną atmosferę i poczucie humoru- gadamy, śmiejemy się, a trening sam się robi.</div>
+      <div class="value-desc">Dobra energia na treningu to nie slogan — to sposób w jaki pracuję od 15 lat. Stawiam na luźną atmosferę i poczucie humoru — gadamy, śmiejemy się, a trening sam się robi.</div>
     </div>
 
       <div class="value-block reveal">
@@ -1802,7 +1890,6 @@
           </div>
           <!-- <div class="about-exp-badge"><div class="n">-30</div><div class="l">lat</div></div> -->
         </div>
-        <!-- <div class="about-photo-arrow"><i class="fa-solid fa-arrow-down"></i></div> -->
         <div class="about-photo">
           <img src="foto-portret.jpg"
                alt="Michał Majkel Sajna – trener personalny Warszawa"
@@ -1812,15 +1899,14 @@
           </div>
         </div>
         <div class="about-exp-badge"><div class="n">15+</div><div class="l">lat pasji</div></div>
+        <div class="about-photo-hint">&#8592; przesuń &#8594;</div>
       </div>
 
       <div class="reveal">
         <div class="section-label">O mnie</div>
         <h2 class="section-title">Michał <span>„Majkel"</span> Sajna</h2>
         <div class="divider"></div>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:14px;">Jestem certyfikowanym trenerem personalnym i instruktorem wielu dyscyplin z tytułem magistra AWF Warszawa. Przez ponad 15 lat pracy na salach fitness i siłowniach z podopiecznymi w różnym wieku, kondycji i z różnymi celami nauczyłem się, że nie ma jednego  sposobu na osiągnięcie celu, ale jest jeden sposób na podążanie drogą do niego- systematyczność, wiedza dlaczego, po co i jak oraz radość i satysfakcja z bycia na tej drodze. Ja staram się jej trzymać od ponad 25 lat, kiedy to jako pulchny 15-letni chłopak postanowiłęm schudnąć i zmienić moje ciało i życie.</p>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Łączę wiedzę z biomechaniki, fizjoterapii, dietetyki, wielu dyscyplin sportu a przede wszystkim własne doświadczenia— bo człowiek to całość, nie zbiór izolowanych mięśni. Trzeba rozumieć co czuje i jak myśli, nie tylko jak działa i rusza się. Stawiam na technikę i świadomość ruchu ale także dobrą atmosferę i zrozumienie. Nie motywuję przez wyniki ani porównania — motywuję przez wiedzę i zaangażowanie.</p>
-        <ul class="creds-list">
+         <ul class="creds-list">
           <li class="hi">Zaświadczenia i kursy:</li>
           <li class="hi"><i class="fa-solid fa-graduation-cap"></i></i>Magister AWF Warszawa</li>
           <li><i class="fa-solid fa-check"></i>Trener Personalny</li>
@@ -1832,10 +1918,12 @@
           <li><i class="fa-solid fa-check"></i>Instruktor Les Mills Body Combat & Body PUMP</li>
           <li><i class="fa-solid fa-check"></i>Instruktor GT Training</li>
           <li><i class="fa-solid fa-check"></i>Szkolenia z Pilates i technik prozdrowotnych</li>
-          <li><i class="fa-solid fa-check"></i>Masaysta I i II stopnia</li>
+          <li><i class="fa-solid fa-check"></i>Masażysta I i II stopnia</li>
           <li><i class="fa-solid fa-check"></i>Opiekun kolonijny z 10-letnim stażem</li>
         </ul>
-        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodziey. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam równie trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:14px;">Jestem certyfikowanym trenerem personalnym i instruktorem wielu dyscyplin z tytułem magistra AWF Warszawa. Przez ponad 15 lat pracy na salach fitness i siłowniach z podopiecznymi w różnym wieku, kondycji i z różnymi celami nauczyłem się, że nie ma jednego  sposobu na osiągnięcie celu, ale jest jeden sposób na podążanie drogą do niego- systematyczność, wiedza dlaczego, po co i jak oraz radość i satysfakcja z bycia na tej drodze. Ja staram się jej trzymać od ponad 25 lat, kiedy to jako pulchny 15-letni chłopak postanowiłem schudnąć i zmienić moje ciało i życie.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Łączę wiedzę z biomechaniki, fizjoterapii, dietetyki, wielu dyscyplin sportu a przede wszystkim własne doświadczenia— bo człowiek to całość, nie zbiór izolowanych mięśni. Trzeba rozumieć, co czuje i jak myśli, nie tylko jak działa i rusza się. Stawiam na technikę i świadomość ruchu ale także dobrą atmosferę i zrozumienie. Nie motywuję przez wyniki ani porównania — motywuję przez wiedzę i zaangażowanie.</p>
+        <p style="color:#bbb;line-height:1.75;margin-bottom:18px;">Swoją drogę z aktywnością fizyczną zacząłem jako puszysty nastolatek uczęszczając na zajęcia z Aiki Jujutsu. Z czasem sam zacząłem prowadzić zajęcia z dziećmi. Potem przyszedł czas na Karate, Taniec towarzyski, Ji sen, Parkour i Breakdance. Prowadziłem zajęcia dla dzieci z Hip-Hopu i przez ponad 10 lat jeździlem na aktywne obozy dla dzieci i młodzieży. Obecnie jestem ojcem dwóch córek z synem w drodze. Dzięki temu wszystkiemu rozumiem zarówno potrzeby aktywnego dziecka, które potrzebuje się wyszaleć, jak i rodzica szukającego trenera, który zrozumie. Prowadzę zajęcia dla jednego i drugiego. Polecam również trening rodzica z dzieckiem- jest to jedna z najwspanialszych form spędzania wspólnie czasu i budowania więzi.</p>
         <blockquote class="about-quote">
           „Nie sprzedaję metamorfoz na trzy miesiące. Pomagam zbudować zdrową aktywność fizyczną jako część życia — trwałą, naturalną i bez presji."
         </blockquote>
@@ -1880,7 +1968,7 @@
             <div class="review-stars">★★★★★</div>
           </div>
         </div>
-        <p class="review-text">"To juz prawie dwa lata, odkąd trenuję z Majklem  i to jedna z lepszych decyzji, jakie podjąłem. Widoczny progres, zero stagnacji — i zawsze wiem, po co robię dane ćwiczenie."</p>
+        <p class="review-text">"To już prawie dwa lata, odkąd trenuję z Majklem  i to jedna z lepszych decyzji, jakie podjąłem. Widoczny progres, zero stagnacji — i zawsze wiem, po co robię dane ćwiczenie."</p>
         <div class="review-date">Marzec 2026</div>
       </div>
       <div class="review-card">
@@ -1892,7 +1980,7 @@
           </div>
         </div>
         <p class="review-text">"Treningi z Michałem to coś więcej niż zwykłe ćwiczenia — to przemyślany i spokojny proces pracy z ciałem. Od samego początku panuje tu swobodna, przyjazna atmosfera, dzięki której można poczuć się komfortowo i skupić na sobie.
-        Z dużą cierpliwością uczy poprawnej techniki, tłumaczy każdy ruch i dba o to, żeby wszystko było wykonywane świadomie i bezpiecznie. Nie ma tu presji na szybki, „instagramowy” efekt. Ogromnym plusem sa też jego umiejętności fizjoterapeutyczne.
+        Z dużą cierpliwością uczy poprawnej techniki, tłumaczy każdy ruch i dba o to, żeby wszystko było wykonywane świadomie i bezpiecznie. Nie ma tu presji na szybki, „instagramowy” efekt. Ogromnym plusem są też jego umiejętności fizjoterapeutyczne.
         Michał to konkretny i zaangażowany trener, który potrafi dopasować trening zarówno do poziomu, jak i indywidualnych preferencji."</p>
         <div class="review-date">Styczeń 2026</div>
       </div>
@@ -2020,7 +2108,7 @@
         </div>
         <!-- foto-trening-4.jpg → planowanie, clipboard -->
         <div class="gal-item" data-pos="top" onclick="openLightbox(this)">
-          <img src="foto-trening-4.jpg" alt="Planowanie treningu" style="object-position: right -100px;"
+          <img src="foto-trening-4.jpg" alt="Planowanie treningu"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <div class="gallery-item-fallback" style="display:none;"><i class="fa-solid fa-image"></i></div>
           <div class="gallery-overlay"></div>
@@ -2135,7 +2223,7 @@
       <div class="section-label">Zacznijmy od</div>
       <h2 class="section-title">Co Cię <span>interesuje?</span></h2>
       <div class="divider divider-center"></div>
-      <p class="section-subtitle-wide">Wybierz krok po kroku jak mogę Ci pomóc. Dopasujemy sposób współpracy, interesujące Cię formy ćwiczeń, plan treningowy oraz oreferowane godziny spotkać odpowiednio do Twoich potrzeb i stylu życia.</p>
+      <p class="section-subtitle-wide">Wybierz krok po kroku jak mogę Ci pomóc. Dopasujemy sposób współpracy, interesujące Cię formy ćwiczeń, plan treningowy oraz preferowane godziny spotkań, odpowiednio do Twoich potrzeb i stylu życia.</p>
     </div>
     <div class="wiz-progress reveal">
       <div class="wiz-progress-step">
@@ -2159,6 +2247,7 @@
       </div>
     </div>
     <!-- <div class="divider divider-gap"></div> -->
+    <div class="wiz-tiles-scroller-wrap">
     <div class="inter-tiles">
       <div class="inter-tile reveal" onclick="selectTile(this,'.inter-tile'); wizPath('stacjonarne')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2168,7 +2257,7 @@
           <div class="card-title-holder">
             <h3>Treningi stacjonarne</h3>
           </div>
-          <p>Wspóle treningi na siłowni lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
+          <p>Wspólne treningi na siłowni lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
           <span class="wiz-pick">Wybieram →</span>
         </div>
       </div>
@@ -2197,18 +2286,23 @@
         </div>
       </div>
     </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== TYP TRENINGU ===== -->
 <section id="stac-opis" class="wiz-section">
-  <div class="wiz-section-top" style="background-image:url('foto-trening-8.jpg'); background-position: 0 25%;">
+  <div class="wiz-section-top mobile-display-none" style="background-image:url('Stacjonarnie-online-masaz-1.jpg'); background-position: 0 25%;">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć</span></div>
       <div class="section-label wiz-top-label">Treningi stacjonarne</div>
       <h2 class="section-title wiz-top-title">Trenujemy na siłowni<span> CTG albo przyjeżdżam do Ciebie</span></h2>
-      <p class="wiz-top-desc">Pracuję na siłowni <a href="https://goscinna.com/" target="_blank" rel="noopener" class="wiz-top-link">CTG</a> na Bemowie. Trening 1:1 lub w <strong class="text-gold">parze (2. osoba płaci 50%!)</strong>. Mogę też przyjechać do Ciebie z co potrzebne nam do treningu.</p>
+      <p class="wiz-top-desc">Pracuję na siłowni <a href="https://goscinna.com/" target="_blank" rel="noopener" class="wiz-top-link">CTG</a> na Bemowie. Trening 1:1 lub w <strong class="text-gold">parze (2. osoba płaci 50%!)</strong>. Mogę też przyjechać do Ciebie z wszystkim co potrzebne nam do treningu.</p>
     </div>
   </div>
   <div class="container wiz-container-top">
@@ -2237,6 +2331,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-type-tiles">
       <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Trening oporowy')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2253,7 +2348,7 @@
          <div class="card-title-holder">
            <h4>Kalistenika</h4>
           </div>
-        <p>Przysiady, wypady, pompki, podciąganie, podpory w różnych wersjach, wykonane z ciężarem własnego ciała. Stosujemy modyfikacje pozwalające dostosować poziom trudności ćwiczeń do Twojego poziomu zaawansowania. Siła, mobilność i koordynacja. Możemy ćwiczyć w domu na siłowni lub w parku zarówno stacjonarnie jak i online.</p>
+        <p>Przysiady, wypady, pompki, podciąganie, podpory w różnych wersjach, wykonane z ciężarem własnego ciała. Stosujemy modyfikacje pozwalające dostosować poziom trudności ćwiczeń do Twojego poziomu zaawansowania. Siła, mobilność i koordynacja. Możemy ćwiczyć w domu, na siłowni lub w parku- zarówno stacjonarnie jak i online.</p>
         <span class="wiz-pick">Wybieram →</span>
       </div>
       <div class="wiz-type-tile reveal" onclick="selectTile(this,'.wiz-type-tile'); wizTraining('Pilates / Trening mentalny')">
@@ -2262,16 +2357,21 @@
         <div class="card-title-holder">
           <h4>Trening mentalny</h4>
         </div>
-        <p>Stabilizacja, korekcja postawy, poprawa mobilności i techniki oddechowe. Trening w oparciu o ćwiczenia i techniki stosowania formach tj. Pilates, Yoga oraz techniki fizjoterapeutyczne.Idealne uzupełnienie treningu siłowego lub samodzielna forma ruchu dla osób z nadmiernymi napięciami mięśni, sztywnością lub powracającymi kontuzjami i bólami. </p>
+        <p>Stabilizacja, korekcja postawy, poprawa mobilności i techniki oddechowe. Trening w oparciu o ćwiczenia i techniki stosowane w formach tj. Pilates, Yoga oraz techniki fizjoterapeutyczne. Idealne uzupełnienie treningu siłowego lub samodzielna forma ruchu dla osób z nadmiernymi napięciami mięśni, sztywnością lub powracającymi kontuzjami i bólami. </p>
         <span class="wiz-pick">Wybieram →</span>
       </div>
+    </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
     </div>
   </div>
 </section>
 
 <!-- ===== WIZARD — JAKI CEL ===== -->
 <section id="wiz-cel" class="wiz-section wiz-section-alt">
-  <div class="wiz-section-top" style="background-image:url('Chudnac-przytyc-radosc.jpg')">
+  <div class="wiz-section-top mobile-display-none" style="background-image:url('Chudnac-przytyc-radosc.jpg')">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('stac-opis')">← Wróć</span></div>
@@ -2285,7 +2385,7 @@
       <div class="section-label">Krok 3 z 4 — Twój cel</div>
       <h2 class="section-title">Co <span>chcesz osiągnąć?</span></h2>
       <div class="divider divider-center"></div>
-      <p class="section-subtitle-wide">Wybierz jeden główny cel który wyznaczy dobór ćwiczeń, intensywność, częstotliwość i metodę pracy. Pod każdy cel dobieramy odpowiedni program, który daje konkretne efekty.</p>
+      <p class="section-subtitle-wide">Wybierz jeden główny cel, który wyznaczy dobór ćwiczeń, intensywność, częstotliwość i metodę pracy. Pod każdy cel dobieramy odpowiedni program, który daje konkretne efekty.</p>
     </div>
     <div class="wiz-progress reveal">
       <div class="wiz-progress-step" id="wpS1">
@@ -2308,6 +2408,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-goal-tiles mt-52">
       <div class="wiz-goal-tile reveal" onclick="selectTile(this,'.wiz-goal-tile'); wizGoal('Schudnąć i ujędrnić')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2315,7 +2416,7 @@
         <div class="card-title-holder">
           <h4>Schudnąć i ujędrnić</h4>
         </div>
-        <p>Chcesz zrzucić zbędne kilogramy i nadać ciału jędrność bez efektu jojo i bez głodówek. Łączymy trening interwałowy z siłowym, który spala tkankę tłuszczową i jednocześnie nie pozwala na utratę mięśni co utrzymuje jędrność. Żywienie i kaloryczność dopasowane do Ciebie i Twojego celu, nie odwrotnie.</p>
+        <p>Chcesz zrzucić zbędne kilogramy i nadać ciału jędrność bez efektu jojo i bez głodówek. Łączymy trening interwałowy z siłowym, który spala tkankę tłuszczową i jednocześnie nie pozwala na utratę mięśni, co utrzymuje jędrność. Żywienie i kaloryczność dopasowane do Ciebie i Twojego celu, nie odwrotnie.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening cardio i siłowy</span></li>
@@ -2331,7 +2432,7 @@
         <div class="card-title-holder">
           <h4>Zbudować siłę i masę</h4>
         </div>
-        <p>Chcesz być silniejszy, bardziej umięśniony i wyglądać, jak czujesz się w środku. Pracujemy metodą progresywnego przeciążenia — każdy trening jest trudniejszy niż poprzedni. Budujemy masę mięśniową bez przepaleń i kontuzji, w Twoim tempie.</p>
+        <p>Chcesz być silniejszy, bardziej umięśniony i wyglądać tak, jak czujesz się w środku. Pracujemy metodą progresywnego przeciążenia — każdy trening jest trudniejszy niż poprzedni. Budujemy masę mięśniową bez przepaleń i kontuzji, w Twoim tempie.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening dzielony</span></li>
@@ -2347,7 +2448,7 @@
         <div class="card-title-holder">
           <h4>Lepiej się czuć i ruszać</h4>
         </div>
-        <p>Chcesz mieć więcej energii na co dzień, mniej bólu pleców, lepsza postawę i kondycję. Łączymy mobilność, stabilizację i ruch funkcjonalny — żeby codzienne życie było łatwiejsze i przyjemniejsze. Bez siłownianej presji, z pełnym szacunkiem do Twojego tempa.</p>
+        <p>Chcesz mieć więcej energii na co dzień, mniej bólu pleców, lepszą postawę i kondycję. Łączymy mobilność, stabilizację i ruch funkcjonalny — żeby codzienne życie było łatwiejsze i przyjemniejsze. Bez siłownianej presji, z pełnym szacunkiem do Twojego tempa.</p>
         <div class="wiz-goal-method">
           <ul>
             <li><i class="fa-solid fa-check wiz-check-ok"></i><span>Trening funkcjonalny</span></li>
@@ -2358,12 +2459,17 @@
         <span class="wiz-goal-pick">To mój cel →</span>
       </div>
     </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== WIZARD — KIEDY TRENUJESZ ===== -->
 <section id="wiz-kiedy" class="wiz-section">
-  <div class="wiz-section-top" style="background-image:url('foto-outdoor-2.jpg'); background-position: 0 25%;">
+  <div class="wiz-section-top mobile-display-none" style="background-image:url('foto-outdoor-2.jpg'); background-position: 0 25%;">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('wiz-cel')">← Wróć</span></div>
@@ -2400,6 +2506,7 @@
         <!-- <div class="wiz-progress-label">kiedy</div> -->
       </div>
     </div>
+    <div class="wiz-tiles-scroller-wrap">
     <div class="wiz-when-tiles mt-52">
       <div class="wiz-when-tile wiz-when-best reveal" onclick="selectTile(this,'.wiz-when-tile'); wizWhen('Trening poranny / południe (6:00–16:00)')">
         <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
@@ -2407,7 +2514,7 @@
         <span class="wiz-when-tile-icon fa-solid fa-sun"></span>
         <h4>Trening poranny / południe</h4>
         <div class="wiz-when-hours">6:00 – 16:00</div>
-        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego, i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne — poranek nie jest „zjadany” przez codzienność.</p>
+        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne — poranek nie jest „zjadany” przez codzienność.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Niższa cena</strong> — od 130 zł/godz. (oszczędzasz do 70 zł na treningu)</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Pusta siłownia</strong> — pełen sprzęt do dyspozycji, bez kolejek</span></li>
@@ -2426,7 +2533,7 @@
                 <span class="wiz-when-tile-icon fa-solid fa-moon"></span>
         <h4>Trening wieczorny</h4>
         <div class="wiz-when-hours">16:00 – 22:00</div>
-        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie — i to mocne. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocieć z siebie stres po pracy i „przestawić” głowę. Uwaga: intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie.</p>
+        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie — i to mocne. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocić z siebie stres po pracy i „przestawić” głowę. Uwaga: intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższa temperatura ciała</strong> — mięśnie elastyczniejsze, mniejsze ryzyko kontuzji</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższy poziom testosteronu</strong> po południu — sprzyja budowaniu siły</span></li>
@@ -2440,6 +2547,11 @@
         <span class="wiz-pick-big">Wybieram wieczorny →</span>
       </div>
 
+    </div>
+    <div class="wiz-tiles-nav">
+      <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+      <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
+    </div>
     </div>
   </div>
 </section>
@@ -2497,10 +2609,10 @@
       </div>
       <div>
         <div class="myptub-stores">
-          <a href="https://apps.apple.com/app/my-pt-hub/id880244447" target="_blank" rel="noopener" class="myptub-store-btn">
+          <a href="https://apps.apple.com/us/app/my-pt-hub/id1473947709" target="_blank" rel="noopener" class="myptub-store-btn">
             <i class="fa-brands fa-apple"></i> App Store
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.mypthub.client" target="_blank" rel="noopener" class="myptub-store-btn">
+          <a href="https://play.google.com/store/search?q=mypthub&c=apps&hl=pl" target="_blank" rel="noopener" class="myptub-store-btn">
             <i class="fa-brands fa-google-play"></i> Google Play
           </a>
         </div>
@@ -2514,7 +2626,7 @@
   <div class="container">
     <div class="cennik-header reveal">
       <div class="section-label">Cennik</div>
-    <div class="cennik-pair-note reveal">💑 Trenujesz w parze? <strong>Druga osoba płaci tylko 50% ceny!</strong> Zapisz się razem i trenujcie razem.</div>
+    <div class="cennik-pair-note reveal">💑 Trenujesz w parze? <strong>Druga osoba płaci tylko 50% ceny!</strong> Zapiszcie się i trenujcie razem.</div>
       <h2 class="section-title">Przejrzyste <span>ceny</span></h2>
       <div class="divider divider-center"></div>
       <p class="section-subtitle">Treningi stacjonarne i online w tej samej cenie. Im więcej planujesz z góry i im wcześniej trenujesz — tym korzystniejsza stawka.</p>
@@ -2527,7 +2639,7 @@
         <div class="price-amount"><sup>od</sup>130<sup>*</sup></div>
         <div class="price-unit">zł / godz. &nbsp;·&nbsp; godziny 6:00–16:00</div>
         <div class="price-saving"><i class="fa-solid fa-sack-dollar"></i> Oszczędzasz do 70 zł/trening</div>
-        <p class="price-desc">24 treningi opłacone z górydo wykorzystania w ciągu 100 dni. Godziny poranne i południowe — cisza, brak tłumów, najlepsza stawka.</p>
+        <p class="price-desc">24 treningi opłacone z góry do wykorzystania w ciągu 100 dni. Godziny poranne i południowe — cisza, brak tłumów, najlepsza stawka.</p>
         <ul class="price-features">
           <li><i class="fa-solid fa-check"></i>24 jednostki treningowe</li>
           <li><i class="fa-solid fa-check"></i>3 miesiące na realizację</li>
@@ -2552,7 +2664,7 @@
           <li><i class="fa-solid fa-check"></i>Stacjonarnie lub online</li>
           <li><i class="fa-solid fa-check"></i>Indywidualne podejście</li>
           <li><i class="fa-solid fa-check"></i>Bieżące wsparcie</li>
-          <li><i class="fa-solid fa-check"></i>2 treingi w tygodniu</li>
+          <li><i class="fa-solid fa-check"></i>2 treningi w tygodniu</li>
         </ul>
         <a href="#kontakt" class="price-cta">Umów się</a>
       </div>
@@ -2600,7 +2712,7 @@
 
 <!-- ===== MASAŻE ===== -->
 <section id="masaze">
-  <div class="wiz-section-top" style="background-image:url('masaz-1.jpg')">
+  <div class="wiz-section-top mobile-display-none" style="background-image:url('masaz-1.jpg')">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć do wyboru</span></div>
@@ -2622,8 +2734,8 @@
     <div class="masaze-intro">
       <div class="masaze-intro-text reveal">
         <p>Masaż to coś więcej niż chwila relaksu. <strong>Regularne sesje masażu</strong> realnie wpływają na zdrowie: redukują napięcia mięśniowe, poprawiają krążenie, wspierają układ odpornościowy i zmniejszają poziom kortyzolu (hormonu stresu).</p>
-        <p>Jako dyplomowany <strong>masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywoże własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
-        <p>Wykonuję również <strong>drenaż limfatyczny</strong> — zarówno manualnym, jak i aparatowym (pressoterapia — kompresjoterapia nóg). To szczególnie skuteczna forma terapii przy obrzękach, cellulicie i regemeracji po intensywnym treningu.</p>
+        <p>Jako dyplomowany <strong>masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywożę własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
+        <p>Wykonuję również <strong>drenaż limfatyczny</strong> — zarówno manualny, jak i aparatowy (pressoterapia — kompresjoterapia nóg). To szczególnie skuteczna forma terapii przy obrzękach, cellulicie i regeneracji po intensywnym treningu.</p>
         <div class="masaze-intro-btn" style="margin-top:28px;">
           <a href="#kontakt" class="btn btn-primary">Umów masaż</a>
           <a href="#masaze-cennik" class="btn btn-secondary">Cennik masaży</a>
@@ -2656,7 +2768,7 @@
         </div>
         <h3 class="section-title section-title-sm">Wybierz <span>rodzaj masażu</span></h3>
         <div class="divider divider-center"></div>
-        <p class="section-subtitle-wide">Kliknij typ masażu, który Cię interesuje — pojawi się okienko, gdzie wpiszesz imię i wybierzesz jak się do Ciebie odezwę.</p>
+        <p class="section-subtitle-wide">Kliknij typ masażu, który Cię interesuje — pojawi się okienko, gdzie wpiszesz imię i wybierzesz jak mam się do Ciebie odezwać.</p>
       </div>
       <!-- Service cards: 3 types -->
       <div class="masaze-grid">
@@ -2685,13 +2797,17 @@
           <span class="masaz-badge">75 lub 90 min</span>
         </div>
 
-        <div class="masaz-card reveal" style="cursor:pointer; position:relative;" onclick="selectTile(this,'.masaz-card'); wizMassage('Pressoterapia (drenaż aparatowy)')">
+        <!-- <div class="masaz-card reveal" style="cursor:pointer; position:relative;" onclick="selectTile(this,'.masaz-card'); wizMassage('Pressoterapia (drenaż aparatowy)')">
           <div class="wiz-tile-chk"><i class="fa-solid fa-check"></i></div>
           <i class="fa-solid fa-wind masaz-icon"></i>
           <div class="masaz-title">Pressoterapia</div>
           <div class="masaz-desc">Aparatowy drenaż limfatyczny — specjalne spodnie z wielokomorowymi rękawami, które falowo uciskają nogi naśladując drenaż manualny. Redukuje obrzęki, cellulit i zmęczenie nóg.</div>
           <span class="masaz-badge">45 lub 60 min</span>
-        </div>
+        </div> -->
+      </div>
+       <div class="wiz-tiles-nav">
+        <button onclick="tilesNav(this,-1)" aria-label="Poprzednia">&#8592;</button>
+        <button onclick="tilesNav(this,1)" aria-label="Następna">&#8594;</button>
       </div>
     </div>
 
@@ -2789,7 +2905,7 @@
           <tr>
             <td><strong style="color:var(--white)">Masaż relaksacyjny</strong><br>Całe ciało, techniki relaksacyjne</td>
             <td>60 min</td>
-            <td>od 180 zł <sup>*</sup></td> 
+            <td>od 220 zł <sup>*</sup></td> 
           </tr>
           <tr>
             <td><strong style="color:var(--white)">Masaż leczniczy</strong><br>Praca głęboka na wybranych partiach mięśniowych</td>
@@ -2813,7 +2929,7 @@
           </tr>
           <tr>
             <td><strong style="color:var(--white)">Masaż + pressoterapia (pakiet)</strong><br>Masaż relaksacyjny lub leczniczy + drenaż aparatowy</td>
-            <td>~2 h</td>
+            <td>~1,5 h</td>
             <td>od 300 zł <sup>*</sup></td>
           </tr>
         </tbody>
@@ -3040,11 +3156,11 @@
         <div class="divider"></div>
         <p>Masz pytania? Chcesz zacząć treningi? Napisz lub zadzwoń — odpowiem najszybciej jak to możliwe. Bez zobowiązań, bez presji.</p>
         <div class="contact-items">
-          <a class="contact-item" href="tel:+48504151989">
+          <a class="contact-item" href="tel:+48504151989" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','phone_call_click',{'event_category':'kontakt','event_label':'sekcja_kontakt'});}">
             <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
             <div><div class="contact-item-label">Telefon / WhatsApp</div><div class="contact-item-value">+48 504 151 989</div></div>
           </a>
-          <a class="contact-item" href="mailto:trenujjemy@gmail.com?subject=Zapytanie%20o%20trening&body=Cześć%20Majkel%2C%0A%0AChciałbym%2FCHciałabym%20dowiedzieć%20się%20więcej%20o%20Twoich%20usługach%20i%20umówić%20się%20na%20bezpłatną%20konsultację.%0A%0AProszę%20o%20kontakt%20zwrotny.%0A%0APozdrawiam">
+          <a class="contact-item" href="mailto:trenujjemy@gmail.com?subject=Zapytanie%20o%20trening&body=Cześć%20Majkel%2C%0A%0AChciałbym%2FChciałabym%20dowiedzieć%20się%20więcej%20o%20Twoich%20usługach%20i%20umówić%20się%20na%20bezpłatną%20konsultację.%0A%0AProszę%20o%20kontakt%20zwrotny.%0A%0APozdrawiam" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'sekcja_kontakt'});}">
             <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
             <div><div class="contact-item-label">Email</div><div class="contact-item-value">trenujjemy@gmail.com</div></div>
           </a>
@@ -3139,8 +3255,8 @@
         <p class="footer-tagline">Michał „Majkel" Sajna — certyfikowany trener personalny, instruktor kulturystyki i fitness, Warszawa. Pomagam zwykłym ludziom trenować mądrze i długoterminowo.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/trenuj.jemy" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/48504151989" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="mailto:trenujjemy@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/48504151989" target="_blank" rel="noopener" class="social-btn" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','whatsapp_click',{'event_category':'kontakt','event_label':'footer_social'});}"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:trenujjemy@gmail.com" class="social-btn" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'footer_social'});}"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -3157,8 +3273,8 @@
       <div class="footer-col">
         <h4>Kontakt</h4>
         <ul class="footer-links">
-          <li><a href="tel:+48504151989">+48 504 151 989</a></li>
-          <li><a href="mailto:trenujjemy@gmail.com">trenujjemy@gmail.com</a></li>
+          <li><a href="tel:+48504151989" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','phone_call_click',{'event_category':'kontakt','event_label':'footer'});}">+48 504 151 989</a></li>
+          <li><a href="mailto:trenujjemy@gmail.com" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'footer'});}">trenujjemy@gmail.com</a></li>
           <li><a href="https://www.facebook.com/trenuj.jemy" target="_blank" rel="noopener">Facebook TRENUJjemy</a></li>
           <li>Warszawa · Polska</li>
           <li>Treningi: 6:00–22:00</li>
@@ -3195,7 +3311,7 @@
 <!-- ===== FAB KETTLEBELL ===== -->
 <!-- ===== SOCIAL FAB ===== -->
 <div class="fab-social-stack" id="fabSocialStack">
-  <a href="https://m.me/trenuj.jemy" target="_blank" rel="noopener" class="fab-social-link ms" aria-label="Messenger">
+  <a href="https://m.me/trenuj.jemy" target="_blank" rel="noopener" class="fab-social-link ms" aria-label="Messenger" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','messenger_click',{'event_category':'kontakt','event_label':'fab'});}">
     <i class="fa-brands fa-facebook-messenger"></i>
     <span class="fab-social-tooltip">Messenger</span>
   </a>
@@ -3255,14 +3371,138 @@
   if (burgerBtn) burgerBtn.onclick = openMenu;
   document.getElementById('closeMenu').onclick = closeMenu;
   document.querySelectorAll('.mobile-link').forEach(l => l.onclick = closeMenu);
-  // FAB kettlebell: toggle menu on mobile
-  document.getElementById('fabKettle').addEventListener('click', function() {
-    if (document.getElementById('mobileMenu').classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
+  // FAB kettlebell: toggle menu on mobile + wyłącz animację po pierwszym kliknięciu
+  (function() {
+    var kettle = document.getElementById('fabKettle');
+    if (!kettle) return;
+    // Przywróć stan "widziany" z poprzedniej wizyty
+    if (localStorage.getItem('fabKettleSeen')) kettle.classList.add('fab-seen');
+    kettle.addEventListener('click', function() {
+      // Wyłącz animację przy pierwszym kliknięciu
+      if (!kettle.classList.contains('fab-seen')) {
+        kettle.classList.add('fab-seen');
+        localStorage.setItem('fabKettleSeen', '1');
+      }
+      if (document.getElementById('mobileMenu').classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  })();
+
+  // FAB social stack: pierwsze kliknięcie rozwija, drugie nawiguje, klik poza zwija
+  (function() {
+    var stack = document.getElementById('fabSocialStack');
+    if (!stack) return;
+    stack.addEventListener('click', function(e) {
+      if (!stack.classList.contains('open')) {
+        e.preventDefault();
+        stack.classList.add('open');
+        return;
+      }
+      var link = e.target.closest('.fab-social-link');
+      if (link) {
+        stack.classList.remove('open');
+        // nawigacja przebiega naturalnie przez href
+      } else {
+        stack.classList.remove('open');
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (stack.classList.contains('open') && !stack.contains(e.target)) {
+        stack.classList.remove('open');
+      }
+    });
+  })();
+
+  // About photo stack — swap on drag/swipe (tylko mobile ≤900px)
+  (function() {
+    if (window.innerWidth > 900) return;
+    var wrap = document.querySelector('.about-photo-wrap');
+    if (!wrap) return;
+    var photos = Array.from(wrap.querySelectorAll('.about-photo'));
+    if (photos.length < 2) return;
+
+    var topIdx = 0;
+    photos[0].classList.add('photo-top');
+
+    var startX = 0, startY = 0, dragX = 0, active = false, swapping = false;
+
+    function applyDrag(dx) {
+      var top = photos[topIdx];
+      var rot = -1.5 + dx * 0.04;
+      top.style.transition = 'none';
+      top.style.transform = 'rotate(' + rot + 'deg) translateX(' + dx + 'px)';
     }
-  });
+
+    function swap(dir) {
+      if (swapping) return;
+      swapping = true;
+      var top = photos[topIdx];
+      var nextIdx = 1 - topIdx;
+      var next = photos[nextIdx];
+
+      // Fly off
+      top.style.transition = 'transform 0.32s ease-in, opacity 0.28s';
+      top.style.transform = 'rotate(' + (dir > 0 ? 12 : -12) + 'deg) translateX(' + (dir > 0 ? '130%' : '-130%') + ')';
+      top.style.opacity = '0';
+
+      setTimeout(function() {
+        top.classList.remove('photo-top');
+        top.style.cssText = '';          // reset inline styles
+        next.classList.add('photo-top');
+        topIdx = nextIdx;
+        swapping = false;
+      }, 330);
+    }
+
+    function snapBack() {
+      var top = photos[topIdx];
+      top.style.transition = '';
+      top.style.transform = '';
+    }
+
+    // Touch
+    wrap.addEventListener('touchstart', function(e) {
+      if (swapping) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      dragX = 0; active = true;
+    }, { passive: true });
+
+    wrap.addEventListener('touchmove', function(e) {
+      if (!active || swapping) return;
+      dragX = e.touches[0].clientX - startX;
+      var dy = e.touches[0].clientY - startY;
+      if (Math.abs(dragX) > Math.abs(dy)) applyDrag(dragX);
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', function() {
+      if (!active) return;
+      active = false;
+      if (Math.abs(dragX) > 55) swap(dragX);
+      else snapBack();
+    });
+
+    // Mouse (desktop)
+    wrap.addEventListener('mousedown', function(e) {
+      if (swapping) return;
+      startX = e.clientX; dragX = 0; active = true;
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (!active || swapping) return;
+      dragX = e.clientX - startX;
+      applyDrag(dragX);
+    });
+    document.addEventListener('mouseup', function() {
+      if (!active) return;
+      active = false;
+      if (Math.abs(dragX) > 55) swap(dragX);
+      else snapBack();
+    });
+  })();
 
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
@@ -3271,6 +3511,13 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Wizard tiles nav (mobile horizontal scroll)
+  function tilesNav(btn, dir) {
+    var nav = btn.parentElement;
+    var grid = nav.previousElementSibling;
+    if (grid) grid.scrollBy({ left: dir * (grid.offsetWidth * 0.88), behavior: 'smooth' });
+  }
 
   // Tabs
   function switchTab(e, type) {
@@ -3300,6 +3547,13 @@
     const h = document.getElementById('hours').value;
     const m = document.getElementById('message').value;
     const txt = `Cześć Majkel!\nImię: ${n}\nTelefon: ${p}\nEmail: ${em}\nForma: ${t||'—'}\nCel: ${g||'—'}\nGodziny: ${h||'—'}\n${m?'Info: '+m:''}`;
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+      gtag('event', 'generate_lead', {
+        'event_category': 'formularz_kontaktowy',
+        'event_label': t || 'ogolne'
+      });
+    }
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
     setTimeout(() => window.open('https://wa.me/48504151989?text=' + encodeURIComponent(txt), '_blank'), 800);
@@ -4025,6 +4279,7 @@
 
   // ── Wizard state ─────────────────────────────────────────────────────────────
   var wiz = { path: '', trainingType: '', goal: '', when: '', massage: '' };
+  var heroPopupMsg = null;
   var wizSection = 0; // 1-4: which wizard section is currently in viewport
 
   // ── Popup trigger — all required fields filled? ───────────────────────────────
@@ -4143,6 +4398,9 @@
   }
 
   function buildMessage(name) {
+    if (heroPopupMsg !== null) {
+      return 'Cześć Majkel! 👋\nNazywam się ' + name + '.\n\n' + heroPopupMsg;
+    }
     var lines = ['Cześć Majkel! 👋', 'Nazywam się' + name + '.'];
     if (wiz.path === 'stacjonarne') lines.push('Interesuję mnie trening stacjonarny.');
     else if (wiz.path === 'online') lines.push('Interesuję mnie współpraca online.');
@@ -4156,19 +4414,38 @@
   }
 
   // ===== CONTACT POPUP =====
+  function openHeroPopup() {
+    heroPopupMsg = 'Chcę dowiedzieć się więcej o Twoich usługach.\n\nProszę o kontakt zwrotny.\n\nPozdrawiam';
+    var titleEl = document.getElementById('popupTitle');
+    var subEl = document.getElementById('popupSubTitle');
+    if (titleEl) titleEl.textContent = 'Umówmy się! 💪';
+    if (subEl) subEl.textContent = 'Wpisz swoje imię i wybierz formę kontaktu, a odezwę się do Ciebie najszybciej jak to możliwe.';
+    openContactPopup();
+  }
+
   function openContactPopup() {
     var popup = document.getElementById('contactPopup');
     var summaryEl = document.getElementById('popupSummary');
+    var titleEl = document.getElementById('popupTitle');
+    var subEl = document.getElementById('popupSubTitle');
     if (!popup) return;
-    if (summaryEl) {
-      var s = buildSummary();
-      if (s) { summaryEl.textContent = s; summaryEl.classList.add('has-content'); }
+    if (heroPopupMsg === null) {
+      if (titleEl) titleEl.textContent = 'Prawie gotowe! 🎯';
+      if (subEl) subEl.textContent = 'Jak mam się do Ciebie odezwać?';
+      if (summaryEl) {
+        var s = buildSummary();
+        if (s) { summaryEl.textContent = s; summaryEl.classList.add('has-content'); }
+        else { summaryEl.textContent = ''; summaryEl.classList.remove('has-content'); }
+      }
+    } else {
+      if (summaryEl) { summaryEl.textContent = ''; summaryEl.classList.remove('has-content'); }
     }
+    var nameInput = document.getElementById('popupName');
+    if (nameInput) { nameInput.value = ''; nameInput.classList.remove('error'); nameInput.setAttribute('placeholder', 'Twoje imię'); }
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
     setTimeout(function() {
-      var inp = document.getElementById('popupName');
-      if (inp) inp.focus();
+      if (nameInput) nameInput.focus();
     }, 100);
   }
 
@@ -4176,6 +4453,7 @@
     var popup = document.getElementById('contactPopup');
     if (popup) popup.classList.remove('active');
     document.body.style.overflow = '';
+    heroPopupMsg = null;
   }
 
   function sendPopup(channel) {
@@ -4190,12 +4468,19 @@
     }
     nameInput.classList.remove('error');
     var msg = buildMessage(name);
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+      gtag('event', 'generate_lead', {
+        'event_category': 'popup_kontaktowy',
+        'event_label': wiz.path || 'ogolne'
+      });
+    }
+    var subj = heroPopupMsg !== null ? 'Zapytanie o trening' : 'Zapytanie — ' + (wiz.path || 'kontakt');
     if (channel === 'wa') {
       window.open('https://wa.me/48504151989?text=' + encodeURIComponent(msg), '_blank');
     } else if (channel === 'ms') {
       window.open('https://m.me/trenuj.jemy?text=' + encodeURIComponent(msg), '_blank');
     } else if (channel === 'em') {
-      var subj = 'Zapytanie — ' + (wiz.path || 'kontakt');
       window.open('mailto:trenujjemy@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(msg), '_blank');
     }
     closeContactPopup();
@@ -4215,8 +4500,8 @@
 <div class="popup-overlay" id="contactPopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closeContactPopup()" aria-label="Zamknij">&times;</button>
-    <div class="popup-title">Prawie gotowe! 🎯</div>
-    <div class="popup-sub">Jak mam się do Ciebie odezwać?</div>
+    <div class="popup-title" id="popupTitle">Prawie gotowe! 🎯</div>
+    <div class="popup-sub" id="popupSubTitle">Jak mam się do Ciebie odezwać?</div>
     <div class="popup-summary" id="popupSummary"></div>
     <div class="popup-name-wrap">
       <input type="text" id="popupName" placeholder="Twoje imię" autocomplete="given-name" />
