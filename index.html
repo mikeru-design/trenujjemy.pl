@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18003814234"></script>
+  <!-- Google Tag – GA4 + Google Ads -->
+  <!-- GA4 ID: G-JM020YW9TB | Google Ads ID: AW-18003814234 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM020YW9TB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'AW-18003814234');
+    gtag('config', 'G-JM020YW9TB');   /* GA4 */
+    gtag('config', 'AW-18003814234'); /* Google Ads */
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,27 +42,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- Font Awesome 6 Free (line/solid icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-
-  <!--
-  ============================================================
-  PLIKI GRAFICZNE — umieść w tym samym folderze co ten plik:
-    hero-bg.jpg         ← szerokie zdjęcie na tle hero (Majkel w siłowni na tle/panorama)
-    foto-portret.jpg    ← portret (biała bluza z kapturem, niebieskie tło)
-    foto-gym.jpg        ← Majkel przy sztandze (niebieska koszulka, żółte talerze)
-    foto-trening-1.jpg  ← trening z klientką przy maszynie
-    foto-trening-2.jpg  ← kettlebell z klientką
-    foto-trening-3.jpg  ← stretching / mobilność z klientką
-    foto-trening-4.jpg  ← planowanie z klientem (czerwona bluza, clipboard)
-    foto-trening-5.jpg  ← core na macie z klientką
-    foto-trening-6.jpg  ← trening z klientem przy maszynie
-    kettle-whole.png    ← kettlebell cały (bez ugryzienia)
-    kettle-bitten.png   ← kettlebell z ugryzieniem
-    masaz-1.jpg         ← zdjęcie masażu (np. masaż pleców na stole)
-    masaz-2.jpg         ← drenaż limfatyczny manualny
-    masaz-3.jpg         ← pressoterapia - spodnie
-    masaz-4.jpg         ← stół do masażu i sprzęt
-  ============================================================
-  -->
 
   <style>
     /* ===== RESET ===== */
@@ -2316,7 +2296,7 @@
 
 <!-- ===== TYP TRENINGU ===== -->
 <section id="stac-opis" class="wiz-section">
-  <div class="wiz-section-top mobile-display-none" style="background-image:url('foto-trening-8.jpg'); background-position: 0 25%;">
+  <div class="wiz-section-top mobile-display-none" style="background-image:url('Stacjonarnie-online-masaz-1.jpg'); background-position: 0 25%;">
     <div class="wiz-section-overlay"></div>
     <div class="container wiz-top-inner">
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć</span></div>
@@ -2629,10 +2609,10 @@
       </div>
       <div>
         <div class="myptub-stores">
-          <a href="https://apps.apple.com/app/my-pt-hub/id880244447" target="_blank" rel="noopener" class="myptub-store-btn">
+          <a href="https://apps.apple.com/us/app/my-pt-hub/id1473947709" target="_blank" rel="noopener" class="myptub-store-btn">
             <i class="fa-brands fa-apple"></i> App Store
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.mypthub.client" target="_blank" rel="noopener" class="myptub-store-btn">
+          <a href="https://play.google.com/store/search?q=mypthub&c=apps&hl=pl" target="_blank" rel="noopener" class="myptub-store-btn">
             <i class="fa-brands fa-google-play"></i> Google Play
           </a>
         </div>
@@ -3176,11 +3156,11 @@
         <div class="divider"></div>
         <p>Masz pytania? Chcesz zacząć treningi? Napisz lub zadzwoń — odpowiem najszybciej jak to możliwe. Bez zobowiązań, bez presji.</p>
         <div class="contact-items">
-          <a class="contact-item" href="tel:+48504151989">
+          <a class="contact-item" href="tel:+48504151989" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','phone_call_click',{'event_category':'kontakt','event_label':'sekcja_kontakt'});}">
             <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
             <div><div class="contact-item-label">Telefon / WhatsApp</div><div class="contact-item-value">+48 504 151 989</div></div>
           </a>
-          <a class="contact-item" href="mailto:trenujjemy@gmail.com?subject=Zapytanie%20o%20trening&body=Cześć%20Majkel%2C%0A%0AChciałbym%2FChciałabym%20dowiedzieć%20się%20więcej%20o%20Twoich%20usługach%20i%20umówić%20się%20na%20bezpłatną%20konsultację.%0A%0AProszę%20o%20kontakt%20zwrotny.%0A%0APozdrawiam">
+          <a class="contact-item" href="mailto:trenujjemy@gmail.com?subject=Zapytanie%20o%20trening&body=Cześć%20Majkel%2C%0A%0AChciałbym%2FChciałabym%20dowiedzieć%20się%20więcej%20o%20Twoich%20usługach%20i%20umówić%20się%20na%20bezpłatną%20konsultację.%0A%0AProszę%20o%20kontakt%20zwrotny.%0A%0APozdrawiam" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'sekcja_kontakt'});}">
             <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
             <div><div class="contact-item-label">Email</div><div class="contact-item-value">trenujjemy@gmail.com</div></div>
           </a>
@@ -3275,8 +3255,8 @@
         <p class="footer-tagline">Michał „Majkel" Sajna — certyfikowany trener personalny, instruktor kulturystyki i fitness, Warszawa. Pomagam zwykłym ludziom trenować mądrze i długoterminowo.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/trenuj.jemy" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/48504151989" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="mailto:trenujjemy@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/48504151989" target="_blank" rel="noopener" class="social-btn" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','whatsapp_click',{'event_category':'kontakt','event_label':'footer_social'});}"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:trenujjemy@gmail.com" class="social-btn" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'footer_social'});}"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -3293,8 +3273,8 @@
       <div class="footer-col">
         <h4>Kontakt</h4>
         <ul class="footer-links">
-          <li><a href="tel:+48504151989">+48 504 151 989</a></li>
-          <li><a href="mailto:trenujjemy@gmail.com">trenujjemy@gmail.com</a></li>
+          <li><a href="tel:+48504151989" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','phone_call_click',{'event_category':'kontakt','event_label':'footer'});}">+48 504 151 989</a></li>
+          <li><a href="mailto:trenujjemy@gmail.com" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','email_click',{'event_category':'kontakt','event_label':'footer'});}">trenujjemy@gmail.com</a></li>
           <li><a href="https://www.facebook.com/trenuj.jemy" target="_blank" rel="noopener">Facebook TRENUJjemy</a></li>
           <li>Warszawa · Polska</li>
           <li>Treningi: 6:00–22:00</li>
@@ -3331,7 +3311,7 @@
 <!-- ===== FAB KETTLEBELL ===== -->
 <!-- ===== SOCIAL FAB ===== -->
 <div class="fab-social-stack" id="fabSocialStack">
-  <a href="https://m.me/trenuj.jemy" target="_blank" rel="noopener" class="fab-social-link ms" aria-label="Messenger">
+  <a href="https://m.me/trenuj.jemy" target="_blank" rel="noopener" class="fab-social-link ms" aria-label="Messenger" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});gtag('event','messenger_click',{'event_category':'kontakt','event_label':'fab'});}">
     <i class="fa-brands fa-facebook-messenger"></i>
     <span class="fab-social-tooltip">Messenger</span>
   </a>
@@ -3567,9 +3547,12 @@
     const h = document.getElementById('hours').value;
     const m = document.getElementById('message').value;
     const txt = `Cześć Majkel!\nImię: ${n}\nTelefon: ${p}\nEmail: ${em}\nForma: ${t||'—'}\nCel: ${g||'—'}\nGodziny: ${h||'—'}\n${m?'Info: '+m:''}`;
-    // Google Ads conversion tracking
     if (typeof gtag === 'function') {
       gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+      gtag('event', 'generate_lead', {
+        'event_category': 'formularz_kontaktowy',
+        'event_label': t || 'ogolne'
+      });
     }
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
@@ -4485,9 +4468,12 @@
     }
     nameInput.classList.remove('error');
     var msg = buildMessage(name);
-    // Google Ads conversion tracking
     if (typeof gtag === 'function') {
       gtag('event', 'conversion', {'send_to': 'AW-18003814234/ScRBCJa0hpkcENrO8YhD'});
+      gtag('event', 'generate_lead', {
+        'event_category': 'popup_kontaktowy',
+        'event_label': wiz.path || 'ogolne'
+      });
     }
     var subj = heroPopupMsg !== null ? 'Zapytanie o trening' : 'Zapytanie — ' + (wiz.path || 'kontakt');
     if (channel === 'wa') {
