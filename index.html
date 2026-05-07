@@ -1731,6 +1731,25 @@
       }
       .wiz-tiles-nav button:hover { background: rgba(245,166,35,0.25); }
     }
+  #yt-modal {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.93); z-index: 5000;
+    align-items: center; justify-content: center;
+  }
+  #yt-modal.open { display: flex; }
+  #yt-modal-box {
+    position: relative; width: min(90vw, 360px);
+    aspect-ratio: 9/16; background: #000; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+  }
+  #yt-modal-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  #yt-modal-close {
+    position: absolute; top: -48px; right: 0;
+    background: none; border: none; color: #fff;
+    font-size: 2.2rem; cursor: pointer; line-height: 1; padding: 4px 8px;
+    opacity: 0.85; transition: opacity 0.2s;
+  }
+  #yt-modal-close:hover { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1801,7 +1820,7 @@
           <span class="acc">nad Swoim ciałem!</span><br>
           <span class="dim">Zdrowo i na lata.</span>
         </h1>
-        <p class="hero-sub hero-sub-desktop">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalnym z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.”</p>
+        <p class="hero-sub hero-sub-desktop">Cześć, nazywam się Majkel i jestem certyfikowanym trenerem personalnym z ponad 15-letnim doświadczeniem w branży fitness. Pomagam ludziom w każdym wieku i kondycji zbudować zdrową relację ze swoim ciałem i ruchem — bez presji i bez skrajności. Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.</p>
         <p class="hero-sub hero-sub-mobile">Aktywność fizyczna to styl życia, a nie chwilowy sprint bez celu. Pozwól mi, abym pokazał Ci jak to zrobić.</p>
         <div class="hero-tags">
           <span class="hero-tag"><i class="fa-regular fa-face-smile"></i>Bez presji</span>
@@ -2257,7 +2276,7 @@
           <div class="card-title-holder">
             <h3>Treningi stacjonarne</h3>
           </div>
-          <p>Wspólne treningi na siłowni lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
+          <p>Wspólne treningi na siłowni CTG ul. Gościnna 15/19, Blizne Łaszczyńskiego/Warszawa Bemowo lub w Twoim domu. Pracujemy nad techniką i kontrolą ruchu, mobilnością i stabilnością. Wszystko według Twoich potrzeb. Idealne jeśli zaczynasz i potrzebujesz więcej uwagi.</p>
           <span class="wiz-pick">Wybieram →</span>
         </div>
       </div>
@@ -2514,7 +2533,7 @@
         <span class="wiz-when-tile-icon fa-solid fa-sun"></span>
         <h4>Trening poranny / południe</h4>
         <div class="wiz-when-hours">6:00 – 16:00</div>
-        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne — poranek nie jest „zjadany” przez codzienność.</p>
+        <p class="wiz-when-prose">Poranny trening to coś więcej niż tańszy termin — to filozofia dnia. Kiedy wychodzisz z siłowni przed 9:00, masz już za sobą coś naprawdę ważnego i ta świadomość popycha resztę dnia do przodu. Kortyzol, który naturalnie skacze po przebudzeniu, mobilizuje organizm, podkęca przemianę materii i ułatwia spalanie. Endorfiny po treningu zostają z Tobą 4–6 godzin — zamiast kawy o 10:00, masz naturalny zastrzyk energii i koncentracji. Badania potwierdzają: osoby trenujące rano są bardziej konsekwentne. Robiąc trening do godziny 18:00, masz szansę na lepszy wynik, a później czas na załużony odpoczynej i wyciszenie.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Niższa cena</strong> — od 130 zł/godz. (oszczędzasz do 70 zł na treningu)</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Pusta siłownia</strong> — pełen sprzęt do dyspozycji, bez kolejek</span></li>
@@ -2533,12 +2552,12 @@
                 <span class="wiz-when-tile-icon fa-solid fa-moon"></span>
         <h4>Trening wieczorny</h4>
         <div class="wiz-when-hours">16:00 – 22:00</div>
-        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie — i to mocne. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocić z siebie stres po pracy i „przestawić” głowę. Uwaga: intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie.</p>
+        <p class="wiz-when-prose">Wieczorny trening ma swoje naukowe uzasadnienie. Temperatura ciała jest naturalnie wyższa po południu, co przekkłada się na lepszą elastyczność mięśni i mniejsze ryzyko kontuzji. Testosteron i hormony anaboliczne osiągają dzienny szczyt między 15:00 a 20:00 — właśnie dlatego rekordy sportowe na olimpiadach padają statystycznie w tym oknie. Wieczorny trening ma też wyjątkową zaletę psychologiczną: pozwala dosłownie wypocić z siebie stres po pracy i „przestawić” głowę. Pamiętaj jednak, że intensywny trening krócej niż 2 godziny przed snem może utrudnić zasypianie a odpowiedni sen jest podstawą regeneracji, która jest kluczowa.</p>
         <ul class="wiz-when-list">
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższa temperatura ciała</strong> — mięśnie elastyczniejsze, mniejsze ryzyko kontuzji</span></li>
           <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Wyższy poziom testosteronu</strong> po południu — sprzyja budowaniu siły</span></li>
-          <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Najlepsze czasy sportowe</strong> padają między 14:00 a 20:00 — szczyt wydolności</span></li>
-          <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Dobre odreagowanie</strong> stresu po pracy — trening resetuje głowę</span></li>
+          <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Najlepsze czasy sportowe</strong> padają między 14:00 a 20:00.</span></li>
+          <li><i class="fa-solid fa-check wiz-check-ok"></i><span><strong>Dobre odreagowanie</strong> — trening resetuje głowę</span></li>
           <li><i class="fa-solid fa-times wiz-check-no"></i><span>Wyższa cena — od 170 zł/godz.</span></li>
           <li><i class="fa-solid fa-times wiz-check-no"></i><span>Tłoczniejsza siłownia — kolejki do popularnego sprzętu</span></li>
           <li><i class="fa-solid fa-times wiz-check-no"></i><span>Intensywny trening tuż przed snem może utrudnić zasypianie</span></li>
@@ -2655,7 +2674,7 @@
         <p class="price-name">Pakiet wolny strzelec</p>
         <div class="price-amount"><sup>od </sup>150<sup>*</sup></div>
         <div class="price-unit">zł / godz. &nbsp;·&nbsp; godziny 6:00–16:00</div>
-        <p class="price-desc">Płatność na koniec miesiąca za tyle godzin ile ze sobą spędzimy. Bez zobowiązania długoterminowego.
+        <p class="price-desc">Płatność za co najmniej 10 godzin lub płatność na koniec miesiąca za tyle godzin ile ze sobą spędzimy. Bez zobowiązania długoterminowego.
 
 </p>
         <ul class="price-features">
@@ -2673,10 +2692,10 @@
         <p class="price-name">Pakiet Wieczorny Pracuś</p>
         <div class="price-amount"><sup>od </sup>170<sup>*</sup></div>
         <div class="price-unit">zł / godz. &nbsp;·&nbsp; godziny 16:00–22:00</div>
-        <p class="price-desc">24 treningi na 3 miesiące z góry. Godziny popołudniowe i wieczorne — idealne dla zmotywowanych i pracusi.</p>
+        <p class="price-desc">10 treningi opłacone z góry do wykorzystania w ciągu 40 dni. Godziny popołudniowe i wieczorne — idealne dla zmotywowanych pracusiów.</p>
         <ul class="price-features">
-          <li><i class="fa-solid fa-check"></i>24 jednostki treningowe</li>
-          <li><i class="fa-solid fa-check"></i>100 dni</li>
+          <li><i class="fa-solid fa-check"></i>10 jednostek treningowych</li>
+          <li><i class="fa-solid fa-check"></i>40 dni</li>
           <!-- <li><i class="fa-solid fa-check"></i>Godz. 16:00–22:00</li> -->
           <li><i class="fa-solid fa-check"></i>Stacjonarnie lub online</li>
           <li><i class="fa-solid fa-check"></i>Indywidualne podejście</li>
@@ -2701,10 +2720,10 @@
     </div>
     <div class="pricing-morning-note reveal">
       <i class="fa-regular fa-sun"></i>
-      <p><strong>Dlaczego warto trenować rano (6:00–16:00)?</strong> Poza najlepszą ceną — siłownia jest spokojniejsza, bez kolejek do maszyn. Wielu klientów mówi, że poranny trening to najlepsza decyzja dnia: daje energię i sprawia, że reszta dnia idzie lepiej. <strong>Pakiet Dzień od 130 zł/h to moja rekomendacja nr 1.</strong></p>
+      <p><strong>Dlaczego warto trenować rano (6:00–16:00)?</strong> Poza najlepszą ceną — siłownia jest spokojniejsza, bez kolejek do maszyn. Wielu klientów mówi, że poranny trening to najlepsza decyzja dnia: daje energię i sprawia, że reszta dnia idzie już z górki. <strong>Pakiet Dzień od 130 zł/h to moja rekomendacja nr 1.</strong></p>
     </div>
     <p class="pricing-note">Pytania o ceny lub pakiet dopasowany do Twoich potrzeb? <a href="#kontakt" style="color:var(--gold);text-decoration:underline;margin-left:4px;">Napisz do mnie →</a></p>
-    <p class="pricing-note" style="margin-top:10px;font-size:0.83rem;color:#666;">* Trening w domu klienta: dopłata +25 zł lub więcj w zależności od lokalizacji</p>
+    <p class="pricing-note" style="margin-top:10px;font-size:0.83rem;color:#666;">* Trening w domu klienta: dopłata od +20 zł/h lub więcj w zależności od lokalizacji</p>
   </div>
 </section>
 
@@ -2718,7 +2737,7 @@
       <div class="wiz-breadcrumb"><span onclick="smoothTo('interesuje')">← Wróć do wyboru</span></div>
       <div class="section-label wiz-top-label">Masaż i regeneracja</div>
       <h2 class="section-title wiz-top-title">Profesjonalny masaż <br> <span>u Ciebie albo u mnie</span></h2>
-      <p class="wiz-top-desc">Dyplomowany masażysta z własnym stołem i sprzętem. Leczniczy, relaksacyjny, drenaż limfatyczny i pressoterapia — w Twoim domu lub u mnie.</p>
+      <p class="wiz-top-desc">Dyplomowany masażysta drógiego stopnia z własnym stołem i sprzętem. Leczniczy, relaksacyjny, drenaż limfatyczny i pressoterapia — w Twoim domu lub u mnie.</p>
     </div>
   </div>
   <div class="container">
@@ -2734,7 +2753,7 @@
     <div class="masaze-intro">
       <div class="masaze-intro-text reveal">
         <p>Masaż to coś więcej niż chwila relaksu. <strong>Regularne sesje masażu</strong> realnie wpływają na zdrowie: redukują napięcia mięśniowe, poprawiają krążenie, wspierają układ odpornościowy i zmniejszają poziom kortyzolu (hormonu stresu).</p>
-        <p>Jako dyplomowany <strong>masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywożę własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
+        <p>Jako <strong>dyplomowany masażysta</strong> łączę wiedzę z zakresu fizjoterapii i treningu medycznego — dzięki czemu masaż dopasowuję do Twoich potrzeb. Przywożę własny stół i kompletny zestaw sprzętu — bez wychodzenia z domu.</p>
         <p>Wykonuję również <strong>drenaż limfatyczny</strong> — zarówno manualny, jak i aparatowy (pressoterapia — kompresjoterapia nóg). To szczególnie skuteczna forma terapii przy obrzękach, cellulicie i regeneracji po intensywnym treningu.</p>
         <div class="masaze-intro-btn" style="margin-top:28px;">
           <a href="#kontakt" class="btn btn-primary">Umów masaż</a>
@@ -3110,42 +3129,6 @@
   </div>
 </section>
 
-
-<!-- ===== LOKALIZACJA + WIDEO ===== -->
-<section id="lokalizacja">
-  <div class="container">
-    <div class="text-center reveal">
-      <div class="section-label">Gdzie i jak</div>
-      <h2 class="section-title">Siłownia CTG & <span>zajrzyj na trening</span></h2>
-      <div class="divider divider-center"></div>
-      <p class="section-subtitle-wide">Trenuję na siłowni CTG przy ul. Gościnnej 5 na Bemowie w Warszawie — niewielka, prywatna siłownia bez tłumów. Obejrzyj jak wyglądają moje treningi.</p>
-    </div>
-    <div class="map-video-grid">
-      <div class="reveal">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;color:#ccc;">📍 Siłownia CTG — Goszcinna 5, Bemowo, Warszawa</h3>
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.8!2d20.9100!3d52.2450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb4e1e1e1e1f%3A0x1!2sCTG+Si%C5%82ownia+Bemowo!5e0!3m2!1spl!2spl!4v1"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Siłownia CTG Bemowo Warszawa">
-          </iframe>
-        </div>
-        <p style="font-size:0.8rem;color:#666;margin-top:10px;">Dojazd: autobus 523, 524 — przystanek Goszcinna. Parking przed budynkiem.</p>
-      </div>
-      <div class="reveal">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;color:#ccc;">🎬 Jak wyglądają treningi z Majklem?</h3>
-        <div class="video-embed" id="videoEmbed" onclick="loadVideo()">
-          <div class="video-bg" style="background-image:url('foto-gym-wide.jpg')"></div>
-          <div class="video-play-btn" style="position:relative;z-index:2;"><i class="fa-solid fa-play"></i></div>
-          <div class="video-embed-label" style="position:relative;z-index:2;">Kliknij żeby odtworzyć</div>
-        </div>
-        <p style="font-size:0.8rem;color:#666;margin-top:10px;">🎥 Wklej link do YouTube/Vimeo w kodzie (zmienna <code style="color:#888;">VIDEO_URL</code> w JS)</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- ===== KONTAKT ===== -->
 <section id="kontakt">
   <div class="container">
@@ -3245,6 +3228,41 @@
     </div>
   </div>
 </section>
+
+<!-- ===== LOKALIZACJA + WIDEO ===== -->
+<section id="lokalizacja">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-label">Gdzie i jak</div>
+      <h2 class="section-title">Siłownia CTG Gym <br> <span>kameralnie i profesjonalnie</span></h2>
+      <div class="divider divider-center"></div>
+      <p class="section-subtitle-wide">Trenuję na siłowni CTG przy ul. Gościnnej 15/19, granica Blizne Łaszczyńskiego i Warszawa Bemowo, na przeciwko Decathlon Bemowo — niewielka, prywatna siłownia bez tłumów ale z profesjonalnym sprzętem i kadrą. Obejrzyj jak wyglądają moje treningi.</p>
+    </div>
+    <div class="map-video-grid">
+      <div class="reveal">
+        <h3 style="font-family:Montserrat,sans-serif;font-size:1rem;font-weight:600;margin-bottom:14px;color:#ccc;">📍 CTG Gym — ul. Gościnna 15/19</h3>
+        <div class="map-embed" style="cursor:pointer;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Go%C5%9Bcinna+15%2F19%2C+Blizne+%C5%81aszczy%C5%84skiego%2C+Stare+Babice','_blank')" title="Otwórz w Google Maps">
+          <iframe
+            src="https://maps.google.com/maps?q=Go%C5%9Bcinna+15%2F19%2C+05-082+Stare+Babice&output=embed&z=16&hl=pl"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Siłownia CTG — ul. Gościnna 15/19, Stare Babice"
+            style="pointer-events:none;">
+          </iframe>
+        </div>
+        <p style="font-size:0.8rem;color:#666;margin-top:10px;">Dojazd: przystanek Os.Górczewska: 105, 122, 149, 154, 189, 190, 220, 249, 714, 719, 729. Wjazd od ulicy Warszawskiej lub od ulicy Batalionów Chłopskich. Jest również parking przed budynkiem.</p>
+      </div>
+      <div class="reveal">
+        <h3 style="font-family:Montserrat,sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;color:#ccc;">🎬 Jak wyglądają treningi z Majklem?</h3>
+        <div class="video-embed" id="videoEmbed" onclick="openYtModal()">
+          <div class="video-bg" style="background-image:url('foto-gym-wide.jpg')"></div>
+          <div class="video-play-btn" style="position:relative;z-index:2;"><i class="fa-solid fa-play"></i></div>
+          <div class="video-embed-label" style="position:relative;z-index:2;">Kliknij żeby odtworzyć</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -3559,13 +3577,6 @@
     setTimeout(() => window.open('https://wa.me/48504151989?text=' + encodeURIComponent(txt), '_blank'), 800);
   }
 
-  // Active nav
-  const secs = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
-    document.querySelectorAll('.nav-links a').forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--gold)' : ''; });
-  });
 
   // ===== GALLERY AUTO-SCROLL (fixed infinite loop both directions) =====
   (function() {
@@ -4203,16 +4214,16 @@
   })();
 
   // ===== VIDEO EMBED =====
-  var VIDEO_URL = ''; // Wklej tutaj ID filmu YouTube, np. 'dQw4w9WgXcQ'
-  function loadVideo() {
-    var el = document.getElementById('videoEmbed');
-    if (!el) return;
-    if (!VIDEO_URL) {
-      alert('Wklej ID swojego filmu YouTube w zmiennej VIDEO_URL w kodzie strony!');
-      return;
-    }
-    el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + VIDEO_URL + '?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-    el.style.cursor = 'default';
+  var VIDEO_ID = '0NFjjOsnNuw';
+  function openYtModal() {
+    document.getElementById('yt-iframe').src = 'https://www.youtube.com/embed/' + VIDEO_ID + '?autoplay=1';
+    document.getElementById('yt-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeYtModal() {
+    document.getElementById('yt-modal').classList.remove('open');
+    document.getElementById('yt-iframe').src = '';
+    document.body.style.overflow = '';
   }
 
   // ===== CALCULATORS =====
@@ -4252,23 +4263,6 @@
     document.getElementById('burnResult').classList.add('show');
   }
 
-  // ===== ACTIVE NAVBAR LINKS =====
-  (function() {
-    var sections = document.querySelectorAll('section[id], div[id].stats-bar');
-    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    var navObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          var id = e.target.getAttribute('id');
-          navLinks.forEach(function(a) {
-            a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
-          });
-        }
-      });
-    }, { threshold: 0.35, rootMargin: '-10% 0px -55% 0px' });
-    sections.forEach(function(s) { navObs.observe(s); });
-  })();
-
   // ===== SMOOTH SCROLL HELPER =====
   function smoothTo(id) {
     var el = document.getElementById(id);
@@ -4276,6 +4270,38 @@
     var top = el.getBoundingClientRect().top + window.pageYOffset - 68;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }
+
+  // ===== ACTIVE NAVBAR LINKS =====
+  (function() {
+    var sections = Array.from(document.querySelectorAll('section[id]'));
+    var navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+
+    function updateActive() {
+      var threshold = 90;
+      var current = '';
+      sections.forEach(function(s) {
+        if (s.getBoundingClientRect().top <= threshold) current = s.id;
+      });
+      navLinks.forEach(function(a) {
+        a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('load', updateActive);
+    updateActive();
+  })();
+
+  // ===== SMOOTH SCROLL FOR NAV LINKS =====
+  document.querySelectorAll('.nav-links a[href^="#"], .mobile-link[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        smoothTo(id);
+      }
+    });
+  });
 
   // ── Wizard state ─────────────────────────────────────────────────────────────
   var wiz = { path: '', trainingType: '', goal: '', when: '', massage: '' };
@@ -4399,9 +4425,9 @@
 
   function buildMessage(name) {
     if (heroPopupMsg !== null) {
-      return 'Cześć Majkel! 👋\nNazywam się ' + name + '.\n\n' + heroPopupMsg;
+      return 'Cześć Majkel! \nNazywam się '  + name + '.\n\n' + heroPopupMsg;
     }
-    var lines = ['Cześć Majkel! 👋', 'Nazywam się' + name + '.'];
+    var lines = ['Cześć Majkel!', 'Nazywam się'  + name + '.'];
     if (wiz.path === 'stacjonarne') lines.push('Interesuję mnie trening stacjonarny.');
     else if (wiz.path === 'online') lines.push('Interesuję mnie współpraca online.');
     else if (wiz.path === 'masaz') lines.push('Interesuję mnie masaż / regeneracja.');
@@ -4517,6 +4543,13 @@
         <i class="fa-solid fa-envelope"></i> Email
       </button>
     </div>
+  </div>
+</div>
+
+<div id="yt-modal" onclick="if(event.target===this)closeYtModal()">
+  <div id="yt-modal-box">
+    <button id="yt-modal-close" onclick="closeYtModal()">✕</button>
+    <iframe id="yt-iframe" allowfullscreen allow="autoplay; encrypted-media; fullscreen" src=""></iframe>
   </div>
 </div>
 
